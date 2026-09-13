@@ -161,7 +161,108 @@
             text-align: center;
             padding: 20px 0;
             font-size: 0.9rem;
-        }
+        }/* SOBRE A JMS */
+
+.sobre-jms {
+    background: #ffffff;
+    padding: 70px 0;
+}
+
+.sobre-jms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.sobre-jms-logo {
+    display: block;
+    width: 220px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+.sobre-jms-desde {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.sobre-jms-texto h2 {
+    text-align: left;
+    margin: 0 0 15px;
+    color: var(--primary);
+}
+
+.sobre-jms-texto h3 {
+    font-size: 1.25rem;
+    margin: 0 0 18px;
+    color: var(--dark);
+}
+
+.sobre-jms-texto p {
+    margin: 0 0 15px;
+}
+
+.sobre-jms-foto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.sobre-jms-diferenciais {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 45px;
+    text-align: center;
+}
+
+.sobre-item {
+    padding: 18px;
+}
+
+.sobre-icone {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .sobre-jms {
+        padding: 45px 0;
+    }
+
+    .sobre-jms-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .sobre-jms-logo {
+        width: 180px;
+    }
+
+    .sobre-jms-texto h2 {
+        text-align: left;
+    }
+
+    .sobre-jms-diferenciais {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        margin-top: 25px;
+    }
+
+    .sobre-item {
+        padding: 8px 3px;
+        font-size: 0.8rem;
+    }
+    }
     </style>
 </head>
 <body>
