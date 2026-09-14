@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JMS Ar Condicionado e Refrigeração | Camaçari e Região</title>
+    <style>
+        :root {
+            --primary: #0056b3;
+            --accent: #25d366;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        } 
+
+        /* HEADER / HERO */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1200x600') center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            background-color: #1eb954;
+        }
+
+        /* SEÇÕES GERAIS */
+        section {
+            padding: 60px 0;
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+        }
+
+        /* SERVIÇOS */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--primary);
+        }
+
+        /* BENEFÍCIOS */
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .benefits-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+        }
+
+        .benefits-list li::before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* PORTFÓLIO / GALERIA */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        /* AVALIAÇÕES */
+        .review-card {
+            background: var(--light);
+            padding: 20px;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        /* BOTÃO FLUTUANTE */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            line-height: 60px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        /* SOBRE A JMS */
+
+.sobre-jms {
+    background: #ffffff;
+    padding: 70px 0;
+}
+
+.sobre-jms-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.sobre-jms-marca {
+    width: 280px;
+    max-width: 85%;
+    margin: 0 auto 22px;
+}
+
+.sobre-jms-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 8px;
+}
+
+.sobre-jms-desde {
+    display: block;
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #666;
+}
+
+.sobre-jms-texto h2 {
+    text-align: left;
+    margin: 0 0 15px;
+    color: var(--primary);
+}
+
+.sobre-jms-texto h3 {
+    font-size: 1.25rem;
+    margin: 0 0 18px;
+    color: var(--dark);
+}
+
+.sobre-jms-texto p {
+    margin: 0 0 15px;
+}
+
+.sobre-jms-foto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.sobre-jms-diferenciais {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 45px;
+    text-align: center;
+}
+
+.sobre-item {
+    padding: 18px;
+}
+
+.sobre-icone {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .sobre-jms {
+        padding: 30px 0;
+    }
+
+    .sobre-jms-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .sobre-jms-logo {
+        width: 100%;
+    }
+
+    .sobre-jms-texto h2 {
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.sobre-jms-texto h3 {
+    font-size: 1.15rem;
+    line-height: 1.35;
+    margin-bottom: 16px;
+}
+
+.sobre-jms-texto p {
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 12px;
+}
+
+.sobre-jms-foto {
+    display: flex;
+    justify-content: center;
+}
+
+.sobre-jms-foto img {
+    width: 78%;
+    max-width: 520px;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+}
+    
+
+    .sobre-jms-diferenciais {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        margin-top: 25px;
+    }
+
+    .sobre-item {
+        padding: 8px 3px;
+        font-size: 0.8rem;
+    }
+    }
+    </style>
+</head>
+<body>
+
+    <!-- HERO / ABERTURA COMERCIAL -->
+    <header>
+        <div class="container">
+            <h1>Seja bem-vindo! Ficaremos felizes em poder ajudar.</h1>
+            <p> Atendemos em Camaçari, Salvador, Lauro de Freitas e região.</p>
+            <a href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento!" target="_blank" class="btn-whatsapp">📲 SOLICITE ATENDIMENTO NO WHATSAPP</a>
+        </div>
+    </header>
+
+    <!-- QUEM SOMOS -->
+<section class="sobre-jms">
+
+    <div class="container sobre-jms-grid">
+
+        <div class="sobre-jms-texto">
+
+            <div class="sobre-jms-marca">
+                <img
+                    src="imagens/logo_jms_transparente.webp"
+                    alt="JMS Ar Condicionado e Refrigeração"
+                    class="sobre-jms-logo"
+                >
+
+                <span class="sobre-jms-desde">DESDE 2018</span>
+            </div>
+
+            <h2>Instalação e manutenção</h2>
+                </p>
+            Soluções em climatização e refrigeração para residências e empresas. Também atendemos manutenção e reparo de equipamentos de linha branca.
+        </p>
+
+    
+
+        </div>
+
+        <div class="sobre-jms-foto">
+            <img
+                src="imagens/diagnostico_placa_jms_alta.webp"
+                alt="Diagnóstico técnico realizado pela JMS"
+            >
+
+    </div>
+
+</section>
+
+    <!-- GALERIA / TRABALHOS -->
+    <section class="bg-white">
+        <div class="container">
+            <h2>Conheça Nossos Serviços</h2>
+            <div class="gallery-grid">
+                <!-- Substitua os links abaixo pelas fotos reais do seu serviço -->
+                <div class="gallery-item">
+    <img src="imagens/instalacoes-jms.webp"
+         alt="Instalação de ar-condicionado split">
+
+    <div class="gallery-caption">
+        <h3>Instalação de Ar-Condicionado</h3>
+        <p>Instalação bem-feita, com cuidado, segurança e acabamento.</p>
+    </div>
+</div>
+<div class="gallery-item">
+    <img src="imagens/instalacao-ar-condicionado-gree.webp"
+         alt="Instalação, higienização e manutenção de ar-condicionado">
+
+    <div class="gallery-caption">
+        <h3>Solução completa</h3>
+        <p>Além da instalação, também fazemos a higienização e manutenção do seu ar-condicionado.</p>
+    </div>
+</div>
+                <div class="gallery-item">
+    <img src="imagens/lg_instalacao_fotos_reais_site.webp"
+         alt="Ar-condicionado LG piso teto e condensadora">
+
+    <div class="gallery-caption">
+        <h3>Soluções para diferentes modelos e capacidades</h3>
+        <p>Trabalhamos com Split Hi-Wall, Piso-Teto e Cassete.</p>
+    </div>
+</div>
+
+<div class="gallery-item">
+    <img src="imagens/refrigeracao-jms.webp"
+         alt="Serviços em geladeiras e refrigeração realizados pela JMS">
+
+    <div class="gallery-caption">
+        <h3>Refrigeração e Linha Branca</h3>
+        <p>Manutenção e reparo em geladeiras, freezers, Cervejeiras e Frigobar.</p>
+    </div>
+</div>
+<div class="gallery-item">
+    <img src="imagens/lavadoras-jms-2x2-separadas.webp"
+         alt="Manutenção de lavadoras e lava e seca realizada pela JMS">
+
+    <div class="gallery-caption">
+        <h3>Lavadoras e Lava e Seca</h3>
+        <p>Diagnóstico, manutenção e reparo em lavadoras e lava e seca.</p>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCAIS ATENDIDOS -->
+    <section>
+        <div class="container" style="text-align: center;">
+            <h2>📍 Áreas de Atendimento</h2>
+            <p><strong>Camaçari | Salvador | Lauro de Freitas | Região Metropolitana</strong></p>
+            <p><small>(Consulte disponibilidade de agenda para outras localidades)</small></p>
+            <br>
+            <a href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20para%20minha%20região." target="_blank" class="btn-whatsapp">📲 FALE COM A JMS NO WHATSAPP</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; JMS Ar Condicionado e Refrigeração - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+    <a href="https://wa.me/5571996836999?text=Olá,%20preciso%20de%20um%20orçamento!" class="whatsapp-float" target="_blank" title="Fale no WhatsApp">
+        💬
+    </a>
+
+</body>
+</html>
