@@ -3,19 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        JMS Ar Condicionado e Refrigeração | Camaçari e Região
-    </title>
-
+    <title>JMS Ar Condicionado e Refrigeração | Camaçari e Região</title>
 
     <style>
-
         :root {
             --primary: #0066c8;
             --primary-dark: #003d73;
@@ -25,49 +17,37 @@
             --light: #f5f8fb;
         }
 
-
         * {
             box-sizing: border-box;
         }
 
-
         body {
             font-family: Arial, sans-serif;
-
             margin: 0;
             padding: 0;
-
             color: var(--text);
             background: var(--light);
-
             line-height: 1.6;
         }
 
-
         .container {
             max-width: 1100px;
-
             margin: 0 auto;
-
             padding: 0 20px;
         }
 
 
-
         /* ==================================================
-           PRIMEIRA TELA / HERO
+           HERO / PRIMEIRA TELA
         ================================================== */
 
         header {
-
             background:
-
                 radial-gradient(
                     circle at 80% 15%,
                     rgba(0, 102, 200, 0.22),
                     transparent 35%
                 ),
-
                 linear-gradient(
                     145deg,
                     #071b2d 0%,
@@ -76,151 +56,96 @@
                 );
 
             color: white;
-
             text-align: center;
-
             padding: 45px 0 55px;
         }
 
-
         .hero-logo {
-
-            display: block;
-
             width: 290px;
             max-width: 78%;
-
             height: auto;
-
+            display: block;
             margin: 0 auto 7px;
         }
 
-
         .hero-desde {
-
             display: block;
-
             font-size: 0.78rem;
-
             font-weight: bold;
-
             letter-spacing: 4px;
-
             color: #d5dce4;
-
             margin-bottom: 32px;
         }
 
-
         header h1 {
-
-            max-width: 820px;
-
-            margin: 0 auto 18px;
+            max-width: 850px;
+            margin: 0 auto 28px;
 
             font-size: 2.7rem;
-
-            line-height: 1.12;
-
+            line-height: 1.18;
             font-weight: 800;
-
             color: white;
         }
 
-
-        /* Título inteiro na mesma cor */
-
-        header h1 span {
-            color: inherit;
-        }
-
-
         .hero-descricao {
-
             max-width: 720px;
-
             margin: 0 auto 28px;
 
             font-size: 1.22rem;
-
             line-height: 1.5;
-
             color: #eef4f8;
         }
 
-
         .hero-servicos {
-
             display: flex;
-
             justify-content: center;
-
             flex-wrap: wrap;
-
             gap: 10px;
 
             margin: 0 auto 28px;
         }
 
-
         .hero-servico {
-
             border: 1px solid rgba(255,255,255,0.25);
-
             background: rgba(255,255,255,0.06);
 
             padding: 8px 15px;
-
             border-radius: 30px;
 
             font-size: 0.92rem;
-
             font-weight: bold;
         }
 
-
         .btn-whatsapp {
-
             display: inline-block;
 
             background-color: var(--accent);
-
             color: white;
 
             padding: 15px 30px;
 
             text-decoration: none;
-
             font-weight: bold;
-
             font-size: 1.08rem;
 
             border-radius: 50px;
 
-            box-shadow:
-                0 5px 14px rgba(0,0,0,0.25);
+            box-shadow: 0 5px 14px rgba(0,0,0,0.25);
 
             transition: 0.3s;
         }
 
-
         .btn-whatsapp:hover {
-
             transform: scale(1.03);
-
             background-color: #1eb954;
         }
 
-
         .hero-regiao {
-
             margin: 22px auto 0;
 
             font-size: 0.98rem;
-
             color: #dce5ec;
         }
-
 
 
         /* ==================================================
@@ -231,23 +156,16 @@
             padding: 60px 0;
         }
 
-
         .bg-white {
             background: white;
         }
 
-
         h2 {
-
             text-align: center;
-
             color: var(--primary);
-
             margin-bottom: 40px;
-
             font-size: 1.8rem;
         }
-
 
 
         /* ==================================================
@@ -255,56 +173,829 @@
         ================================================== */
 
         .sobre-jms {
-
             background: #ffffff;
-
             padding: 65px 0 55px;
         }
 
-
         .sobre-jms-grid {
-
             display: grid;
-
-            grid-template-columns:
-                1.05fr 0.95fr;
+            grid-template-columns: 1.05fr 0.95fr;
 
             gap: 50px;
-
             align-items: center;
         }
 
-
         .sobre-jms-label {
-
             display: inline-block;
 
             color: var(--primary);
-
             font-weight: bold;
-
             font-size: 0.86rem;
-
             letter-spacing: 1px;
 
             margin-bottom: 9px;
         }
 
-
         .sobre-jms-texto h2 {
-
             text-align: left;
 
             color: var(--dark);
 
             font-size: 2.2rem;
-
             line-height: 1.15;
 
             margin: 0 0 22px;
         }
 
+        .sobre-jms-texto p {
+            margin: 0 0 17px;
 
-        /* Título inteiro na mesma cor */
+            font-size: 1.06rem;
+            line-height: 1.65;
+        }
 
-        .sobre-jms-texto h2 span {
+        .sobre-jms-destaque {
+            font-weight: bold;
+            color: #19344c;
+        }
+
+        .sobre-jms-foto {
+            display: block;
+        }
+
+        .sobre-jms-foto img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            border-radius: 12px;
+
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+
+        /*
+           LEGENDA DA FOTO
+           Agora fica abaixo da imagem,
+           sem cobrir a fotografia.
+        */
+
+        .sobre-foto-legenda {
+            width: 90%;
+
+            margin: 10px auto 0;
+
+            background: var(--primary-dark);
+            color: white;
+
+            padding: 10px 14px;
+
+            border-radius: 8px;
+
+            box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+        }
+
+        .sobre-foto-legenda strong {
+            display: block;
+
+            margin-bottom: 2px;
+
+            font-size: 0.92rem;
+        }
+
+        .sobre-foto-legenda span {
+            display: block;
+
+            font-size: 0.80rem;
+            line-height: 1.4;
+
+            color: #dfeaf3;
+        }
+
+
+        /* ==================================================
+           PORTFÓLIO / GALERIA
+        ================================================== */
+
+        .gallery-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 18px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+
+            background: white;
+
+            border-radius: 9px;
+
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 16px;
+        }
+
+        .gallery-caption h3 {
+            margin: 0 0 7px;
+            color: var(--dark);
+        }
+
+        .gallery-caption p {
+            margin: 0;
+        }
+
+
+        /* ==================================================
+           BOTÃO FLUTUANTE
+        ================================================== */
+
+        .whatsapp-float {
+            position: fixed;
+
+            bottom: 20px;
+            right: 20px;
+
+            background-color: var(--accent);
+            color: white;
+
+            width: 60px;
+            height: 60px;
+
+            border-radius: 50%;
+
+            text-align: center;
+
+            font-size: 30px;
+            line-height: 60px;
+
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+
+            z-index: 1000;
+
+            text-decoration: none;
+
+            opacity: 1;
+            visibility: visible;
+
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease;
+        }
+
+
+        /*
+           Quando um botão grande do WhatsApp
+           estiver na tela, o flutuante desaparece.
+        */
+
+        .whatsapp-float.oculto {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        footer {
+            background-color: var(--dark);
+
+            color: white;
+
+            text-align: center;
+
+            padding: 20px 0;
+
+            font-size: 0.9rem;
+        }
+
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 768px) {
+
+            header {
+                padding: 38px 0 45px;
+            }
+
+            .hero-logo {
+                width: 270px;
+                max-width: 82%;
+            }
+
+            .hero-desde {
+                margin-bottom: 27px;
+            }
+
+            header h1 {
+                font-size: 2.05rem;
+                line-height: 1.18;
+
+                padding: 0 5px;
+                margin-bottom: 28px;
+            }
+
+            .hero-descricao {
+                font-size: 1.05rem;
+                line-height: 1.5;
+                margin-bottom: 23px;
+            }
+
+            .hero-servicos {
+                gap: 7px;
+                margin-bottom: 24px;
+            }
+
+            .hero-servico {
+                font-size: 0.82rem;
+                padding: 7px 11px;
+            }
+
+            .btn-whatsapp {
+                width: 100%;
+                max-width: 430px;
+
+                padding: 15px 20px;
+
+                font-size: 1rem;
+            }
+
+            .hero-regiao {
+                font-size: 0.9rem;
+            }
+
+
+            /* QUEM SOMOS */
+
+            .sobre-jms {
+                padding: 42px 0 50px;
+            }
+
+            .sobre-jms-grid {
+                grid-template-columns: 1fr;
+
+                gap: 28px;
+            }
+
+            .sobre-jms-texto h2 {
+                font-size: 2rem;
+                line-height: 1.16;
+
+                margin-bottom: 18px;
+            }
+
+            .sobre-jms-texto p {
+                font-size: 1rem;
+                line-height: 1.58;
+
+                margin-bottom: 14px;
+            }
+
+            .sobre-jms-foto {
+                display: block;
+            }
+
+            .sobre-jms-foto img {
+                width: 88%;
+                max-width: 520px;
+
+                margin: 0 auto;
+            }
+
+            .sobre-foto-legenda {
+                width: 82%;
+
+                margin: 8px auto 0;
+
+                padding: 9px 12px;
+            }
+
+            .sobre-foto-legenda strong {
+                font-size: 0.88rem;
+            }
+
+            .sobre-foto-legenda span {
+                font-size: 0.77rem;
+            }
+
+
+            /* BOTÃO FLUTUANTE MENOR NO CELULAR */
+
+            .whatsapp-float {
+                width: 52px;
+                height: 52px;
+
+                right: 14px;
+                bottom: 14px;
+
+                font-size: 25px;
+                line-height: 52px;
+            }
+
+
+            section {
+                padding: 45px 0;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                margin-bottom: 28px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         PRIMEIRA TELA
+    ================================================== -->
+
+    <header>
+
+        <div class="container">
+
+            <img
+                src="imagens/logo_jms_transparente.webp"
+                alt="JMS Ar Condicionado e Refrigeração"
+                class="hero-logo"
+            >
+
+            <span class="hero-desde">
+                DESDE 2018
+            </span>
+
+
+            <!--
+                SEM SPAN NO TÍTULO.
+                TODO O TEXTO FICA NA MESMA COR.
+            -->
+
+            <h1>
+                Manutenção e Reparo de Ar-Condicionado e Linha Branca em Camaçari e Região.
+            </h1>
+
+
+            <p class="hero-descricao">
+                Soluções em climatização e refrigeração para
+                residências e empresas. Também atendemos
+                equipamentos de linha branca.
+            </p>
+
+
+            <div class="hero-servicos">
+
+                <span class="hero-servico">
+                    ❄️ Climatização
+                </span>
+
+                <span class="hero-servico">
+                    🧊 Refrigeração
+                </span>
+
+                <span class="hero-servico">
+                    ⚙️ Linha Branca
+                </span>
+
+            </div>
+
+
+            <a
+                href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento!"
+                target="_blank"
+                class="btn-whatsapp whatsapp-principal"
+            >
+                📲 SOLICITE ATENDIMENTO NO WHATSAPP
+            </a>
+
+
+            <p class="hero-regiao">
+                📍 Camaçari, Salvador, Lauro de Freitas e região.
+            </p>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         QUEM SOMOS
+    ================================================== -->
+
+    <section class="sobre-jms">
+
+        <div class="container sobre-jms-grid">
+
+
+            <div class="sobre-jms-texto">
+
+                <span class="sobre-jms-label">
+                    QUEM SOMOS
+                </span>
+
+
+                <!--
+                    SEM SPAN NO TÍTULO.
+                    TODO ELE FICA NA MESMA COR.
+                -->
+
+                <h2>
+                    Soluções técnicas para o seu conforto
+                </h2>
+
+
+                <p>
+                    A JMS Ar Condicionado e Refrigeração atua desde
+                    2018 oferecendo instalação, manutenção e reparo
+                    em climatização, refrigeração e linha branca,
+                    com atendimento em residências e empresas.
+                </p>
+
+
+                <p>
+                    Nosso compromisso é unir experiência técnica,
+                    atendimento de confiança e soluções eficientes
+                    para cada cliente.
+                </p>
+
+
+                <p class="sobre-jms-destaque">
+                    Diagnóstico correto, cuidado e responsabilidade
+                    em cada serviço.
+                </p>
+
+            </div>
+
+
+
+            <div class="sobre-jms-foto">
+
+                <img
+                    src="imagens/diagnostico_placa_jms_alta.webp"
+                    alt="Diagnóstico técnico realizado pela JMS"
+                >
+
+
+                <!--
+                    LEGENDA AGORA FICA ABAIXO DA FOTO
+                -->
+
+                <div class="sobre-foto-legenda">
+
+                    <strong>
+                        Diagnóstico e reparo eletrônico
+                    </strong>
+
+                    <span>
+                        Análise técnica para identificar a causa
+                        do problema.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         SERVIÇOS
+    ================================================== -->
+
+    <section class="bg-white">
+
+        <div class="container">
+
+            <h2>
+                Conheça Nossos Serviços
+            </h2>
+
+
+            <div class="gallery-grid">
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="imagens/instalacoes-jms.webp"
+                        alt="Instalação de ar-condicionado split"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Instalação de Ar-Condicionado
+                        </h3>
+
+                        <p>
+                            Instalação bem-feita, com cuidado,
+                            segurança e acabamento.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="imagens/instalacao-ar-condicionado-gree.webp"
+                        alt="Instalação, higienização e manutenção de ar-condicionado"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Solução completa
+                        </h3>
+
+                        <p>
+                            Além da instalação, também fazemos
+                            higienização e manutenção do seu
+                            ar-condicionado.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="imagens/lg_instalacao_fotos_reais_site.webp"
+                        alt="Ar-condicionado LG piso teto e condensadora"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Soluções para diferentes modelos e capacidades
+                        </h3>
+
+                        <p>
+                            Trabalhamos com Split Hi-Wall,
+                            Piso-Teto e Cassete.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="imagens/refrigeracao-jms.webp"
+                        alt="Serviços em geladeiras e refrigeração realizados pela JMS"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Refrigeração e Linha Branca
+                        </h3>
+
+                        <p>
+                            Manutenção e reparo em geladeiras,
+                            freezers, cervejeiras e frigobares.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="imagens/lavadoras-jms-2x2-separadas.webp"
+                        alt="Manutenção de lavadoras e lava e seca realizada pela JMS"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Lavadoras e Lava e Seca
+                        </h3>
+
+                        <p>
+                            Diagnóstico, manutenção e reparo em
+                            lavadoras e lava e seca.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         ÁREAS DE ATENDIMENTO
+    ================================================== -->
+
+    <section>
+
+        <div
+            class="container"
+            style="text-align:center;"
+        >
+
+            <h2>
+                📍 Áreas de Atendimento
+            </h2>
+
+
+            <p>
+                <strong>
+                    Camaçari | Salvador | Lauro de Freitas |
+                    Região Metropolitana
+                </strong>
+            </p>
+
+
+            <p>
+                <small>
+                    Consulte disponibilidade de agenda
+                    para outras localidades.
+                </small>
+            </p>
+
+
+            <br>
+
+
+            <a
+                href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20para%20minha%20região."
+                target="_blank"
+                class="btn-whatsapp whatsapp-principal"
+            >
+                📲 FALE COM A JMS NO WHATSAPP
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         RODAPÉ
+    ================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                &copy; JMS Ar Condicionado e Refrigeração -
+                Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ==================================================
+         WHATSAPP FLUTUANTE
+    ================================================== -->
+
+    <a
+        href="https://wa.me/5571996836999?text=Olá,%20preciso%20de%20um%20orçamento!"
+        class="whatsapp-float"
+        target="_blank"
+        title="Fale no WhatsApp"
+        aria-label="Fale com a JMS pelo WhatsApp"
+    >
+        💬
+    </a>
+
+
+
+    <!-- ==================================================
+         CONTROLE DO BOTÃO FLUTUANTE
+
+         Se um dos botões grandes do WhatsApp estiver
+         visível na tela, o botão flutuante desaparece.
+    ================================================== -->
+
+    <script>
+
+        const botaoFlutuante =
+            document.querySelector('.whatsapp-float');
+
+        const botoesPrincipais =
+            document.querySelectorAll('.whatsapp-principal');
+
+        const estadoDosBotoes =
+            new Map();
+
+
+        botoesPrincipais.forEach(function(botao) {
+
+            estadoDosBotoes.set(botao, false);
+
+        });
+
+
+        function atualizarBotaoFlutuante() {
+
+            const algumBotaoVisivel =
+                Array.from(estadoDosBotoes.values())
+                    .some(function(visivel) {
+
+                        return visivel;
+
+                    });
+
+
+            if (algumBotaoVisivel) {
+
+                botaoFlutuante.classList.add('oculto');
+
+            } else {
+
+                botaoFlutuante.classList.remove('oculto');
+
+            }
+
+        }
+
+
+        const observador =
+            new IntersectionObserver(
+
+                function(entries) {
+
+                    entries.forEach(function(entry) {
+
+                        estadoDosBotoes.set(
+                            entry.target,
+                            entry.isIntersecting
+                        );
+
+                    });
+
+
+                    atualizarBotaoFlutuante();
+
+                },
+
+                {
+                    threshold: 0.15
+                }
+
+            );
+
+
+        botoesPrincipais.forEach(function(botao) {
+
+            observador.observe(botao);
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
