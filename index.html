@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+k<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
             --light: #f5f8fb;
         }
 
-        * {
+         {
             box-sizing: border-box;
         }
 
@@ -830,6 +830,19 @@
     >
         💬
     </a>
+    <script>
+  window.addEventListener('scroll', function () {
+    const whatsappBtn = document.querySelector('.whatsapp-float');
+    if (whatsappBtn) {
+      if (window.scrollY > 250) {
+        whatsappBtn.classList.add('visible');
+      } else {
+        whatsappBtn.classList.remove('visible');
+      }
+    }
+  });
+</script>
+
 
 
 </body>
