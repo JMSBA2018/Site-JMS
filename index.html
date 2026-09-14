@@ -324,32 +324,36 @@ k<!DOCTYPE html>
 
 .whatsapp-float {
     position: fixed;
+
     bottom: 20px;
     right: 20px;
+
     background-color: var(--accent);
     color: white;
+
     width: 60px;
     height: 60px;
+
     border-radius: 50%;
+
     text-align: center;
+
     font-size: 30px;
     line-height: 60px;
+
     box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+
     z-index: 1000;
+
     text-decoration: none;
 
-    /* --- LINHAS ADICIONADAS PARA ESCONDER NO TOPO --- */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.4s ease-in-out;
+    /* AQUI: Esconde o botão no topo da página */
+    display: none; 
 }
 
-/* --- CLASSE QUE FAZ ELE APARECER QUANDO O JS É ACIONADO --- */
+/* AQUI: Faz o botão aparecer quando o JavaScript é acionado */
 .whatsapp-float.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    display: block;
 }
 
         
