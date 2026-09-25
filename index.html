@@ -809,7 +809,7 @@
                     </div>
                 </div>
 
-                <script>
+                                <script>
                 function calcularBTU() {
                     const area = parseFloat(document.getElementById('area').value);
                     const pessoas = parseInt(document.getElementById('pessoas').value);
@@ -826,9 +826,9 @@
                     if (btuNecessario > 9000 && btuNecessario <= 12000) btuRecomendado = "12.000 BTU/h";
                     else if (btuNecessario > 12000 && btuNecessario <= 18000) btuRecomendado = "18.000 BTU/h";
                     else if (btuNecessario > 18000 && btuNecessario <= 24000) btuRecomendado = "24.000 BTU/h";
-                    else if (btuNecessario > 24000) btuRecomendado = "30.000 BTU/h ou mais (Consulte a JMS)";
+                    else if (btuNecessario > 24000) btuRecomendado = "30.000 BTU/h ou mais";
 
-                    const mensagemZap = encodeURIComponent(`Olá, JMS! Fiz o cálculo no site para um ambiente de ${area}m² e o resultado deu ${btuRecomendado}. Gostaria de solicitar um orçamento!`);
+                    const mensagemZap = encodeURIComponent(`Olá, JMS! ❄️\n\nFiz a simulação no site para um ambiente de *${area}m²* e o resultado indicou *${btuRecomendado}*.\n\nGostaria de solicitar um orçamento!`);
                     
                     const divResultado = document.getElementById('resultado');
                     divResultado.style.display = 'block';
@@ -839,6 +839,7 @@
                     `;
                 }
                 </script>
+
                 <!-- ==================================================
                      CALCULADORA DE BTUS (FIM)
                 ================================================== -->
