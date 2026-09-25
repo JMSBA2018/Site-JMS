@@ -782,13 +782,14 @@
                     </div>
 
                 </div>
-
-            <!-- ==================================================
-     CALCULADORA DE BTUS & CONSULTORIA DE COMPRA (JMS / CENTRALAR)
+<!-- ==================================================
+     CALCULADORA DE BTUS & CONSULTORIA DE COMPRA (JMS)
 ================================================== -->
-<div style="grid-column: 1 / -1; background: #ffffff; padding: 25px 20px; border-radius: 12px; margin: 15px 0 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid var(--primary, #0056b3);">
-    <h3 style="color: var(--primary, #0056b3); margin-top: 0; text-align: center; font-size: 1.4rem;">❄️ Calculadora de BTUs & Consultoria de Compra</h3>
-    <p style="font-size: 0.95rem; color: #555; text-align: center; margin-bottom: 20px;">Descubra a potência ideal e solicite a cotação do equipamento via <strong>Parceiro CentralAr.com</strong> com entrega em todo o Brasil e instalação JMS.</p>
+<div style="grid-column: 1 / -1; background: #ffffff; padding: 25px 15px; border-radius: 12px; margin: 15px 0 45px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid var(--primary, #0056b3);">
+    <h3 style="color: var(--primary, #0056b3); margin-top: 0; text-align: center; font-size: 1.35rem;">❄️ Calculadora de BTUs & Consultoria de Compra</h3>
+    <p style="font-size: 0.92rem; color: #555; text-align: center; margin-bottom: 20px; line-height: 1.4;">
+        Calcule a potência ideal do ar-condicionado para o seu ambiente! O dimensionamento correto garante o conforto térmico perfeito e evita o consumo excessivo de energia.
+    </p>
     
     <div style="max-width: 520px; margin: 0 auto;">
         <!-- ETAPA 1: DADOS DO AMBIENTE -->
@@ -807,17 +808,17 @@
         <button onclick="calcularBTU()" style="width: 100%; background: var(--primary, #0056b3); color: white; border: none; padding: 14px; margin-top: 20px; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer;">CALCULAR POTÊNCIA E CONTINUAR</button>
 
         <!-- ETAPA 2: FORMULÁRIO COMPLETO DE ORÇAMENTO (OCULTO INICIALMENTE) -->
-        <div id="painel-lead" style="display: none; margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e0e0e0;">
+        <div id="painel-lead" style="display: none; margin-top: 25px; padding: 18px 15px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e0e0e0;">
             
             <div id="resultado-btu" style="font-size: 1.1rem; font-weight: bold; color: var(--primary, #0056b3); text-align: center; margin-bottom: 15px;"></div>
             
             <hr style="border: 0; border-top: 1px dashed #ccc; margin: 15px 0;">
 
             <p style="font-size: 0.95rem; font-weight: bold; color: #222; margin-bottom: 5px; text-align: center;">
-                📝 Preencha os dados abaixo para gerarmos a cotação completa:
+                📝 Preencha os dados abaixo para buscarmos a melhor cotação:
             </p>
-            <p style="font-size: 0.82rem; color: #0056b3; font-weight: bold; text-align: center; margin-top: 0; margin-bottom: 15px; background: #e7f1ff; padding: 6px; border-radius: 4px;">
-                🚚 Entregamos equipamentos em todas as regiões do Brasil!
+            <p style="font-size: 0.82rem; color: #0056b3; font-weight: bold; text-align: center; margin-top: 0; margin-bottom: 15px; background: #e7f1ff; padding: 8px; border-radius: 4px; line-height: 1.3;">
+                🛡️ Comprando com nossos distribuidores parceiros, você garante total cobertura e garantia direto de fábrica + entrega em todo o Brasil!
             </p>
 
             <!-- DADOS PESSOAIS E LOCALIZAÇÃO -->
@@ -842,7 +843,7 @@
                 </div>
                 <div style="flex: 1;">
                     <label style="font-size: 0.85rem; font-weight: bold; display: block;">Tipo de Compra:</label>
-                    <select id="lead-tipo-pessoa" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
+                    <select id="lead-tipo-pessoa" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.85rem; background: white; box-sizing: border-box; text-overflow: ellipsis;">
                         <option value="Pessoa Física (CPF)">Pessoa Física (CPF)</option>
                         <option value="Pessoa Jurídica (CNPJ)">Pessoa Jurídica (CNPJ)</option>
                     </select>
@@ -853,23 +854,23 @@
             <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 15px; color: #222;">
                 🏷️ Marcas de sua Preferência (Escolha até 2 marcas):
             </label>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; background: #ffffff; padding: 12px; border: 1px solid #ccc; border-radius: 6px; margin-top: 4px; max-height: 180px; overflow-y: auto;">
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Sem preferência" onchange="limitarMarcas(this)"> Sem preferência (Recomendar)</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="LG" onchange="limitarMarcas(this)"> LG</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Gree" onchange="limitarMarcas(this)"> Gree</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Midea / Springer" onchange="limitarMarcas(this)"> Midea / Springer</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Daikin" onchange="limitarMarcas(this)"> Daikin</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Fujitsu" onchange="limitarMarcas(this)"> Fujitsu</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Samsung" onchange="limitarMarcas(this)"> Samsung</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Electrolux" onchange="limitarMarcas(this)"> Electrolux</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="TCL" onchange="limitarMarcas(this)"> TCL</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Elgin" onchange="limitarMarcas(this)"> Elgin</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Hisense" onchange="limitarMarcas(this)"> Hisense</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Carrier" onchange="limitarMarcas(this)"> Carrier</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Agratto" onchange="limitarMarcas(this)"> Agratto</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Consul" onchange="limitarMarcas(this)"> Consul</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Philco" onchange="limitarMarcas(this)"> Philco</label>
-                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Trane" onchange="limitarMarcas(this)"> Trane</label>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; background: #ffffff; padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-top: 4px; max-height: 180px; overflow-y: auto;">
+                <label style="font-size: 0.8rem; cursor: pointer; line-height: 1.2;"><input type="checkbox" class="chk-marca" value="Sem preferência" onchange="limitarMarcas(this)"> Sem preferência (Recomendar)</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="LG" onchange="limitarMarcas(this)"> LG</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Gree" onchange="limitarMarcas(this)"> Gree</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Midea / Springer" onchange="limitarMarcas(this)"> Midea / Springer</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Daikin" onchange="limitarMarcas(this)"> Daikin</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Fujitsu" onchange="limitarMarcas(this)"> Fujitsu</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Samsung" onchange="limitarMarcas(this)"> Samsung</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Electrolux" onchange="limitarMarcas(this)"> Electrolux</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="TCL" onchange="limitarMarcas(this)"> TCL</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Elgin" onchange="limitarMarcas(this)"> Elgin</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Hisense" onchange="limitarMarcas(this)"> Hisense</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Carrier" onchange="limitarMarcas(this)"> Carrier</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Agratto" onchange="limitarMarcas(this)"> Agratto</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Consul" onchange="limitarMarcas(this)"> Consul</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Philco" onchange="limitarMarcas(this)"> Philco</label>
+                <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Trane" onchange="limitarMarcas(this)"> Trane</label>
             </div>
 
             <!-- DADOS TÉCNICOS -->
@@ -901,7 +902,7 @@
 
             <!-- BOTÃO DE ENVIO -->
             <button id="btn-enviar-lead" onclick="validarEEnviar()" style="width: 100%; background: #25D366; color: white; border: none; padding: 14px; margin-top: 15px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                <span>📲 Solicitar Orçamento no WhatsApp</span>
+                <span>📲 Gerar Cotação Grátis no WhatsApp</span>
             </button>
         </div>
     </div>
@@ -933,12 +934,10 @@ function calcularBTU() {
     document.getElementById('painel-lead').style.display = 'block';
 }
 
-// REGRA: Limita a seleção a no máximo 2 marcas
 function limitarMarcas(element) {
     const checkboxes = document.querySelectorAll('.chk-marca');
     const selecionados = document.querySelectorAll('.chk-marca:checked');
 
-    // Se selecionar "Sem preferência", desmarca as outras
     if (element.value === "Sem preferência" && element.checked) {
         checkboxes.forEach(chk => {
             if (chk.value !== "Sem preferência") chk.checked = false;
@@ -946,14 +945,12 @@ function limitarMarcas(element) {
         return;
     }
 
-    // Se selecionar qualquer outra marca, desmarca "Sem preferência"
     if (element.value !== "Sem preferência" && element.checked) {
         checkboxes.forEach(chk => {
             if (chk.value === "Sem preferência") chk.checked = false;
         });
     }
 
-    // Trava em no máximo 2 opções marcadas
     if (selecionados.length > 2) {
         element.checked = false;
         alert("Você pode escolher no máximo 2 marcas de sua preferência.");
@@ -978,11 +975,9 @@ function validarEEnviar() {
         return;
     }
 
-    // Capturar Marcas Selecionadas
     const marcasMarcadas = Array.from(document.querySelectorAll('.chk-marca:checked')).map(c => c.value);
     let textoMarcas = marcasMarcadas.length > 0 ? marcasMarcadas.join(" / ") : "Sem preferência (Recomendar melhor custo-benefício)";
 
-    // Se o cliente exigir entrega urgente em até 48h
     if (prazoEspera === 'urgente') {
         divAlerta.style.display = 'block';
         return;
@@ -1005,7 +1000,8 @@ function validarEEnviar() {
     window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, '_blank');
 }
 </script>
-    
+
+                                   
 
     <!-- ==================================================
          ÁREAS DE ATENDIMENTO
