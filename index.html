@@ -761,6 +761,101 @@
                     </div>
 
                 </div>
+                                        <div class="gallery-item">
+
+                    <img
+                        src="imagens/lg_instalacao_fotos_reais_site.webp"
+                        alt="Ar-condicionado LG piso teto e condensadora"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Soluções para diferentes modelos e capacidades
+                        </h3>
+
+                        <p>
+                            Trabalhamos com Split Hi-Wall,
+                            Piso-Teto e Cassete.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- ==================================================
+                     CALCULADORA DE BTUS (INÍCIO)
+                ================================================== -->
+                <div style="grid-column: 1 / -1; background: #ffffff; padding: 25px; border-radius: 12px; margin: 15px 0 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid var(--primary);">
+                    <h3 style="color: var(--primary); margin-top: 0; text-align: center; font-size: 1.4rem;">❄️ Calculadora de BTUs</h3>
+                    <p style="font-size: 0.95rem; color: #555; text-align: center; margin-bottom: 20px;">Descubra a capacidade ideal para o seu ambiente antes de solicitar o orçamento!</p>
+                    
+                    <div style="max-width: 480px; margin: 0 auto;">
+                        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark);">Área do ambiente (em m²):</label>
+                        <input type="number" id="area" placeholder="Ex: 15" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;">
+
+                        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark);">Quantidade de pessoas no local:</label>
+                        <input type="number" id="pessoas" value="1" min="1" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;">
+
+                        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark);">Exposição Solar:</label>
+                        <select id="sol" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; background: white;">
+                            <option value="600">Sol da manhã / Sombra (600 BTU/m²)</option>
+                            <option value="800">Sol da tarde / Intenso (800 BTU/m²)</option>
+                        </select>
+
+                        <button onclick="calcularBTU()" style="width: 100%; background: var(--primary); color: white; border: none; padding: 14px; margin-top: 20px; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer; transition: 0.3s;">CALCULAR POTÊNCIA</button>
+
+                        <div id="resultado" style="margin-top: 20px; padding: 15px; background: var(--light); border-radius: 8px; text-align: center; display: none;"></div>
+                    </div>
+                </div>
+
+                <script>
+                function calcularBTU() {
+                    const area = parseFloat(document.getElementById('area').value);
+                    const pessoas = parseInt(document.getElementById('pessoas').value);
+                    const fatorSol = parseInt(document.getElementById('sol').value);
+
+                    if (!area || area <= 0) {
+                        alert("Por favor, digite a metragem (m²) do ambiente.");
+                        return;
+                    }
+
+                    let btuNecessario = (area * fatorSol) + ((pessoas - 1) * 600);
+                    let btuRecomendado = "9.000 BTU/h";
+                    
+                    if (btuNecessario > 9000 && btuNecessario <= 12000) btuRecomendado = "12.000 BTU/h";
+                    else if (btuNecessario > 12000 && btuNecessario <= 18000) btuRecomendado = "18.000 BTU/h";
+                    else if (btuNecessario > 18000 && btuNecessario <= 24000) btuRecomendado = "24.000 BTU/h";
+                    else if (btuNecessario > 24000) btuRecomendado = "30.000 BTU/h ou mais (Consulte a JMS)";
+
+                    const mensagemZap = encodeURIComponent(`Olá, JMS! Fiz o cálculo no site para um ambiente de ${area}m² e o resultado deu ${btuRecomendado}. Gostaria de solicitar um orçamento!`);
+                    
+                    const divResultado = document.getElementById('resultado');
+                    divResultado.style.display = 'block';
+                    divResultado.innerHTML = `
+                        <p style="margin: 0 0 5px; font-size: 0.95rem;">Carga calculada: <strong>${btuNecessario} BTUs</strong></p>
+                        <p style="color: var(--primary); font-weight: bold; font-size: 1.15rem; margin: 0 0 15px;">Recomendação: ${btuRecomendado}</p>
+                        <a href="https://wa.me/5571996836999?text=${mensagemZap}" target="_blank" class="btn-whatsapp" style="display: block; width: 100%; text-align: center; box-sizing: border-box;">📲 SOLICITAR ORÇAMENTO NO WHATSAPP</a>
+                    `;
+                }
+                </script>
+                <!-- ==================================================
+                     CALCULADORA DE BTUS (FIM)
+                ================================================== -->
+
+                <div class="gallery-item">
+
+                    <img
+                        src="imagens/refrigeracao-jms.webp"
+                        alt="Serviços em geladeiras e refrigeração realizados pela JMS"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Refrigeração e Linha Branca
+                        </h3>
+
 
 
 
