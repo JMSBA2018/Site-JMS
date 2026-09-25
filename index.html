@@ -783,79 +783,134 @@
 
                 </div>
                     
-                 <!-- ==================================================
-     CALCULADORA DE BTUS & CONSULTORIA DE COMPRA (JMS)
-================================================== -->
-<div style="grid-column: 1 / -1; background: #ffffff; padding: 25px 15px; border-radius: 12px; margin: 15px 0 45px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid var(--primary, #0056b3);">
+                          <!-- ESTILOS RESPONSIVOS -->
+<style>
+    .grid-duplo-mobile {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .item-equipamento {
+        background: #ffffff;
+        border: 1px solid #d0d7de;
+        padding: 10px 12px;
+        border-radius: 6px;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+    @media (max-width: 480px) {
+        .grid-duplo-mobile {
+            flex-direction: column;
+            gap: 10px;
+        }
+        .item-equipamento {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+</style>
+
+<!-- CALCULADORA DE BTUS & CONSULTORIA DE COMPRA (JMS) -->
+<div style="grid-column: 1 / -1; background: #ffffff; padding: 25px 15px; border-radius: 12px; margin: 30px 0 45px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid var(--primary, #0056b3);">
     <h3 style="color: var(--primary, #0056b3); margin-top: 0; text-align: center; font-size: 1.35rem;">❄️ Calculadora de BTUs & Consultoria de Compra</h3>
     <p style="font-size: 0.92rem; color: #555; text-align: center; margin-bottom: 20px; line-height: 1.4;">
-        Calcule a potência ideal do ar-condicionado para o seu ambiente! O dimensionamento correto garante o conforto térmico perfeito e evita o consumo excessivo de energia.
+        Calcule a potência ideal do ar-condicionado para o seu ambiente! O dimensionamento correto garante o conforto térmico e evita consumo excessivo de energia.
     </p>
     
     <div style="max-width: 520px; margin: 0 auto;">
         <!-- ETAPA 1: DADOS DO AMBIENTE -->
-        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: #222;">Área do ambiente (em m²):</label>
-        <input type="number" id="area" placeholder="Ex: 18" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+        <label style="font-size: 0.88rem; font-weight: bold; display: block; margin-top: 10px; color: #222;">Modelo / Tipo desejado:</label>
+        <select id="tipo-equipamento" style="width: 100%; padding: 11px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
+            <option value="Split Hi-Wall">Split Hi-Wall (Residencial / Comercial)</option>
+            <option value="Split Piso Teto">Split Piso Teto</option>
+            <option value="Split Cassete">Split Cassete</option>
+            <option value="Ar de Janela">Ar-Condicionado de Janela</option>
+            <option value="Multi Split">Multi Split</option>
+        </select>
 
-        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: #222;">Quantidade de pessoas no local:</label>
-        <input type="number" id="pessoas" value="1" min="1" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+        <label style="font-size: 0.88rem; font-weight: bold; display: block; margin-top: 10px; color: #222;">Área do ambiente (em m²):</label>
+        <input type="number" id="area" placeholder="Ex: 18" style="width: 100%; padding: 11px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
 
-        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: #222;">Exposição Solar:</label>
-        <select id="sol" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
+        <div class="grid-duplo-mobile">
+            <div style="flex: 1;">
+                <label style="font-size: 0.85rem; font-weight: bold; display: block;">Pessoas no local:</label>
+                <input type="number" id="pessoas" value="1" min="1" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
+            </div>
+            <div style="flex: 1;">
+                <label style="font-size: 0.85rem; font-weight: bold; display: block;">Quantidade deste item:</label>
+                <input type="number" id="qtd-item" value="1" min="1" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
+            </div>
+        </div>
+
+        <label style="font-size: 0.88rem; font-weight: bold; display: block; margin-top: 10px; color: #222;">Exposição Solar:</label>
+        <select id="sol" style="width: 100%; padding: 11px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
             <option value="600">Sol da manhã / Sombra</option>
             <option value="800">Sol da tarde / Intenso</option>
         </select>
 
-        <button onclick="calcularBTU()" style="width: 100%; background: var(--primary, #0056b3); color: white; border: none; padding: 14px; margin-top: 20px; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer;">CALCULAR POTÊNCIA E CONTINUAR</button>
+        <button onclick="adicionarEquipamento()" style="width: 100%; background: var(--primary, #0056b3); color: white; border: none; padding: 14px; margin-top: 18px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer;">
+            ➕ CALCULAR E ADICIONAR AO ORÇAMENTO
+        </button>
 
         <!-- ETAPA 2: FORMULÁRIO COMPLETO DE ORÇAMENTO (OCULTO INICIALMENTE) -->
         <div id="painel-lead" style="display: none; margin-top: 25px; padding: 18px 15px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e0e0e0;">
             
-            <div id="resultado-btu" style="font-size: 1.1rem; font-weight: bold; color: var(--primary, #0056b3); text-align: center; margin-bottom: 15px;"></div>
+            <p style="font-size: 0.95rem; font-weight: bold; color: var(--primary, #0056b3); margin-top: 0; margin-bottom: 8px; text-align: center;">
+                📦 Lista de Equipamentos Calculados:
+            </p>
             
+            <!-- LISTA DINÂMICA DE ITENS ADICIONADOS -->
+            <div id="lista-equipamentos-adicionados" style="margin-bottom: 15px;"></div>
+
             <hr style="border: 0; border-top: 1px dashed #ccc; margin: 15px 0;">
 
-            <p style="font-size: 0.95rem; font-weight: bold; color: #222; margin-bottom: 5px; text-align: center;">
-                📝 Preencha os dados abaixo para buscarmos a melhor cotação:
+            <!-- TEXTO SUCINTO DE ORIENTAÇÃO -->
+            <p style="font-size: 0.9rem; font-weight: bold; color: #222; margin-bottom: 12px; text-align: center; line-height: 1.3;">
+                📝 Preencha seus dados e escolha as marcas de preferência para receber seu orçamento:
             </p>
-            <p style="font-size: 0.82rem; color: #0056b3; font-weight: bold; text-align: center; margin-top: 0; margin-bottom: 15px; background: #e7f1ff; padding: 8px; border-radius: 4px; line-height: 1.3;">
-                🛡️ Comprando com nossos distribuidores parceiros, você garante total cobertura e garantia direto de fábrica + entrega em todo o Brasil!
+
+            <p style="font-size: 0.8rem; color: #0056b3; font-weight: bold; text-align: center; margin-top: 0; margin-bottom: 15px; background: #e7f1ff; padding: 8px; border-radius: 4px; line-height: 1.3;">
+                🛡️ Faturamento direto do distribuidor parceiro com Nota Fiscal e Garantia de Fábrica!
             </p>
 
             <!-- DADOS PESSOAIS E TIPO DE COMPRA -->
             <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px;">Seu Nome Completo:</label>
             <input type="text" id="lead-nome" placeholder="Digite seu nome" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
 
-            <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <!-- CEP E TIPO DE COMPRA -->
+            <div class="grid-duplo-mobile">
                 <div style="flex: 1;">
                     <label style="font-size: 0.85rem; font-weight: bold; display: block;">CEP do Local:</label>
-                    <input type="text" id="lead-cep" maxlength="9" placeholder="42800-000" oninput="aplicarMascaraCEP(this)" onblur="buscarEnderecoPorCEP()" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
+                    <input type="text" id="lead-cep" maxlength="9" placeholder="42800-000" onkeyup="verificarEBuscarCEP(this)" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
                 </div>
                 <div style="flex: 1;">
                     <label style="font-size: 0.85rem; font-weight: bold; display: block;">Tipo de Compra:</label>
-                    <select id="lead-tipo-pessoa" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.85rem; background: white; box-sizing: border-box; text-overflow: ellipsis;">
+                    <select id="lead-tipo-pessoa" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.85rem; background: white; box-sizing: border-box;">
                         <option value="Pessoa Física (CPF)">Pessoa Física (CPF)</option>
                         <option value="Pessoa Jurídica (CNPJ)">Pessoa Jurídica (CNPJ)</option>
                     </select>
                 </div>
             </div>
 
-            <!-- ENDEREÇO PREENCHIDO AUTOMATICAMENTE PELO CEP -->
-            <div style="display: flex; gap: 10px; margin-top: 10px;">
-                <div style="flex: 2;">
+            <!-- ENDEREÇO -->
+            <div class="grid-duplo-mobile">
+                <div style="flex: 1;">
                     <label style="font-size: 0.85rem; font-weight: bold; display: block;">Cidade / UF:</label>
-                    <input type="text" id="lead-cidade-uf" placeholder="Preenchido via CEP" readonly style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: #e9ecef; box-sizing: border-box;">
+                    <input type="text" id="lead-cidade-uf" placeholder="Ex: Camaçari / BA" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: #ffffff; box-sizing: border-box;">
                 </div>
-                <div style="flex: 2;">
+                <div style="flex: 1;">
                     <label style="font-size: 0.85rem; font-weight: bold; display: block;">Bairro:</label>
-                    <input type="text" id="lead-bairro" placeholder="Preenchido via CEP" readonly style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: #e9ecef; box-sizing: border-box;">
+                    <input type="text" id="lead-bairro" placeholder="Ex: Gleba C" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: #ffffff; box-sizing: border-box;">
                 </div>
             </div>
 
-            <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <div class="grid-duplo-mobile">
                 <div style="flex: 3;">
                     <label style="font-size: 0.85rem; font-weight: bold; display: block;">Rua / Logradouro:</label>
-                    <input type="text" id="lead-rua" placeholder="Preenchido via CEP" readonly style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: #e9ecef; box-sizing: border-box;">
+                    <input type="text" id="lead-rua" placeholder="Ex: Rua A" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: #ffffff; box-sizing: border-box;">
                 </div>
                 <div style="flex: 1;">
                     <label style="font-size: 0.85rem; font-weight: bold; display: block;">Nº:</label>
@@ -886,14 +941,14 @@
                 <label style="font-size: 0.8rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Trane" onchange="limitarMarcas(this)"> Trane</label>
             </div>
 
-            <!-- DADOS TÉCNICOS -->
-            <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px;">Voltagem do Local / Equipamento:</label>
+            <!-- DADOS TÉCNICOS E PRAZOS -->
+            <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px;">Voltagem do Local / Equipamentos:</label>
             <select id="lead-voltagem" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
                 <option value="220V">220V (Padrão para Split)</option>
                 <option value="127V / 110V">127V / 110V</option>
+                <option value="380V Trifásico">380V Trifásico</option>
             </select>
 
-            <!-- PRAZOS E EXPECTATIVAS -->
             <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px;">Quando pretende efetuar a compra?</label>
             <select id="lead-intencao-data" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
                 <option value="imediato">Hoje / O quanto antes</option>
@@ -908,12 +963,10 @@
                 <option value="urgente">Urgente (Em até 48 horas)</option>
             </select>
 
-            <!-- MENSAGEM DE ERRO/ALERTA DE PRAZO -->
             <div id="alerta-prazo" style="display: none; margin-top: 15px; padding: 12px; background: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 6px; font-size: 0.88rem; text-align: center; font-weight: bold;">
-                ⚠️ Não conseguiremos atender à solicitação no prazo de 48h. Como enviamos equipamentos para todo o Brasil via distribuidora, o prazo logístico de entrega + agendamento varia entre 3 a 12 dias úteis.
+                ⚠️ Não conseguiremos atender no prazo de 48h. Como enviamos equipamentos via distribuidora, o prazo logístico varia de 3 a 12 dias úteis.
             </div>
 
-            <!-- BOTÃO DE ENVIO -->
             <button id="btn-enviar-lead" onclick="validarEEnviar()" style="width: 100%; background: #25D366; color: white; border: none; padding: 14px; margin-top: 15px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
                 <span>📲 Gerar Cotação Grátis no WhatsApp</span>
             </button>
@@ -922,12 +975,13 @@
 </div>
 
 <script>
-let btuCalculado = 0;
-let potenciaRecomendada = 9000;
+let listaEquipamentos = [];
 
-function calcularBTU() {
+function adicionarEquipamento() {
+    const tipo = document.getElementById('tipo-equipamento').value;
     const area = parseFloat(document.getElementById('area').value);
     const pessoas = parseInt(document.getElementById('pessoas').value) || 1;
+    const qtd = parseInt(document.getElementById('qtd-item').value) || 1;
     const fatorSol = parseInt(document.getElementById('sol').value);
 
     if (!area || area <= 0) {
@@ -935,63 +989,83 @@ function calcularBTU() {
         return;
     }
 
-    btuCalculado = (area * fatorSol) + ((pessoas - 1) * 600);
+    let btuCalculado = (area * fatorSol) + ((pessoas - 1) * 600);
+    let potenciaRecomendada = 9000;
     
     if (btuCalculado <= 9000) potenciaRecomendada = 9000;
     else if (btuCalculado <= 12000) potenciaRecomendada = 12000;
     else if (btuCalculado <= 18000) potenciaRecomendada = 18000;
     else if (btuCalculado <= 24000) potenciaRecomendada = 24000;
-    else potenciaRecomendada = 30000;
+    else if (btuCalculado <= 30000) potenciaRecomendada = 30000;
+    else if (btuCalculado <= 36000) potenciaRecomendada = 36000;
+    else if (btuCalculado <= 48000) potenciaRecomendada = 48000;
+    else potenciaRecomendada = 60000;
 
-    document.getElementById('resultado-btu').innerHTML = `Capacidade Recomendada: <br><span style="font-size: 1.4rem; color: #0056b3;">${potenciaRecomendada.toLocaleString('pt-BR')} BTU/h</span>`;
+    listaEquipamentos.push({
+        tipo: tipo,
+        potencia: potenciaRecomendada,
+        qtd: qtd,
+        area: area
+    });
+
+    renderizarListaEquipamentos();
     document.getElementById('painel-lead').style.display = 'block';
+    
+    // Reseta o campo de área para adicionar um próximo se desejar
+    document.getElementById('area').value = '';
+    document.getElementById('qtd-item').value = '1';
 }
 
-// MÁSCARA AUTOMÁTICA DE CEP
-function aplicarMascaraCEP(input) {
-    let valor = input.value.replace(/\D/g, "");
-    if (valor.length > 5) {
-        valor = valor.replace(/^(\d{5})(\d)/, "$1-$2");
+function removerEquipamento(index) {
+    listaEquipamentos.splice(index, 1);
+    renderizarListaEquipamentos();
+    if (listaEquipamentos.length === 0) {
+        document.getElementById('painel-lead').style.display = 'none';
     }
-    input.value = valor.substring(0, 9);
-    input.style.borderColor = "#ccc";
 }
 
-// BUSCA ENDEREÇO AUTOMÁTICO VIA VIACEP
-function buscarEnderecoPorCEP() {
-    const cepInput = document.getElementById('lead-cep');
-    const cep = cepInput.value.replace(/\D/g, "");
+function renderizarListaEquipamentos() {
+    const container = document.getElementById('lista-equipamentos-adicionados');
+    container.innerHTML = '';
 
-    if (cep.length === 8) {
-        document.getElementById('lead-cidade-uf').value = "Buscando...";
-        document.getElementById('lead-bairro').value = "Buscando...";
-        document.getElementById('lead-rua').value = "Buscando...";
+    listaEquipamentos.forEach((item, index) => {
+        container.innerHTML += `
+            <div class="item-equipamento">
+                <div style="font-size: 0.88rem; color: #333;">
+                    <strong>${item.qtd}x ${item.tipo} ${item.potencia.toLocaleString('pt-BR')} BTU/h</strong>
+                    <span style="color: #666; font-size: 0.8rem; display: block;">Ambiente: ${item.area} m²</span>
+                </div>
+                <button onclick="removerEquipamento(${index})" style="background: #dc3545; color: white; border: none; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; cursor: pointer;">
+                    🗑️ Remover
+                </button>
+            </div>
+        `;
+    });
+}
 
-        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+function verificarEBuscarCEP(input) {
+    let valor = input.value.replace(/\D/g, "");
+    if (valor.length > 5) valor = valor.replace(/^(\d{5})(\d)/, "$1-$2");
+    input.value = valor.substring(0, 9);
+
+    const cepPuro = valor.replace(/\D/g, "");
+    if (cepPuro.length === 8) {
+        fetch(`https://viacep.com.br/ws/${cepPuro}/json/`)
             .then(res => res.json())
             .then(data => {
                 if (!data.erro) {
                     document.getElementById('lead-cidade-uf').value = `${data.localidade} / ${data.uf}`;
-                    document.getElementById('lead-bairro').value = data.bairro || "Não informado";
-                    document.getElementById('lead-rua').value = data.logradouro || "Não informado";
-                    cepInput.style.borderColor = "#25D366";
+                    document.getElementById('lead-bairro').value = data.bairro || "";
+                    document.getElementById('lead-rua').value = data.logradouro || "";
+                    input.style.borderColor = "#25D366";
                 } else {
-                    alert("CEP não encontrado. Por favor, verifique o número digitado.");
-                    limparCamposEndereco();
+                    input.style.borderColor = "#d9534f";
                 }
             })
-            .catch(() => {
-                alert("Erro ao consultar o CEP. Tente novamente.");
-                limparCamposEndereco();
-            });
+            .catch(() => { input.style.borderColor = "#ccc"; });
+    } else {
+        input.style.borderColor = "#ccc";
     }
-}
-
-function limparCamposEndereco() {
-    document.getElementById('lead-cidade-uf').value = "";
-    document.getElementById('lead-bairro').value = "";
-    document.getElementById('lead-rua').value = "";
-    document.getElementById('lead-cep').style.borderColor = "#d9534f";
 }
 
 function limitarMarcas(element) {
@@ -999,16 +1073,12 @@ function limitarMarcas(element) {
     const selecionados = document.querySelectorAll('.chk-marca:checked');
 
     if (element.value === "Sem preferência" && element.checked) {
-        checkboxes.forEach(chk => {
-            if (chk.value !== "Sem preferência") chk.checked = false;
-        });
+        checkboxes.forEach(chk => { if (chk.value !== "Sem preferência") chk.checked = false; });
         return;
     }
 
     if (element.value !== "Sem preferência" && element.checked) {
-        checkboxes.forEach(chk => {
-            if (chk.value === "Sem preferência") chk.checked = false;
-        });
+        checkboxes.forEach(chk => { if (chk.value === "Sem preferência") chk.checked = false; });
     }
 
     if (selecionados.length > 2) {
@@ -1020,9 +1090,9 @@ function limitarMarcas(element) {
 function validarEEnviar() {
     const nome = document.getElementById('lead-nome').value.trim();
     const cep = document.getElementById('lead-cep').value.replace(/\D/g, "");
-    const cidadeUf = document.getElementById('lead-cidade-uf').value;
-    const bairro = document.getElementById('lead-bairro').value;
-    const rua = document.getElementById('lead-rua').value;
+    const cidadeUf = document.getElementById('lead-cidade-uf').value.trim();
+    const bairro = document.getElementById('lead-bairro').value.trim();
+    const rua = document.getElementById('lead-rua').value.trim();
     const numero = document.getElementById('lead-numero').value.trim();
     const tipoPessoa = document.getElementById('lead-tipo-pessoa').value;
     const voltagem = document.getElementById('lead-voltagem').value;
@@ -1032,13 +1102,17 @@ function validarEEnviar() {
     const divAlerta = document.getElementById('alerta-prazo');
     divAlerta.style.display = 'none';
 
-    // 1. Validação de Campos Obrigatórios
+    if (listaEquipamentos.length === 0) {
+        alert("Por favor, adicione pelo menos um equipamento ao orçamento.");
+        return;
+    }
+
     if (!nome) {
         alert("Por favor, digite seu Nome Completo.");
         return;
     }
 
-    if (cep.length !== 8 || !cidadeUf || cidadeUf === "Buscando...") {
+    if (cep.length !== 8 || !cidadeUf) {
         alert("Por favor, insira um CEP válido para que possamos localizar seu endereço.");
         document.getElementById('lead-cep').focus();
         return;
@@ -1053,7 +1127,6 @@ function validarEEnviar() {
     const marcasMarcadas = Array.from(document.querySelectorAll('.chk-marca:checked')).map(c => c.value);
     let textoMarcas = marcasMarcadas.length > 0 ? marcasMarcadas.join(" / ") : "Sem preferência (Recomendar melhor custo-benefício)";
 
-    // 2. Validação de Prazo Inviável
     if (prazoEspera === 'urgente') {
         divAlerta.style.display = 'block';
         return;
@@ -1070,12 +1143,19 @@ function validarEEnviar() {
         'opcao2': '6 a 12 dias úteis'
     };
 
-    const mensagem = `Olá, JMS! ❄️%0A%0ASolicitação de Orçamento via Site:%0A%0A👤 *Nome:* ${encodeURIComponent(nome)}%0A🏢 *Tipo:* ${encodeURIComponent(tipoPessoa)}%0A📍 *Endereço:* ${encodeURIComponent(rua)}, Nº ${encodeURIComponent(numero)} - ${encodeURIComponent(bairro)} - ${encodeURIComponent(cidadeUf)} (CEP: ${encodeURIComponent(document.getElementById('lead-cep').value)})%0A⚡ *Voltagem:* ${encodeURIComponent(voltagem)}%0A📊 *Potência:* ${potenciaRecomendada.toLocaleString('pt-BR')} BTU/h%0A🏷️ *Marcas de Preferência:* ${encodeURIComponent(textoMarcas)}%0A📅 *Previsão de Compra:* ${encodeURIComponent(mapaDatas[intencaoData])}%0A⏳ *Prazo de Espera Aceito:* ${encodeURIComponent(mapaPrazos[prazoEspera])}`;
+    // CONSTRÓI A TEXTO DA LISTA DE ITENS PARA O WHATSAPP
+    let resumoItensMsg = "";
+    listaEquipamentos.forEach((item, index) => {
+        resumoItensMsg += `%0A  • ${item.qtd}x ${encodeURIComponent(item.tipo)} ${item.potencia.toLocaleString('pt-BR')} BTU/h`;
+    });
+
+    const mensagem = `Olá, JMS! ❄️%0A%0ASolicitação de Cotação Multi-Equipamentos:%0A%0A👤 *Nome:* ${encodeURIComponent(nome)}%0A🏢 *Tipo:* ${encodeURIComponent(tipoPessoa)}%0A📍 *Endereço:* ${encodeURIComponent(rua)}, Nº ${encodeURIComponent(numero)} - ${encodeURIComponent(bairro)} - ${encodeURIComponent(cidadeUf)} (CEP: ${encodeURIComponent(document.getElementById('lead-cep').value)})%0A%0A📦 *Equipamentos Solicitados:*${resumoItensMsg}%0A%0A⚡ *Voltagem:* ${encodeURIComponent(voltagem)}%0A🏷️ *Marcas de Preferência:* ${encodeURIComponent(textoMarcas)}%0A📅 *Previsão de Compra:* ${encodeURIComponent(mapaDatas[intencaoData])}%0A⏳ *Prazo de Espera Aceito:* ${encodeURIComponent(mapaPrazos[prazoEspera])}`;
 
     const numeroWhatsApp = "5571996836999"; 
     window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, '_blank');
 }
 </script>
+       
    
     <!-- ==================================================
          ÁREAS DE ATENDIMENTO
