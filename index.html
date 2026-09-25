@@ -784,65 +784,104 @@
                 </div>
 
                 <!-- ==================================================
-                     CALCULADORA DE BTUS (INÍCIO)
-                ================================================== -->
-                <div style="grid-column: 1 / -1; background: #ffffff; padding: 25px; border-radius: 12px; margin: 15px 0 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid var(--primary);">
-                    <h3 style="color: var(--primary); margin-top: 0; text-align: center; font-size: 1.4rem;">❄️ Calculadora de BTUs</h3>
-                    <p style="font-size: 0.95rem; color: #555; text-align: center; margin-bottom: 20px;">Descubra a capacidade ideal para o seu ambiente antes de solicitar o orçamento!</p>
-                    
-                    <div style="max-width: 480px; margin: 0 auto;">
-                        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark);">Área do ambiente (em m²):</label>
-                        <input type="number" id="area" placeholder="Ex: 15" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;">
+     CALCULADORA DE BTUS & CONSULTORIA DE COMPRA (JMS / CENTRALAR)
+================================================== -->
+<div style="grid-column: 1 / -1; background: #ffffff; padding: 25px 20px; border-radius: 12px; margin: 15px 0 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid var(--primary, #0056b3);">
+    <h3 style="color: var(--primary, #0056b3); margin-top: 0; text-align: center; font-size: 1.4rem;">❄️ Calculadora de BTUs & Consultoria de Compra</h3>
+    <p style="font-size: 0.95rem; color: #555; text-align: center; margin-bottom: 20px;">Descubra a potência ideal e receba indicações dos melhores modelos com garantia de fábrica via <strong>Parceiro CentralAr.com</strong> e instalação da JMS.</p>
+    
+    <div style="max-width: 480px; margin: 0 auto;">
+        <!-- ETAPA 1: DADOS DO AMBIENTE -->
+        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark, #222);">Área do ambiente (em m²):</label>
+        <input type="number" id="area" placeholder="Ex: 18" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
 
-                        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark);">Quantidade de pessoas no local:</label>
-                        <input type="number" id="pessoas" value="1" min="1" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;">
+        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark, #222);">Quantidade de pessoas no local:</label>
+        <input type="number" id="pessoas" value="1" min="1" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
 
-                        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark);">Exposição Solar:</label>
-                        <select id="sol" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; background: white;">
-                            <option value="600">Sol da manhã / Sombra (600 BTU/m²)</option>
-                            <option value="800">Sol da tarde / Intenso (800 BTU/m²)</option>
-                        </select>
+        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark, #222);">Exposição Solar:</label>
+        <select id="sol" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
+            <option value="600">Sol da manhã / Sombra</option>
+            <option value="800">Sol da tarde / Intenso</option>
+        </select>
 
-                        <button onclick="calcularBTU()" style="width: 100%; background: var(--primary); color: white; border: none; padding: 14px; margin-top: 20px; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer; transition: 0.3s;">CALCULAR POTÊNCIA</button>
+        <button onclick="calcularBTU()" style="width: 100%; background: var(--primary, #0056b3); color: white; border: none; padding: 14px; margin-top: 20px; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer; transition: 0.3s;">CALCULAR POTÊNCIA E VER RECOMENDAÇÃO</button>
 
-                        <div id="resultado" style="margin-top: 20px; padding: 15px; background: var(--light); border-radius: 8px; text-align: center; display: none;"></div>
-                    </div>
-                </div>
+        <!-- ETAPA 2: RESULTADO E CAPTURA DE INTENÇÃO DE COMPRA -->
+        <div id="painel-lead" style="display: none; margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e0e0e0;">
+            
+            <div id="resultado-btu" style="font-size: 1.1rem; font-weight: bold; color: var(--primary, #0056b3); text-align: center; margin-bottom: 15px;"></div>
+            
+            <hr style="border: 0; border-top: 1px dashed #ccc; margin: 15px 0;">
 
-                                <script>
-                function calcularBTU() {
-                    const area = parseFloat(document.getElementById('area').value);
-                    const pessoas = parseInt(document.getElementById('pessoas').value);
-                    const fatorSol = parseInt(document.getElementById('sol').value);
+            <p style="font-size: 0.92rem; font-weight: bold; color: var(--dark, #222); margin-bottom: 10px; text-align: center;">
+                🎁 Quer receber a indicação do aparelho ideal (com nota fiscal e garantia de fábrica) e orçamento de instalação?
+            </p>
 
-                    if (!area || area <= 0) {
-                        alert("Por favor, digite a metragem (m²) do ambiente.");
-                        return;
-                    }
+            <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px; color: #333;">Seu Nome:</label>
+            <input type="text" id="lead-nome" placeholder="Digite seu nome" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
 
-                    let btuNecessario = (area * fatorSol) + ((pessoas - 1) * 600);
-                    let btuRecomendado = "9.000 BTU/h";
-                    
-                    if (btuNecessario > 9000 && btuNecessario <= 12000) btuRecomendado = "12.000 BTU/h";
-                    else if (btuNecessario > 12000 && btuNecessario <= 18000) btuRecomendado = "18.000 BTU/h";
-                    else if (btuNecessario > 18000 && btuNecessario <= 24000) btuRecomendado = "24.000 BTU/h";
-                    else if (btuNecessario > 24000) btuRecomendado = "30.000 BTU/h ou mais";
+            <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px; color: #333;">O que é prioritário para você na compra?</label>
+            <select id="lead-prioridade" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
+                <option value="Economia de Energia (Tecnologia Inverter)">Economia de energia (Tecnologia Inverter)</option>
+                <option value="Preço / Promoções à vista">Preço / Melhores ofertas à vista</option>
+                <option value="Parcelamento facilidade no cartão">Facilidade de parcelamento no cartão</option>
+                <option value="Aparelho + Instalação Completa JMS">Aparelho + Instalação Completa JMS</option>
+            </select>
 
-                    const mensagemZap = encodeURIComponent(`Olá, JMS! ❄️\n\nFiz a simulação no site para um ambiente de *${area}m²* e o resultado indicou *${btuRecomendado}*.\n\nGostaria de solicitar um orçamento!`);
-                    
-                    const divResultado = document.getElementById('resultado');
-                    divResultado.style.display = 'block';
-                    divResultado.innerHTML = `
-                        <p style="margin: 0 0 5px; font-size: 0.95rem;">Carga calculada: <strong>${btuNecessario} BTUs</strong></p>
-                        <p style="color: var(--primary); font-weight: bold; font-size: 1.15rem; margin: 0 0 15px;">Recomendação: ${btuRecomendado}</p>
-                        <a href="https://wa.me/5571996836999?text=${mensagemZap}" target="_blank" class="btn-whatsapp" style="display: block; width: 100%; text-align: center; box-sizing: border-box;">📲 SOLICITAR ORÇAMENTO NO WHATSAPP</a>
-                    `;
-                }
-                </script>
+            <div style="margin-top: 12px; display: flex; align-items: flex-start; gap: 8px;">
+                <input type="checkbox" id="lead-optin" checked style="margin-top: 3px;">
+                <label for="lead-optin" style="font-size: 0.8rem; color: #555;">Desejo receber indicação de modelos via Parceiro CentralAr.com e orçamento de instalação da JMS.</label>
+            </div>
 
-                <!-- ==================================================
-                     CALCULADORA DE BTUS (FIM)
-                ================================================== -->
+            <button onclick="enviarSolicitacao()" style="width: 100%; background: #25D366; color: white; border: none; padding: 14px; margin-top: 15px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <span>📲 Consultar Aparelho & Instalação no WhatsApp</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+let btuCalculado = 0;
+let potenciaRecomendada = 9000;
+
+function calcularBTU() {
+    const area = parseFloat(document.getElementById('area').value);
+    const pessoas = parseInt(document.getElementById('pessoas').value) || 1;
+    const fatorSol = parseInt(document.getElementById('sol').value);
+
+    if (!area || area <= 0) {
+        alert("Por favor, insira uma área válida em m².");
+        return;
+    }
+
+    btuCalculado = (area * fatorSol) + ((pessoas - 1) * 600);
+    
+    if (btuCalculado <= 9000) potenciaRecomendada = 9000;
+    else if (btuCalculado <= 12000) potenciaRecomendada = 12000;
+    else if (btuCalculado <= 18000) potenciaRecomendada = 18000;
+    else if (btuCalculado <= 24000) potenciaRecomendada = 24000;
+    else potenciaRecomendada = 30000;
+
+    document.getElementById('resultado-btu').innerHTML = `Capacidade Recomendada: <br><span style="font-size: 1.4rem; color: #0056b3;">${potenciaRecomendada.toLocaleString('pt-BR')} BTU/h</span>`;
+    document.getElementById('painel-lead').style.display = 'block';
+}
+
+function enviarSolicitacao() {
+    const nome = document.getElementById('lead-nome').value.trim();
+    const prioridade = document.getElementById('lead-prioridade').value;
+    const optin = document.getElementById('lead-optin').checked;
+
+    if (!nome) {
+        alert("Por favor, digite seu nome antes de continuar.");
+        return;
+    }
+
+    const mensagem = `Olá, JMS! ❄️%0A%0AFiz o cálculo no site e gostaria de indicação de aparelho e orçamento de instalação.%0A%0A👤 *Nome:* ${encodeURIComponent(nome)}%0A📊 *Potência recomendada:* ${potenciaRecomendada.toLocaleString('pt-BR')} BTU/h%0A🎯 *Prioridade:* ${encodeURIComponent(prioridade)}%0A📩 *Aceita indicações:* ${optin ? 'Sim' : 'Não'}`;
+
+    const numeroWhatsApp = "5571996836999"; 
+    window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, '_blank');
+}
+</script>
 
                 <div class="gallery-item">
 
