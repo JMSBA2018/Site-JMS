@@ -783,58 +783,125 @@
 
                 </div>
 
-                <!-- ==================================================
+            <!-- ==================================================
      CALCULADORA DE BTUS & CONSULTORIA DE COMPRA (JMS / CENTRALAR)
 ================================================== -->
 <div style="grid-column: 1 / -1; background: #ffffff; padding: 25px 20px; border-radius: 12px; margin: 15px 0 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid var(--primary, #0056b3);">
     <h3 style="color: var(--primary, #0056b3); margin-top: 0; text-align: center; font-size: 1.4rem;">❄️ Calculadora de BTUs & Consultoria de Compra</h3>
-    <p style="font-size: 0.95rem; color: #555; text-align: center; margin-bottom: 20px;">Descubra a potência ideal e receba indicações dos melhores modelos com garantia de fábrica via <strong>Parceiro CentralAr.com</strong> e instalação da JMS.</p>
+    <p style="font-size: 0.95rem; color: #555; text-align: center; margin-bottom: 20px;">Descubra a potência ideal e solicite a cotação do equipamento via <strong>Parceiro CentralAr.com</strong> com entrega em todo o Brasil e instalação JMS.</p>
     
-    <div style="max-width: 480px; margin: 0 auto;">
+    <div style="max-width: 520px; margin: 0 auto;">
         <!-- ETAPA 1: DADOS DO AMBIENTE -->
-        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark, #222);">Área do ambiente (em m²):</label>
+        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: #222;">Área do ambiente (em m²):</label>
         <input type="number" id="area" placeholder="Ex: 18" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
 
-        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark, #222);">Quantidade de pessoas no local:</label>
+        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: #222;">Quantidade de pessoas no local:</label>
         <input type="number" id="pessoas" value="1" min="1" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
 
-        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: var(--dark, #222);">Exposição Solar:</label>
+        <label style="font-size: 0.9rem; font-weight: bold; display: block; margin-top: 12px; color: #222;">Exposição Solar:</label>
         <select id="sol" style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
             <option value="600">Sol da manhã / Sombra</option>
             <option value="800">Sol da tarde / Intenso</option>
         </select>
 
-        <button onclick="calcularBTU()" style="width: 100%; background: var(--primary, #0056b3); color: white; border: none; padding: 14px; margin-top: 20px; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer; transition: 0.3s;">CALCULAR POTÊNCIA E VER RECOMENDAÇÃO</button>
+        <button onclick="calcularBTU()" style="width: 100%; background: var(--primary, #0056b3); color: white; border: none; padding: 14px; margin-top: 20px; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer;">CALCULAR POTÊNCIA E CONTINUAR</button>
 
-        <!-- ETAPA 2: RESULTADO E CAPTURA DE INTENÇÃO DE COMPRA -->
+        <!-- ETAPA 2: FORMULÁRIO COMPLETO DE ORÇAMENTO (OCULTO INICIALMENTE) -->
         <div id="painel-lead" style="display: none; margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e0e0e0;">
             
             <div id="resultado-btu" style="font-size: 1.1rem; font-weight: bold; color: var(--primary, #0056b3); text-align: center; margin-bottom: 15px;"></div>
             
             <hr style="border: 0; border-top: 1px dashed #ccc; margin: 15px 0;">
 
-            <p style="font-size: 0.92rem; font-weight: bold; color: var(--dark, #222); margin-bottom: 10px; text-align: center;">
-                🎁 Quer receber a indicação do aparelho ideal (com nota fiscal e garantia de fábrica) e orçamento de instalação?
+            <p style="font-size: 0.95rem; font-weight: bold; color: #222; margin-bottom: 5px; text-align: center;">
+                📝 Preencha os dados abaixo para gerarmos a cotação completa:
+            </p>
+            <p style="font-size: 0.82rem; color: #0056b3; font-weight: bold; text-align: center; margin-top: 0; margin-bottom: 15px; background: #e7f1ff; padding: 6px; border-radius: 4px;">
+                🚚 Entregamos equipamentos em todas as regiões do Brasil!
             </p>
 
-            <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px; color: #333;">Seu Nome:</label>
+            <!-- DADOS PESSOAIS E LOCALIZAÇÃO -->
+            <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px;">Seu Nome Completo:</label>
             <input type="text" id="lead-nome" placeholder="Digite seu nome" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
 
-            <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px; color: #333;">O que é prioritário para você na compra?</label>
-            <select id="lead-prioridade" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
-                <option value="Economia de Energia (Tecnologia Inverter)">Economia de energia (Tecnologia Inverter)</option>
-                <option value="Preço / Promoções à vista">Preço / Melhores ofertas à vista</option>
-                <option value="Parcelamento facilidade no cartão">Facilidade de parcelamento no cartão</option>
-                <option value="Aparelho + Instalação Completa JMS">Aparelho + Instalação Completa JMS</option>
-            </select>
-
-            <div style="margin-top: 12px; display: flex; align-items: flex-start; gap: 8px;">
-                <input type="checkbox" id="lead-optin" checked style="margin-top: 3px;">
-                <label for="lead-optin" style="font-size: 0.8rem; color: #555;">Desejo receber indicação de modelos via Parceiro CentralAr.com e orçamento de instalação da JMS.</label>
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <div style="flex: 1;">
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">Cidade:</label>
+                    <input type="text" id="lead-cidade" value="Camaçari" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
+                </div>
+                <div style="flex: 1;">
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">Bairro:</label>
+                    <input type="text" id="lead-bairro" placeholder="Ex: Gleba C" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
+                </div>
             </div>
 
-            <button onclick="enviarSolicitacao()" style="width: 100%; background: #25D366; color: white; border: none; padding: 14px; margin-top: 15px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                <span>📲 Consultar Aparelho & Instalação no WhatsApp</span>
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <div style="flex: 1;">
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">CEP:</label>
+                    <input type="text" id="lead-cep" placeholder="42800-000" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
+                </div>
+                <div style="flex: 1;">
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">Tipo de Compra:</label>
+                    <select id="lead-tipo-pessoa" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
+                        <option value="Pessoa Física (CPF)">Pessoa Física (CPF)</option>
+                        <option value="Pessoa Jurídica (CNPJ)">Pessoa Jurídica (CNPJ)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- SELEÇÃO DE MARCAS DE PREFERÊNCIA (MÁXIMO 2) -->
+            <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 15px; color: #222;">
+                🏷️ Marcas de sua Preferência (Escolha até 2 marcas):
+            </label>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; background: #ffffff; padding: 12px; border: 1px solid #ccc; border-radius: 6px; margin-top: 4px; max-height: 180px; overflow-y: auto;">
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Sem preferência" onchange="limitarMarcas(this)"> Sem preferência (Recomendar)</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="LG" onchange="limitarMarcas(this)"> LG</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Gree" onchange="limitarMarcas(this)"> Gree</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Midea / Springer" onchange="limitarMarcas(this)"> Midea / Springer</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Daikin" onchange="limitarMarcas(this)"> Daikin</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Fujitsu" onchange="limitarMarcas(this)"> Fujitsu</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Samsung" onchange="limitarMarcas(this)"> Samsung</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Electrolux" onchange="limitarMarcas(this)"> Electrolux</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="TCL" onchange="limitarMarcas(this)"> TCL</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Elgin" onchange="limitarMarcas(this)"> Elgin</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Hisense" onchange="limitarMarcas(this)"> Hisense</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Carrier" onchange="limitarMarcas(this)"> Carrier</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Agratto" onchange="limitarMarcas(this)"> Agratto</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Consul" onchange="limitarMarcas(this)"> Consul</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Philco" onchange="limitarMarcas(this)"> Philco</label>
+                <label style="font-size: 0.85rem; cursor: pointer;"><input type="checkbox" class="chk-marca" value="Trane" onchange="limitarMarcas(this)"> Trane</label>
+            </div>
+
+            <!-- DADOS TÉCNICOS -->
+            <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px;">Voltagem do Local / Equipamento:</label>
+            <select id="lead-voltagem" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
+                <option value="220V">220V (Padrão para Split)</option>
+                <option value="127V / 110V">127V / 110V</option>
+            </select>
+
+            <!-- PRAZOS E EXPECTATIVAS -->
+            <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px;">Quando pretende efetuar a compra?</label>
+            <select id="lead-intencao-data" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
+                <option value="imediato">Hoje / O quanto antes</option>
+                <option value="7dias">Nos próximos 7 dias</option>
+                <option value="15dias">Nos próximos 15 a 30 dias</option>
+            </select>
+
+            <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px;">Qual seu prazo tolerado para entrega/instalação?</label>
+            <select id="lead-prazo-espera" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: white; box-sizing: border-box;">
+                <option value="opcao1">De 3 a 10 dias úteis</option>
+                <option value="opcao2">De 6 a 12 dias úteis</option>
+                <option value="urgente">Urgente (Em até 48 horas)</option>
+            </select>
+
+            <!-- MENSAGEM DE ERRO/ALERTA DE PRAZO -->
+            <div id="alerta-prazo" style="display: none; margin-top: 15px; padding: 12px; background: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 6px; font-size: 0.88rem; text-align: center; font-weight: bold;">
+                ⚠️ Não conseguiremos atender à solicitação no prazo de 48h. Como enviamos equipamentos para todo o Brasil via distribuidora, o prazo logístico de entrega + agendamento varia entre 3 a 12 dias úteis.
+            </div>
+
+            <!-- BOTÃO DE ENVIO -->
+            <button id="btn-enviar-lead" onclick="validarEEnviar()" style="width: 100%; background: #25D366; color: white; border: none; padding: 14px; margin-top: 15px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <span>📲 Solicitar Orçamento no WhatsApp</span>
             </button>
         </div>
     </div>
@@ -866,86 +933,79 @@ function calcularBTU() {
     document.getElementById('painel-lead').style.display = 'block';
 }
 
-function enviarSolicitacao() {
-    const nome = document.getElementById('lead-nome').value.trim();
-    const prioridade = document.getElementById('lead-prioridade').value;
-    const optin = document.getElementById('lead-optin').checked;
+// REGRA: Limita a seleção a no máximo 2 marcas
+function limitarMarcas(element) {
+    const checkboxes = document.querySelectorAll('.chk-marca');
+    const selecionados = document.querySelectorAll('.chk-marca:checked');
 
-    if (!nome) {
-        alert("Por favor, digite seu nome antes de continuar.");
+    // Se selecionar "Sem preferência", desmarca as outras
+    if (element.value === "Sem preferência" && element.checked) {
+        checkboxes.forEach(chk => {
+            if (chk.value !== "Sem preferência") chk.checked = false;
+        });
         return;
     }
 
-    const mensagem = `Olá, JMS! ❄️%0A%0AFiz o cálculo no site e gostaria de indicação de aparelho e orçamento de instalação.%0A%0A👤 *Nome:* ${encodeURIComponent(nome)}%0A📊 *Potência recomendada:* ${potenciaRecomendada.toLocaleString('pt-BR')} BTU/h%0A🎯 *Prioridade:* ${encodeURIComponent(prioridade)}%0A📩 *Aceita indicações:* ${optin ? 'Sim' : 'Não'}`;
+    // Se selecionar qualquer outra marca, desmarca "Sem preferência"
+    if (element.value !== "Sem preferência" && element.checked) {
+        checkboxes.forEach(chk => {
+            if (chk.value === "Sem preferência") chk.checked = false;
+        });
+    }
+
+    // Trava em no máximo 2 opções marcadas
+    if (selecionados.length > 2) {
+        element.checked = false;
+        alert("Você pode escolher no máximo 2 marcas de sua preferência.");
+    }
+}
+
+function validarEEnviar() {
+    const nome = document.getElementById('lead-nome').value.trim();
+    const cidade = document.getElementById('lead-cidade').value.trim();
+    const bairro = document.getElementById('lead-bairro').value.trim();
+    const cep = document.getElementById('lead-cep').value.trim();
+    const tipoPessoa = document.getElementById('lead-tipo-pessoa').value;
+    const voltagem = document.getElementById('lead-voltagem').value;
+    const intencaoData = document.getElementById('lead-intencao-data').value;
+    const prazoEspera = document.getElementById('lead-prazo-espera').value;
+
+    const divAlerta = document.getElementById('alerta-prazo');
+    divAlerta.style.display = 'none';
+
+    if (!nome || !cidade || !bairro || !cep) {
+        alert("Por favor, preencha todos os campos de localização e identificação (Nome, Cidade, Bairro e CEP).");
+        return;
+    }
+
+    // Capturar Marcas Selecionadas
+    const marcasMarcadas = Array.from(document.querySelectorAll('.chk-marca:checked')).map(c => c.value);
+    let textoMarcas = marcasMarcadas.length > 0 ? marcasMarcadas.join(" / ") : "Sem preferência (Recomendar melhor custo-benefício)";
+
+    // Se o cliente exigir entrega urgente em até 48h
+    if (prazoEspera === 'urgente') {
+        divAlerta.style.display = 'block';
+        return;
+    }
+
+    const mapaDatas = {
+        'imediato': 'Hoje / O quanto antes',
+        '7dias': 'Nos próximos 7 dias',
+        '15dias': 'Nos próximos 15 a 30 dias'
+    };
+
+    const mapaPrazos = {
+        'opcao1': '3 a 10 dias úteis',
+        'opcao2': '6 a 12 dias úteis'
+    };
+
+    const mensagem = `Olá, JMS! ❄️%0A%0ASolicitação de Orçamento via Site:%0A%0A👤 *Nome:* ${encodeURIComponent(nome)}%0A🏢 *Tipo:* ${encodeURIComponent(tipoPessoa)}%0A📍 *Local:* ${encodeURIComponent(bairro)} - ${encodeURIComponent(cidade)} / BA (CEP: ${encodeURIComponent(cep)})%0A⚡ *Voltagem:* ${encodeURIComponent(voltagem)}%0A📊 *Potência:* ${potenciaRecomendada.toLocaleString('pt-BR')} BTU/h%0A🏷️ *Marcas de Preferência:* ${encodeURIComponent(textoMarcas)}%0A📅 *Previsão de Compra:* ${encodeURIComponent(mapaDatas[intencaoData])}%0A⏳ *Prazo de Espera Aceito:* ${encodeURIComponent(mapaPrazos[prazoEspera])}`;
 
     const numeroWhatsApp = "5571996836999"; 
     window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, '_blank');
 }
 </script>
-
-                <div class="gallery-item">
-
-                    <img
-                        src="imagens/refrigeracao-jms.webp"
-                        alt="Serviços em geladeiras e refrigeração realizados pela JMS"
-                    >
-
-                    <div class="gallery-caption">
-
-                        <h3>
-                            Refrigeração e Linha Branca
-                        </h3>
-
-
-
-
-                <div class="gallery-item">
-
-                    <img
-                        src="imagens/refrigeracao-jms.webp"
-                        alt="Serviços em geladeiras e refrigeração realizados pela JMS"
-                    >
-
-                    <div class="gallery-caption">
-
-                        <h3>
-                            Refrigeração e Linha Branca
-                        </h3>
-
-                        <p>
-                            Manutenção e reparo em geladeiras,
-                            freezers, cervejeiras e frigobares.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="gallery-item">
-
-                    <img
-                        src="imagens/lavadoras-jms-2x2-separadas.webp"
-                        alt="Manutenção de lavadoras e lava e seca realizada pela JMS"
-                    >
-
-                    <div class="gallery-caption">
-
-                        <h3>
-                            Lavadoras e Lava e Seca
-                        </h3>
-
-                        <p>
-                            Diagnóstico, manutenção e reparo em
-                            lavadoras e lava e seca.
-                        </p>
-
-                    </div>
-
-    </section>
-
-
+    
 
     <!-- ==================================================
          ÁREAS DE ATENDIMENTO
