@@ -782,7 +782,26 @@
                     </div>
 
                 </div>
-<!-- ==================================================
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">Bairro:</label>
+                    <input type="text" id="lead-bairro" placeholder="Ex: Gleba C" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <div style="flex: 1;">
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">CEP:</label>
+                    <input type="text" id="lead-cep" placeholder="42800-000" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
+                </div>
+                <div style="flex: 1;">
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">Tipo de Compra:</label>
+                    <select id="lead-tipo-pessoa" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.85rem; background: white; box-sizing: border-box; text-overflow: ellipsis;">
+                        <option value="Pessoa Física (CPF)">Pessoa Física (CPF)</option>
+                        <option value="Pessoa Jurídica (CNPJ)">Pessoa Jurídica (CNPJ)</option>
+                    </select>
+                </div>
+            </div>
+
+                 <!-- ==================================================
      CALCULADORA DE BTUS & CONSULTORIA DE COMPRA (JMS)
 ================================================== -->
 <div style="grid-column: 1 / -1; background: #ffffff; padding: 25px 15px; border-radius: 12px; margin: 15px 0 45px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid var(--primary, #0056b3);">
@@ -821,25 +840,14 @@
                 🛡️ Comprando com nossos distribuidores parceiros, você garante total cobertura e garantia direto de fábrica + entrega em todo o Brasil!
             </p>
 
-            <!-- DADOS PESSOAIS E LOCALIZAÇÃO -->
+            <!-- DADOS PESSOAIS E TIPO DE COMPRA -->
             <label style="font-size: 0.85rem; font-weight: bold; display: block; margin-top: 10px;">Seu Nome Completo:</label>
             <input type="text" id="lead-nome" placeholder="Digite seu nome" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
 
             <div style="display: flex; gap: 10px; margin-top: 10px;">
                 <div style="flex: 1;">
-                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">Cidade:</label>
-                    <input type="text" id="lead-cidade" value="Camaçari" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
-                </div>
-                <div style="flex: 1;">
-                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">Bairro:</label>
-                    <input type="text" id="lead-bairro" placeholder="Ex: Gleba C" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
-                </div>
-            </div>
-
-            <div style="display: flex; gap: 10px; margin-top: 10px;">
-                <div style="flex: 1;">
-                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">CEP:</label>
-                    <input type="text" id="lead-cep" placeholder="42800-000" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">CEP do Local:</label>
+                    <input type="text" id="lead-cep" maxlength="9" placeholder="42800-000" oninput="aplicarMascaraCEP(this)" onblur="buscarEnderecoPorCEP()" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
                 </div>
                 <div style="flex: 1;">
                     <label style="font-size: 0.85rem; font-weight: bold; display: block;">Tipo de Compra:</label>
@@ -847,6 +855,29 @@
                         <option value="Pessoa Física (CPF)">Pessoa Física (CPF)</option>
                         <option value="Pessoa Jurídica (CNPJ)">Pessoa Jurídica (CNPJ)</option>
                     </select>
+                </div>
+            </div>
+
+            <!-- ENDEREÇO PREENCHIDO AUTOMATICAMENTE PELO CEP -->
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <div style="flex: 2;">
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">Cidade / UF:</label>
+                    <input type="text" id="lead-cidade-uf" placeholder="Preenchido via CEP" readonly style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: #e9ecef; box-sizing: border-box;">
+                </div>
+                <div style="flex: 2;">
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">Bairro:</label>
+                    <input type="text" id="lead-bairro" placeholder="Preenchido via CEP" readonly style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: #e9ecef; box-sizing: border-box;">
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <div style="flex: 3;">
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">Rua / Logradouro:</label>
+                    <input type="text" id="lead-rua" placeholder="Preenchido via CEP" readonly style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; background: #e9ecef; box-sizing: border-box;">
+                </div>
+                <div style="flex: 1;">
+                    <label style="font-size: 0.85rem; font-weight: bold; display: block;">Nº:</label>
+                    <input type="text" id="lead-numero" placeholder="Ex: 123" style="width: 100%; padding: 10px; margin-top: 4px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
                 </div>
             </div>
 
@@ -934,6 +965,53 @@ function calcularBTU() {
     document.getElementById('painel-lead').style.display = 'block';
 }
 
+// MÁSCARA AUTOMÁTICA DE CEP
+function aplicarMascaraCEP(input) {
+    let valor = input.value.replace(/\D/g, "");
+    if (valor.length > 5) {
+        valor = valor.replace(/^(\d{5})(\d)/, "$1-$2");
+    }
+    input.value = valor.substring(0, 9);
+    input.style.borderColor = "#ccc";
+}
+
+// BUSCA ENDEREÇO AUTOMÁTICO VIA VIACEP
+function buscarEnderecoPorCEP() {
+    const cepInput = document.getElementById('lead-cep');
+    const cep = cepInput.value.replace(/\D/g, "");
+
+    if (cep.length === 8) {
+        document.getElementById('lead-cidade-uf').value = "Buscando...";
+        document.getElementById('lead-bairro').value = "Buscando...";
+        document.getElementById('lead-rua').value = "Buscando...";
+
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then(res => res.json())
+            .then(data => {
+                if (!data.erro) {
+                    document.getElementById('lead-cidade-uf').value = `${data.localidade} / ${data.uf}`;
+                    document.getElementById('lead-bairro').value = data.bairro || "Não informado";
+                    document.getElementById('lead-rua').value = data.logradouro || "Não informado";
+                    cepInput.style.borderColor = "#25D366";
+                } else {
+                    alert("CEP não encontrado. Por favor, verifique o número digitado.");
+                    limparCamposEndereco();
+                }
+            })
+            .catch(() => {
+                alert("Erro ao consultar o CEP. Tente novamente.");
+                limparCamposEndereco();
+            });
+    }
+}
+
+function limparCamposEndereco() {
+    document.getElementById('lead-cidade-uf').value = "";
+    document.getElementById('lead-bairro').value = "";
+    document.getElementById('lead-rua').value = "";
+    document.getElementById('lead-cep').style.borderColor = "#d9534f";
+}
+
 function limitarMarcas(element) {
     const checkboxes = document.querySelectorAll('.chk-marca');
     const selecionados = document.querySelectorAll('.chk-marca:checked');
@@ -959,9 +1037,11 @@ function limitarMarcas(element) {
 
 function validarEEnviar() {
     const nome = document.getElementById('lead-nome').value.trim();
-    const cidade = document.getElementById('lead-cidade').value.trim();
-    const bairro = document.getElementById('lead-bairro').value.trim();
-    const cep = document.getElementById('lead-cep').value.trim();
+    const cep = document.getElementById('lead-cep').value.replace(/\D/g, "");
+    const cidadeUf = document.getElementById('lead-cidade-uf').value;
+    const bairro = document.getElementById('lead-bairro').value;
+    const rua = document.getElementById('lead-rua').value;
+    const numero = document.getElementById('lead-numero').value.trim();
     const tipoPessoa = document.getElementById('lead-tipo-pessoa').value;
     const voltagem = document.getElementById('lead-voltagem').value;
     const intencaoData = document.getElementById('lead-intencao-data').value;
@@ -970,14 +1050,28 @@ function validarEEnviar() {
     const divAlerta = document.getElementById('alerta-prazo');
     divAlerta.style.display = 'none';
 
-    if (!nome || !cidade || !bairro || !cep) {
-        alert("Por favor, preencha todos os campos de localização e identificação (Nome, Cidade, Bairro e CEP).");
+    // 1. Validação de Campos Obrigatórios
+    if (!nome) {
+        alert("Por favor, digite seu Nome Completo.");
+        return;
+    }
+
+    if (cep.length !== 8 || !cidadeUf || cidadeUf === "Buscando...") {
+        alert("Por favor, insira um CEP válido para que possamos localizar seu endereço.");
+        document.getElementById('lead-cep').focus();
+        return;
+    }
+
+    if (!numero) {
+        alert("Por favor, digite o Número do local de entrega/instalação.");
+        document.getElementById('lead-numero').focus();
         return;
     }
 
     const marcasMarcadas = Array.from(document.querySelectorAll('.chk-marca:checked')).map(c => c.value);
     let textoMarcas = marcasMarcadas.length > 0 ? marcasMarcadas.join(" / ") : "Sem preferência (Recomendar melhor custo-benefício)";
 
+    // 2. Validação de Prazo Inviável
     if (prazoEspera === 'urgente') {
         divAlerta.style.display = 'block';
         return;
@@ -994,15 +1088,13 @@ function validarEEnviar() {
         'opcao2': '6 a 12 dias úteis'
     };
 
-    const mensagem = `Olá, JMS! ❄️%0A%0ASolicitação de Orçamento via Site:%0A%0A👤 *Nome:* ${encodeURIComponent(nome)}%0A🏢 *Tipo:* ${encodeURIComponent(tipoPessoa)}%0A📍 *Local:* ${encodeURIComponent(bairro)} - ${encodeURIComponent(cidade)} / BA (CEP: ${encodeURIComponent(cep)})%0A⚡ *Voltagem:* ${encodeURIComponent(voltagem)}%0A📊 *Potência:* ${potenciaRecomendada.toLocaleString('pt-BR')} BTU/h%0A🏷️ *Marcas de Preferência:* ${encodeURIComponent(textoMarcas)}%0A📅 *Previsão de Compra:* ${encodeURIComponent(mapaDatas[intencaoData])}%0A⏳ *Prazo de Espera Aceito:* ${encodeURIComponent(mapaPrazos[prazoEspera])}`;
+    const mensagem = `Olá, JMS! ❄️%0A%0ASolicitação de Orçamento via Site:%0A%0A👤 *Nome:* ${encodeURIComponent(nome)}%0A🏢 *Tipo:* ${encodeURIComponent(tipoPessoa)}%0A📍 *Endereço:* ${encodeURIComponent(rua)}, Nº ${encodeURIComponent(numero)} - ${encodeURIComponent(bairro)} - ${encodeURIComponent(cidadeUf)} (CEP: ${encodeURIComponent(document.getElementById('lead-cep').value)})%0A⚡ *Voltagem:* ${encodeURIComponent(voltagem)}%0A📊 *Potência:* ${potenciaRecomendada.toLocaleString('pt-BR')} BTU/h%0A🏷️ *Marcas de Preferência:* ${encodeURIComponent(textoMarcas)}%0A📅 *Previsão de Compra:* ${encodeURIComponent(mapaDatas[intencaoData])}%0A⏳ *Prazo de Espera Aceito:* ${encodeURIComponent(mapaPrazos[prazoEspera])}`;
 
     const numeroWhatsApp = "5571996836999"; 
     window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, '_blank');
 }
 </script>
-
-                                   
-
+   
     <!-- ==================================================
          ÁREAS DE ATENDIMENTO
     ================================================== -->
