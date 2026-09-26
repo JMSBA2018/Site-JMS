@@ -167,9 +167,10 @@
 
         .sobre-jms-grid {
             display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            gap: 50px;
-            align-items: center;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .sobre-jms-label {
@@ -200,41 +201,6 @@
             color: #19344c;
         }
 
-        .sobre-jms-foto {
-            display: block;
-        }
-
-        .sobre-jms-foto img {
-            display: block;
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        }
-
-        .sobre-foto-legenda {
-            width: 90%;
-            margin: 10px auto 0;
-            background: var(--primary-dark);
-            color: white;
-            padding: 10px 14px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.10);
-        }
-
-        .sobre-foto-legenda strong {
-            display: block;
-            margin-bottom: 2px;
-            font-size: 0.92rem;
-        }
-
-        .sobre-foto-legenda span {
-            display: block;
-            font-size: 0.80rem;
-            line-height: 1.4;
-            color: #dfeaf3;
-        }
-
 
         /* ==================================================
            PORTFÓLIO / GALERIA DE SERVIÇOS
@@ -242,7 +208,7 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
 
@@ -377,11 +343,6 @@
                 padding: 32px 0 30px;
             }
 
-            .sobre-jms-grid {
-                grid-template-columns: 1fr;
-                gap: 28px;
-            }
-
             .sobre-jms-texto h2 {
                 font-size: 1.35rem;
                 line-height: 1.25;
@@ -392,30 +353,6 @@
                 font-size: 1rem;
                 line-height: 1.58;
                 margin-bottom: 14px;
-            }
-
-            .sobre-jms-foto {
-                display: block;
-            }
-
-            .sobre-jms-foto img {
-                width: 88%;
-                max-width: 520px;
-                margin: 0 auto;
-            }
-
-            .sobre-foto-legenda {
-                width: 82%;
-                margin: 8px auto 0;
-                padding: 9px 12px;
-            }
-
-            .sobre-foto-legenda strong {
-                font-size: 0.88rem;
-            }
-
-            .sobre-foto-legenda span {
-                font-size: 0.77rem;
             }
 
             .whatsapp-float {
@@ -541,28 +478,6 @@
 
             </div>
 
-            <div class="sobre-jms-foto">
-
-                <img
-                    src="imagens/diagnostico_placa_jms_alta.webp"
-                    alt="Diagnóstico técnico realizado pela JMS"
-                >
-
-                <div class="sobre-foto-legenda">
-
-                    <strong>
-                        Diagnóstico e reparo eletrônico
-                    </strong>
-
-                    <span>
-                        Análise técnica para identificar a causa
-                        exata do problema.
-                    </span>
-
-                </div>
-
-            </div>
-
         </div>
 
     </section>
@@ -577,79 +492,78 @@
         <div class="container">
 
             <h2>
-                Conheça Nossos Serviços
+                Nossos Serviços
             </h2>
 
             <div class="gallery-grid">
 
-                <div class="gallery-item">
-
-                    <img
-                        src="imagens/instalacoes-jms.webp"
-                        alt="Instalação de ar-condicionado split"
-                    >
-
-                    <div class="gallery-caption">
-
-                        <h3>
-                            Instalação de Ar-Condicionado
-                        </h3>
-
-                        <p>
-                            Instalação bem-feita, com cuidado,
-                            segurança e acabamento.
-                        </p>
-
-                    </div>
-
-                </div>
-
+                <!-- SERVIÇO 1: SPLIT HI-WALL -->
                 <div class="gallery-item">
 
                     <img
                         src="imagens/instalacao-ar-condicionado-gree.webp"
-                        alt="Instalação, higienização e manutenção de ar-condicionado"
+                        alt="Instalação e manutenção de ar-condicionado split Hi-Wall"
                     >
 
                     <div class="gallery-caption">
 
                         <h3>
-                            Solução completa
+                            Instalação e manutenção de ar condicionado split Hi-Wall
                         </h3>
 
                         <p>
-                            Além da instalação, também fazemos
-                            higienização e manutenção do seu
-                            ar-condicionado.
+                            Instalação adequada, higienização profunda e manutenção corretiva e preventiva.
                         </p>
 
                     </div>
 
                 </div>
 
+                <!-- SERVIÇO 2: PISO TETO E CASSETE -->
                 <div class="gallery-item">
 
                     <img
                         src="imagens/lg_instalacao_fotos_reais_site.webp"
-                        alt="Ar-condicionado LG piso teto e condensadora"
+                        alt="Instalação e manutenção de ar condicionado split, Piso Teto e Cassete"
                     >
 
                     <div class="gallery-caption">
 
                         <h3>
-                            Diferentes modelos e capacidades
+                            Instalação e manutenção de ar condicionado split, Piso Teto e Cassete
                         </h3>
 
                         <p>
-                            Trabalhamos com Split Hi-Wall,
-                            Piso-Teto e Cassete.
+                            Soluções para sistemas comerciais e residenciais de grande porte com precisão técnica.
                         </p>
 
                     </div>
 
                 </div>
 
-                <!-- CARD: REFRIGERAÇÃO E LINHA BRANCA -->
+                <!-- SERVIÇO 3: REPARO ELETRÔNICO (PLACA) -->
+                <div class="gallery-item">
+
+                    <img
+                        src="imagens/diagnostico_placa_jms_alta.webp"
+                        alt="Reparo eletrônico em placas inverter ar condicionado e lava e seca"
+                    >
+
+                    <div class="gallery-caption">
+
+                        <h3>
+                            Reparo eletrônico em placas inverter ar condicionado e lava e seca
+                        </h3>
+
+                        <p>
+                            Diagnóstico e conserto em nível componente eletrônico para evitar trocas caríssimas de placas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- SERVIÇO 4: REFRIGERAÇÃO E LINHA BRANCA -->
                 <div class="gallery-item">
 
                     <img
@@ -664,15 +578,14 @@
                         </h3>
 
                         <p>
-                            Manutenção e reparo em geladeiras,
-                            freezers, cervejeiras e frigobar.
+                            Manutenção e reparo em geladeiras, freezers, cervejeiras e frigobares.
                         </p>
 
                     </div>
 
                 </div>
 
-                <!-- CARD: LAVADORAS E LAVA E SECA -->
+                <!-- SERVIÇO 5: LAVADORAS E LAVA E SECA -->
                 <div class="gallery-item">
 
                     <img
@@ -687,8 +600,7 @@
                         </h3>
 
                         <p>
-                            Diagnóstico, manutenção e reparo
-                            em lavadoras e lava e seca.
+                            Diagnóstico técnico, substituição de peças mecânicas e reparos preventivos em lavadoras.
                         </p>
 
                     </div>
@@ -717,13 +629,25 @@
                 <!-- CARD DA CALCULADORA -->
                 <div style="background: #ffffff; padding: 22px 18px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #e0e0e0; max-width: 480px; margin: 0 auto;">
                     
-                    <!-- ÁREA M² -->
+                    <!-- 1. ÁREA M² -->
                     <label style="font-size: 0.88rem; font-weight: bold; display: block; color: #222;">
                         📐 Área do Ambiente (m²):
                     </label>
                     <input type="number" id="calc-area" placeholder="Ex: 18" style="width: 100%; padding: 11px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
 
-                    <!-- POSIÇÃO DO SOL -->
+                    <!-- 2. NÚMERO DE PESSOAS -->
+                    <label style="font-size: 0.88rem; font-weight: bold; display: block; margin-top: 14px; color: #222;">
+                        👥 Número de Pessoas no Ambiente:
+                    </label>
+                    <select id="calc-pessoas" style="width: 100%; padding: 11px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box; background: #fff; cursor: pointer;">
+                        <option value="2">Até 2 pessoas (padrão)</option>
+                        <option value="3">3 pessoas</option>
+                        <option value="4">4 pessoas</option>
+                        <option value="5">5 pessoas</option>
+                        <option value="6">6 pessoas ou mais</option>
+                    </select>
+
+                    <!-- 3. POSIÇÃO DO SOL -->
                     <label style="font-size: 0.88rem; font-weight: bold; display: block; margin-top: 14px; color: #222;">
                         ☀️ Posição do Sol no Local:
                     </label>
@@ -736,21 +660,9 @@
                         </button>
                     </div>
 
-                    <!-- NÚMERO DE PESSOAS -->
-                    <label style="font-size: 0.88rem; font-weight: bold; display: block; margin-top: 14px; color: #222;">
-                        👥 Número de Pessoas no Ambiente:
-                    </label>
-                    <select id="calc-pessoas" style="width: 100%; padding: 11px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box; background: #fff; cursor: pointer;">
-                        <option value="2">Até 2 pessoas (padrão)</option>
-                        <option value="3">3 pessoas</option>
-                        <option value="4">4 pessoas</option>
-                        <option value="5">5 pessoas</option>
-                        <option value="6">6 pessoas ou mais</option>
-                    </select>
-
                     <!-- BOTÃO DE CÁLCULO -->
-                    <button onclick="calcularEExibirResultado()" style="width: 100%; background: #0056b3; color: white; border: none; padding: 13px; margin-top: 18px; border-radius: 6px; font-weight: bold; font-size: 0.98rem; cursor: pointer; transition: background 0.2s;">
-                        🔍 CALCULAR POTÊNCIA RECOMENDADA
+                    <button onclick="calcularEExibirResultado()" style="width: 100%; background: #0056b3; color: white; border: none; padding: 13px; margin-top: 18px; border-radius: 6px; font-weight: bold; font-size: 0.98rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s;">
+                        <span>🔍 CALCULAR POTÊNCIA RECOMENDADA</span>
                     </button>
 
                     <!-- RESULTADO E CHAMADA PARA O WHATSAPP -->
