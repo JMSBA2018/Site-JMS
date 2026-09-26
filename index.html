@@ -245,7 +245,7 @@
 
 
         /* ==================================================
-           PORTFÓLIO / GALERIA
+           SERVIÇOS / GALERIA
         ================================================== */
 
         .gallery-grid {
@@ -259,6 +259,7 @@
             background: white;
             border-radius: 9px;
             box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            border: 1px solid #eef2f5;
         }
 
         .gallery-grid img {
@@ -275,10 +276,134 @@
         .gallery-caption h3 {
             margin: 0 0 7px;
             color: var(--dark);
+            font-size: 1.1rem;
         }
 
         .gallery-caption p {
             margin: 0;
+            font-size: 0.92rem;
+            color: #555;
+        }
+
+
+        /* ==================================================
+           CALCULADORA
+        ================================================== */
+
+        .calculadora-section {
+            background: #f5f8fb;
+        }
+
+        .calculadora-intro {
+            text-align: center;
+            max-width: 580px;
+            margin: 0 auto 20px;
+        }
+
+        .calculadora-selo {
+            display: inline-block;
+            background: #e7f1ff;
+            color: #0056b3;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .calculadora-intro h2 {
+            margin: 12px 0 8px;
+        }
+
+        .calculadora-intro p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .calculadora-card {
+            background: #ffffff;
+            padding: 22px 18px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #e0e0e0;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .calculadora-card label {
+            font-size: 0.88rem;
+            font-weight: bold;
+            display: block;
+            color: #222;
+            margin-top: 14px;
+        }
+
+        .calculadora-card label:first-child {
+            margin-top: 0;
+        }
+
+        .calculadora-input {
+            width: 100%;
+            padding: 11px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .botoes-sol {
+            display: flex;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .botao-sol {
+            flex: 1;
+            padding: 11px 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 0.82rem;
+        }
+
+        #btn-sol-manha {
+            border: 2px solid #0056b3;
+            background: #e7f1ff;
+            color: #0056b3;
+            font-weight: bold;
+        }
+
+        #btn-sol-tarde {
+            border: 1px solid #ccc;
+            background: #ffffff;
+            color: #555;
+            font-weight: normal;
+        }
+
+        .botao-calcular {
+            width: 100%;
+            background: #0056b3;
+            color: white;
+            border: none;
+            padding: 13px;
+            margin-top: 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.98rem;
+            cursor: pointer;
+        }
+
+        #painel-resultado {
+            display: none;
+            margin-top: 20px;
+            padding: 16px;
+            background: #f0f7ff;
+            border-radius: 8px;
+            border: 1px solid #b6d4fe;
+            text-align: center;
         }
 
 
@@ -352,12 +477,6 @@
                 margin-bottom: 28px;
             }
 
-            .hero-descricao {
-                font-size: 1.05rem;
-                line-height: 1.5;
-                margin-bottom: 23px;
-            }
-
             .hero-servicos {
                 gap: 7px;
                 margin-bottom: 24px;
@@ -403,10 +522,6 @@
                 margin-bottom: 14px;
             }
 
-            .sobre-jms-foto {
-                display: block;
-            }
-
             .sobre-jms-foto img {
                 width: 88%;
                 max-width: 520px;
@@ -427,8 +542,18 @@
                 font-size: 0.77rem;
             }
 
+            section {
+                padding: 45px 0;
+            }
 
-            /* BOTÃO FLUTUANTE MENOR NO CELULAR */
+            h2 {
+                font-size: 1.35rem;
+                margin-bottom: 20px;
+            }
+
+            .botoes-sol {
+                flex-direction: column;
+            }
 
             .whatsapp-float {
                 width: 52px;
@@ -437,15 +562,6 @@
                 bottom: 14px;
                 font-size: 25px;
                 line-height: 52px;
-            }
-
-            section {
-                padding: 45px 0;
-            }
-
-            h2 {
-                font-size: 1.35rem;
-                margin-bottom: 20px;
             }
         }
     </style>
@@ -477,7 +593,7 @@
                 DESDE 2018
             </span>
 
-            <h1> 
+            <h1>
                 Instalação, manutenção e soluções técnicas em
                 ar-condicionado e refrigeração.
             </h1>
@@ -594,354 +710,96 @@
 
             <div class="gallery-grid">
 
-                <div class="gallery-item">
 
-                    <img
-                        src="imagens/instalacoes-jms.webp"
-                        alt="Instalação de ar-condicionado split"
-                    >
-
-                    <div class="gallery-caption">
-
-                        <h3>
-                            Instalação de Ar-Condicionado
-                        </h3>
-
-                        <p>
-                            Instalação bem-feita, com cuidado,
-                            segurança e acabamento.
-                        </p>
-
-                    </div>
-
-                </div>
+                <!-- SPLIT HI-WALL -->
 
                 <div class="gallery-item">
 
                     <img
                         src="imagens/instalacao-ar-condicionado-gree.webp"
-                        alt="Instalação, higienização e manutenção de ar-condicionado"
+                        alt="Instalação e manutenção de ar-condicionado Split Hi-Wall"
                     >
 
                     <div class="gallery-caption">
 
                         <h3>
-                            Solução completa
+                            Instalação e Manutenção de Split Hi-Wall
                         </h3>
 
                         <p>
-                            Além da instalação, também fazemos
-                            higienização e manutenção do seu
-                            ar-condicionado.
+                            Instalação, higienização, manutenção preventiva e corretiva em equipamentos Split Hi-Wall.
                         </p>
 
                     </div>
 
                 </div>
+
+
+                <!-- PISO-TETO E CASSETE -->
 
                 <div class="gallery-item">
 
                     <img
                         src="imagens/lg_instalacao_fotos_reais_site.webp"
-                        alt="Ar-condicionado LG piso teto e condensadora"
+                        alt="Instalação e manutenção de ar-condicionado Piso-Teto e Cassete"
                     >
 
                     <div class="gallery-caption">
 
                         <h3>
-                            Soluções para diferentes modelos e capacidades
+                            Instalação e Manutenção de Piso-Teto e Cassete
                         </h3>
 
                         <p>
-                            Trabalhamos com Split Hi-Wall,
-                            Piso-Teto e Cassete.
+                            Instalação, manutenção preventiva e corretiva em equipamentos Piso-Teto e Cassete.
                         </p>
 
                     </div>
 
                 </div>
 
-            </div>
 
+                <!-- GELADEIRAS -->
 
-            <!-- SEÇÃO PROFISSIONAL: CALCULADORA DE BTUS -->
-            <div style="background: #f8f9fa; padding: 40px 15px; border-radius: 12px; margin: 40px 0 0 0;">
-                
-                <!-- CABEÇALHO / TÍTULO DA CALCULADORA -->
-                <div style="text-align: center; max-width: 580px; margin: 0 auto 20px auto;">
-                    <span style="background: #e7f1ff; color: #0056b3; font-size: 0.8rem; font-weight: bold; padding: 5px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
-                        Consultoria Técnica JMS
-                    </span>
-                    <h3 style="color: #1a1a1a; margin: 10px 0 8px 0; font-size: 1.25rem; line-height: 1.3;">
-                        Calculadora de BTUs & Dimensionamento Ideal
-                    </h3>
-                    <p style="font-size: 0.9rem; color: #666; margin: 0; line-height: 1.4;">
-                        Descubra a capacidade exata de refrigeração para o seu ambiente em poucos segundos e evite o consumo excessivo de energia.
-                    </p>
-                </div>
+                <div class="gallery-item">
 
-                <!-- CARD DA CALCULADORA -->
-                <div style="background: #ffffff; padding: 22px 18px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #e0e0e0; max-width: 480px; margin: 0 auto;">
-                    
-                    <!-- ÁREA M² -->
-                    <label style="font-size: 0.88rem; font-weight: bold; display: block; color: #222;">
-                        📐 Área do Ambiente (m²):
-                    </label>
-                    <input type="number" id="calc-area" placeholder="Ex: 18" style="width: 100%; padding: 11px; margin-top: 5px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.95rem; box-sizing: border-box;">
+                    <img
+                        src="imagens/refrigeracao-jms.webp"
+                        alt="Manutenção e reparo de geladeiras e equipamentos de refrigeração"
+                    >
 
-                    <!-- POSIÇÃO DO SOL -->
-                    <label style="font-size: 0.88rem; font-weight: bold; display: block; margin-top: 14px; color: #222;">
-                        ☀️ Posição do Sol no Local:
-                    </label>
-                    <div style="display: flex; gap: 8px; margin-top: 6px;">
-                        <button type="button" id="btn-sol-manha" onclick="selecionarSol(600, 'manha')" style="flex: 1; padding: 11px 6px; border: 2px solid #0056b3; background: #e7f1ff; color: #0056b3; font-weight: bold; font-size: 0.82rem; border-radius: 6px; cursor: pointer; text-align: center;">
-                            ☀️ Sol da Manhã / Sombra
-                        </button>
-                        <button type="button" id="btn-sol-tarde" onclick="selecionarSol(800, 'tarde')" style="flex: 1; padding: 11px 6px; border: 1px solid #ccc; background: #ffffff; color: #555; font-weight: normal; font-size: 0.82rem; border-radius: 6px; cursor: pointer; text-align: center;">
-                            🌞 Sol da Tarde / Intenso
-                        </button>
-                    </div>
+                    <div class="gallery-caption">
 
-                    <!-- BOTÃO DE CÁLCULO -->
-                    <button onclick="calcularEExibirResultado()" style="width: 100%; background: #0056b3; color: white; border: none; padding: 13px; margin-top: 18px; border-radius: 6px; font-weight: bold; font-size: 0.98rem; cursor: pointer; transition: background 0.2s;">
-                        🔍 CALCULAR POTÊNCIA RECOMENDADA
-                    </button>
+                        <h3>
+                            Geladeiras e Refrigeração
+                        </h3>
 
-                    <!-- RESULTADO E CHAMADA PARA O WHATSAPP -->
-                    <div id="painel-resultado" style="display: none; margin-top: 20px; padding: 16px; background: #f0f7ff; border-radius: 8px; border: 1px solid #b6d4fe; text-align: center;">
-                        <span style="font-size: 0.82rem; color: #555; text-transform: uppercase; font-weight: bold; display: block;">
-                            Capacidade Recomendada:
-                        </span>
-                        <div id="texto-potencia" style="font-size: 1.5rem; font-weight: bold; color: #0056b3; margin: 4px 0;">
-                            -- BTU/h
-                        </div>
-                        <p style="font-size: 0.82rem; color: #444; margin-bottom: 14px; line-height: 1.3;">
-                            Garante refrigeração eficiente com menor gasto de energia elétrica.
+                        <p>
+                            Manutenção e reparo em geladeiras, freezers, cervejeiras e frigobares.
                         </p>
 
-                        <!-- CEP -->
-                        <input type="text" id="calc-cep" maxlength="9" placeholder="Digite seu CEP para cotação de frete" style="width: 100%; padding: 11px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem; text-align: center; box-sizing: border-box;">
-
-                        <!-- BOTÃO DE WHATSAPP -->
-                        <button onclick="enviarParaWhatsApp()" style="width: 100%; background: #25D366; color: white; border: none; padding: 14px; border-radius: 6px; font-weight: bold; font-size: 0.98rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                            <span>📲 Cotar Equipamento e Frete no WhatsApp</span>
-                        </button>
-                        
-                        <span style="font-size: 0.75rem; color: #666; display: block; margin-top: 8px;">
-                            ⚡ Resposta rápida com equipamentos direto de distribuidora com Nota Fiscal.
-                        </span>
                     </div>
+
                 </div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <script>
-    let fatorSolSelecionado = 600; // Padrão: Sol da Manhã
-    let potenciaCalculadaGlobal = 0;
-
-    function selecionarSol(valor, tipo) {
-        fatorSolSelecionado = valor;
-        const btnManha = document.getElementById('btn-sol-manha');
-        const btnTarde = document.getElementById('btn-sol-tarde');
-
-        if (tipo === 'manha') {
-            btnManha.style.border = '2px solid #0056b3';
-            btnManha.style.background = '#e7f1ff';
-            btnManha.style.color = '#0056b3';
-            btnManha.style.fontWeight = 'bold';
-
-            btnTarde.style.border = '1px solid #ccc';
-            btnTarde.style.background = '#ffffff';
-            btnTarde.style.color = '#555';
-            btnTarde.style.fontWeight = 'normal';
-        } else {
-            btnTarde.style.border = '2px solid #0056b3';
-            btnTarde.style.background = '#e7f1ff';
-            btnTarde.style.color = '#0056b3';
-            btnTarde.style.fontWeight = 'bold';
-
-            btnManha.style.border = '1px solid #ccc';
-            btnManha.style.background = '#ffffff';
-            btnManha.style.color = '#555';
-            btnManha.style.fontWeight = 'normal';
-        }
-    }
-
-    function calcularEExibirResultado() {
-        const area = parseFloat(document.getElementById('calc-area').value);
-
-        if (!area || area <= 0) {
-            alert("Por favor, informe a área aproximada em m².");
-            return;
-        }
-
-        let btu = area * fatorSolSelecionado;
-        
-        if (btu <= 9000) potenciaCalculadaGlobal = 9000;
-        else if (btu <= 12000) potenciaCalculadaGlobal = 12000;
-        else if (btu <= 18000) potenciaCalculadaGlobal = 18000;
-        else if (btu <= 24000) potenciaCalculadaGlobal = 24000;
-        else if (btu <= 30000) potenciaCalculadaGlobal = 30000;
-        else potenciaCalculadaGlobal = 36000;
-
-        document.getElementById('texto-potencia').innerText = `${potenciaCalculadaGlobal.toLocaleString('pt-BR')} BTU/h`;
-        
-        const painel = document.getElementById('painel-resultado');
-        painel.style.display = 'block';
-        painel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    function enviarParaWhatsApp() {
-        const area = document.getElementById('calc-area').value;
-        const cep = document.getElementById('calc-cep').value.trim();
-        
-        let mensagem = `Olá, JMS! ❄️%0A%0AFiz o cálculo no site e gostaria de um orçamento:%0A• *Potência:* ${potenciaCalculadaGlobal.toLocaleString('pt-BR')} BTU/h%0A• *Área:* ${area} m²`;
-        
-        if (cep) {
-            mensagem += `%0A• *CEP:* ${encodeURIComponent(cep)}`;
-        }
-
-        const numeroWhatsApp = "5571996836999"; 
-        window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, '_blank');
-    }
-    </script>
 
 
-    <!-- ==================================================
-         ÁREAS DE ATENDIMENTO
-    ================================================== -->
+                <!-- LAVADORAS -->
 
-    <section>
+                <div class="gallery-item">
 
-        <div
-            class="container"
-            style="text-align:center;"
-        >
+                    <img
+                        src="imagens/lavadoras-jms.webp"
+                        alt="Manutenção e reparo de lavadoras e máquinas lava e seca"
+                    >
 
-            <h2>
-                Área de atendimento e localização 
-            </h2>
+                    <div class="gallery-caption">
 
-            <p>
-                <strong>Endereço:</strong> R. da Glória, 8 - Loja 4 - Gleba C, Camaçari - BA<br>
-                <strong>Área de atendimento:</strong> Camaçari | Salvador | Região Metropolitana<br>
-                <strong>Contato:</strong> (71) 99683-6999
-            </p>
+                        <h3>
+                            Lavadoras e Lava e Seca
+                        </h3>
 
-            <p>
-                <small>
-                    Consulte disponibilidade de agenda
-                    para outras localidades.
-                </small>
-            </p>
+                        <p>
+                            Manutenção e reparo em lavadoras e máquinas lava e seca.
+                        </p>
 
-            <br>
-
-            <a
-                href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20para%20minha%20região."
-                target="_blank"
-                class="btn-whatsapp whatsapp-principal"
-            >
-                📲 FALE COM A JMS NO WHATSAPP
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==================================================
-         RODAPÉ
-    ================================================== -->
-
-    <footer>
-
-        <div class="container">
-
-            <p>
-                &copy; JMS Ar Condicionado e Refrigeração -
-                Todos os direitos reservados.
-            </p>
-
-        </div>
-
-    </footer>
-
-
-    <!-- ==================================================
-         WHATSAPP FLUTUANTE
-    ================================================== -->
-
-    <a
-        href="https://wa.me/5571996836999?text=Olá,%20preciso%20de%20um%20orçamento!"
-        class="whatsapp-float"
-        target="_blank"
-        title="Fale no WhatsApp"
-        aria-label="Fale com a JMS pelo WhatsApp"
-    >
-        💬
-    </a>
-
-
-    <!-- ==================================================
-         CONTROLE DO BOTÃO FLUTUANTE
-    ================================================== -->
-
-    <script>
-
-        const botaoFlutuante =
-            document.querySelector('.whatsapp-float');
-
-        const botoesPrincipais =
-            document.querySelectorAll('.whatsapp-principal');
-
-        const estadoDosBotoes =
-            new Map();
-
-        botoesPrincipais.forEach(function(botao) {
-            estadoDosBotoes.set(botao, false);
-        });
-
-        function atualizarBotaoFlutuante() {
-            const algumBotaoVisivel =
-                Array.from(estadoDosBotoes.values())
-                    .some(function(visivel) {
-                        return visivel;
-                    });
-
-            if (algumBotaoVisivel) {
-                botaoFlutuante.classList.add('oculto');
-            } else {
-                botaoFlutuante.classList.remove('oculto');
-            }
-        }
-
-        const observador =
-            new IntersectionObserver(
-                function(entries) {
-                    entries.forEach(function(entry) {
-                        estadoDosBotoes.set(
-                            entry.target,
-                            entry.isIntersecting
-                        );
-                    });
-
-                    atualizarBotaoFlutuante();
-                },
-                {
-                    threshold: 0.15
-                }
-            );
-
-        botoesPrincipais.forEach(function(botao) {
-            observador.observe(botao);
-        });
-
-    </script>
-
-</body>
-
-</html>
+                    </div>
