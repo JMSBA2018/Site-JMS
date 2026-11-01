@@ -29,10 +29,11 @@
             line-height: 1.6;
         }
 
+        /* Container padrão para computadores (larga e espaçosa) */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 30px;
         }
 
         /* ==================================================
@@ -44,12 +45,12 @@
                 linear-gradient(135deg, #051322 0%, #071b2d 50%, #0b2c47 100%);
             color: white;
             text-align: center;
-            padding: 70px 0 80px;
+            padding: 80px 0 90px;
         }
 
         .hero-logo {
-            width: 280px;
-            max-width: 85%;
+            width: 320px;
+            max-width: 90%;
             height: auto;
             display: block;
             margin: 0 auto 12px;
@@ -57,7 +58,7 @@
         }
 
         .hero-marca {
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 2px;
             color: #ffffff;
@@ -66,7 +67,7 @@
 
         .hero-desde {
             display: block;
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: bold;
             letter-spacing: 4px;
             color: #93c5fd;
@@ -74,9 +75,9 @@
         }
 
         header h1 {
-            font-size: 2.1rem;
+            font-size: 2.3rem;
             line-height: 1.3;
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto 24px;
             font-weight: 700;
         }
@@ -92,9 +93,9 @@
         .hero-servico {
             border: 1px solid rgba(255, 255, 255, 0.2);
             background: rgba(255, 255, 255, 0.08);
-            padding: 9px 18px;
+            padding: 10px 20px;
             border-radius: 30px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 600;
             backdrop-filter: blur(4px);
         }
@@ -103,7 +104,7 @@
             display: inline-block;
             background-color: var(--accent);
             color: white;
-            padding: 16px 36px;
+            padding: 16px 38px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
@@ -133,7 +134,7 @@
             text-align: center;
             color: var(--primary);
             margin-bottom: 40px;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
@@ -148,7 +149,7 @@
         }
 
         .sobre-jms-grid {
-            max-width: 850px;
+            max-width: 950px;
             margin: 0 auto;
             text-align: center;
         }
@@ -158,7 +159,7 @@
             background: #e7f1ff;
             color: var(--primary);
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             letter-spacing: 1.5px;
             padding: 6px 16px;
             border-radius: 20px;
@@ -168,13 +169,13 @@
 
         .sobre-jms-texto p {
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             line-height: 1.8;
             color: #334155;
         }
 
         /* ==================================================
-           PORTFÓLIO / GALERIA DE SERVIÇOS
+           PORTFÓLIO / GALERIA DE SERVIÇOS (FORÇADO 3 COLUNAS)
         ================================================== */
         .gallery-grid {
             display: grid;
@@ -215,14 +216,14 @@
         .gallery-caption h3 {
             margin: 0 0 10px;
             color: var(--dark);
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 700;
             line-height: 1.4;
         }
 
         .gallery-caption p {
             margin: 0;
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             color: #64748b;
             line-height: 1.5;
         }
@@ -232,7 +233,7 @@
         ================================================== */
         .calculadora-wrapper {
             background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
-            padding: 50px 30px;
+            padding: 60px 40px;
             border-radius: 16px;
             margin-top: 60px;
             border: 1px solid #e2e8f0;
@@ -240,11 +241,11 @@
 
         .calculadora-card {
             background: #ffffff;
-            padding: 35px;
+            padding: 40px;
             border-radius: 14px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             border: 1px solid #e2e8f0;
-            max-width: 520px;
+            max-width: 560px;
             margin: 0 auto;
         }
 
@@ -254,16 +255,16 @@
         .atendimento-box {
             background: white;
             border-radius: 16px;
-            padding: 50px 30px;
+            padding: 60px 40px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             border: 1px solid #e2e8f0;
             text-align: center;
         }
 
         .atendimento-box p {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: #334155;
             line-height: 1.8;
             margin-bottom: 30px;
@@ -273,7 +274,7 @@
             background-color: var(--dark);
             color: #94a3b8;
             text-align: center;
-            padding: 30px 0;
+            padding: 35px 0;
             font-size: 0.95rem;
         }
 
@@ -309,15 +310,19 @@
         }
 
         /* ==================================================
-           RESPONSIVIDADE (MOBILE)
+           RESPONSIVIDADE (APENAS PARA TABLET E CELULAR)
         ================================================== */
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
             header {
                 padding: 45px 0 40px;
             }
@@ -460,25 +465,25 @@
 
             <!-- CALCULADORA DE BTUS -->
             <div class="calculadora-wrapper">
-                <div style="text-align: center; max-width: 600px; margin: 0 auto 30px auto;">
-                    <span style="background: #e7f1ff; color: var(--primary); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 700; letter-spacing: 1px; display: inline-block; text-transform: uppercase;">
+                <div style="text-align: center; max-width: 650px; margin: 0 auto 35px auto;">
+                    <span style="background: #e7f1ff; color: var(--primary); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; display: inline-block; text-transform: uppercase;">
                         Ferramenta Prática
                     </span>
-                    <h3 style="color: #1a1a1a; margin: 12px 0 8px 0; font-size: 1.8rem; font-weight: 700;">
+                    <h3 style="color: #1a1a1a; margin: 12px 0 10px 0; font-size: 2rem; font-weight: 700;">
                         Calculadora JMS
                     </h3>
-                    <p style="font-size: 0.95rem; color: #64748b; margin: 0;">
+                    <p style="font-size: 1rem; color: #64748b; margin: 0;">
                         Insira os dados abaixo e descubra a capacidade ideal do ar-condicionado para o seu ambiente.
                     </p>
                 </div>
 
                 <div class="calculadora-card">
-                    <label style="font-size: 0.9rem; font-weight: 700; display: block; color: #1e293b; margin-bottom: 6px;">
+                    <label style="font-size: 0.92rem; font-weight: 700; display: block; color: #1e293b; margin-bottom: 6px;">
                         📐 Área do Ambiente (m²):
                     </label>
                     <input type="number" id="calc-area" placeholder="Ex: 18" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; box-sizing: border-box; outline: none;">
 
-                    <label style="font-size: 0.9rem; font-weight: 700; display: block; margin-top: 16px; color: #1e293b; margin-bottom: 6px;">
+                    <label style="font-size: 0.92rem; font-weight: 700; display: block; margin-top: 18px; color: #1e293b; margin-bottom: 6px;">
                         👥 Número de Pessoas no Ambiente:
                     </label>
                     <select id="calc-pessoas" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; box-sizing: border-box; background: #fff; cursor: pointer; outline: none;">
@@ -489,7 +494,7 @@
                         <option value="6">6 pessoas ou mais</option>
                     </select>
 
-                    <label style="font-size: 0.9rem; font-weight: 700; display: block; margin-top: 16px; color: #1e293b; margin-bottom: 6px;">
+                    <label style="font-size: 0.92rem; font-weight: 700; display: block; margin-top: 18px; color: #1e293b; margin-bottom: 6px;">
                         ☀️ Posição do Sol no Local:
                     </label>
                     <div style="display: flex; gap: 10px;">
@@ -501,7 +506,7 @@
                         </button>
                     </div>
 
-                    <button onclick="calcularEExibirResultado()" style="width: 100%; background: var(--primary); color: white; border: none; padding: 14px; margin-top: 20px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background 0.2s;">
+                    <button onclick="calcularEExibirResultado()" style="width: 100%; background: var(--primary); color: white; border: none; padding: 15px; margin-top: 22px; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer; transition: background 0.2s;">
                         CALCULAR CAPACIDADE
                     </button>
 
@@ -622,7 +627,7 @@
                     <strong>Locais Atendidos:</strong> Camaçari | Salvador | Lauro de Freitas | Região Metropolitana<br>
                     <strong>Contato:</strong> (71) 99683-6999
                 </p>
-                <p style="font-size: 0.9rem; color: #64748b; margin-top: -15px; margin-bottom: 30px;">
+                <p style="font-size: 0.95rem; color: #64748b; margin-top: -15px; margin-bottom: 35px;">
                     Consulte disponibilidade de agenda para outras localidades.
                 </p>
 
