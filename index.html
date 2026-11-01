@@ -36,7 +36,7 @@
         }
 
         /* ==================================================
-           HERO / PRIMEIRA TELA (AJUSTADO E PROPORCIONAL)
+           HERO / PRIMEIRA TELA
         ================================================== */
         header {
             background:
@@ -99,7 +99,6 @@
             backdrop-filter: blur(4px);
         }
 
-        /* Botão do WhatsApp redimensionado para ficar elegante */
         .btn-whatsapp {
             display: inline-block;
             background-color: var(--accent);
@@ -120,10 +119,10 @@
         }
 
         /* ==================================================
-           SEÇÕES GERAIS
+           SEÇÕES GERAIS (Espaçamento otimizado para evitar cortes)
         ================================================== */
         section {
-            padding: 80px 0;
+            padding: 50px 0;
         }
 
         .bg-white {
@@ -133,8 +132,8 @@
         h2 {
             text-align: center;
             color: var(--primary);
-            margin-bottom: 40px;
-            font-size: 2.4rem;
+            margin-bottom: 35px;
+            font-size: 2.3rem;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
@@ -144,7 +143,7 @@
         ================================================== */
         .sobre-jms {
             background: #ffffff;
-            padding: 70px 0;
+            padding: 50px 0;
             border-bottom: 1px solid #edf2f7;
         }
 
@@ -163,24 +162,24 @@
             letter-spacing: 1.5px;
             padding: 6px 16px;
             border-radius: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             text-transform: uppercase;
         }
 
         .sobre-jms-texto p {
             margin: 0;
-            font-size: 1.25rem;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            line-height: 1.7;
             color: #334155;
         }
 
         /* ==================================================
-           PORTFÓLIO / GALERIA DE SERVIÇOS (3 COLUNAS)
+           PORTFÓLIO / GALERIA DE SERVIÇOS (Ajustado para o ecrã)
         ================================================== */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 24px;
         }
 
         .gallery-item {
@@ -201,31 +200,31 @@
 
         .gallery-grid img {
             width: 100%;
-            height: 220px;
+            height: 150px; /* Altura otimizada para evitar corte vertical na transição */
             object-fit: cover;
             display: block;
         }
 
         .gallery-caption {
-            padding: 24px;
+            padding: 18px 20px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .gallery-caption h3 {
-            margin: 0 0 10px;
+            margin: 0 0 8px;
             color: var(--dark);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         .gallery-caption p {
             margin: 0;
-            font-size: 0.98rem;
+            font-size: 0.92rem;
             color: #64748b;
-            line-height: 1.5;
+            line-height: 1.45;
         }
 
         /* ==================================================
@@ -233,15 +232,15 @@
         ================================================== */
         .calculadora-wrapper {
             background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
-            padding: 60px 40px;
+            padding: 50px 30px;
             border-radius: 16px;
-            margin-top: 60px;
+            margin-top: 50px;
             border: 1px solid #e2e8f0;
         }
 
         .calculadora-card {
             background: #ffffff;
-            padding: 40px;
+            padding: 35px;
             border-radius: 14px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             border: 1px solid #e2e8f0;
@@ -255,7 +254,7 @@
         .atendimento-box {
             background: white;
             border-radius: 16px;
-            padding: 60px 40px;
+            padding: 50px 40px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.04);
             max-width: 900px;
             margin: 0 auto;
@@ -264,18 +263,18 @@
         }
 
         .atendimento-box p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #334155;
-            line-height: 1.8;
-            margin-bottom: 30px;
+            line-height: 1.7;
+            margin-bottom: 25px;
         }
 
         footer {
             background-color: var(--dark);
             color: #94a3b8;
             text-align: center;
-            padding: 35px 0;
-            font-size: 0.95rem;
+            padding: 30px 0;
+            font-size: 0.92rem;
         }
 
         /* ==================================================
@@ -337,12 +336,12 @@
             }
 
             section {
-                padding: 50px 0;
+                padding: 40px 0;
             }
 
             h2 {
-                font-size: 1.7rem;
-                margin-bottom: 25px;
+                font-size: 1.6rem;
+                margin-bottom: 20px;
             }
 
             .btn-whatsapp {
@@ -465,14 +464,14 @@
 
             <!-- CALCULADORA DE BTUS -->
             <div class="calculadora-wrapper">
-                <div style="text-align: center; max-width: 650px; margin: 0 auto 35px auto;">
+                <div style="text-align: center; max-width: 650px; margin: 0 auto 30px auto;">
                     <span style="background: #e7f1ff; color: var(--primary); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; display: inline-block; text-transform: uppercase;">
                         Ferramenta Prática
                     </span>
-                    <h3 style="color: #1a1a1a; margin: 12px 0 10px 0; font-size: 2rem; font-weight: 700;">
+                    <h3 style="color: #1a1a1a; margin: 10px 0 8px 0; font-size: 1.8rem; font-weight: 700;">
                         Calculadora JMS
                     </h3>
-                    <p style="font-size: 1rem; color: #64748b; margin: 0;">
+                    <p style="font-size: 0.95rem; color: #64748b; margin: 0;">
                         Insira os dados abaixo e descubra a capacidade ideal do ar-condicionado para o seu ambiente.
                     </p>
                 </div>
@@ -483,7 +482,7 @@
                     </label>
                     <input type="number" id="calc-area" placeholder="Ex: 18" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; box-sizing: border-box; outline: none;">
 
-                    <label style="font-size: 0.92rem; font-weight: 700; display: block; margin-top: 18px; color: #1e293b; margin-bottom: 6px;">
+                    <label style="font-size: 0.92rem; font-weight: 700; display: block; margin-top: 16px; color: #1e293b; margin-bottom: 6px;">
                         👥 Número de Pessoas no Ambiente:
                     </label>
                     <select id="calc-pessoas" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; box-sizing: border-box; background: #fff; cursor: pointer; outline: none;">
@@ -494,7 +493,7 @@
                         <option value="6">6 pessoas ou mais</option>
                     </select>
 
-                    <label style="font-size: 0.92rem; font-weight: 700; display: block; margin-top: 18px; color: #1e293b; margin-bottom: 6px;">
+                    <label style="font-size: 0.92rem; font-weight: 700; display: block; margin-top: 16px; color: #1e293b; margin-bottom: 6px;">
                         ☀️ Posição do Sol no Local:
                     </label>
                     <div style="display: flex; gap: 10px;">
@@ -506,28 +505,28 @@
                         </button>
                     </div>
 
-                    <button onclick="calcularEExibirResultado()" style="width: 100%; background: var(--primary); color: white; border: none; padding: 15px; margin-top: 22px; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer; transition: background 0.2s;">
+                    <button onclick="calcularEExibirResultado()" style="width: 100%; background: var(--primary); color: white; border: none; padding: 14px; margin-top: 20px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background 0.2s;">
                         CALCULAR CAPACIDADE
                     </button>
 
-                    <div id="painel-resultado" style="display: none; margin-top: 24px; padding: 20px; background: #f0f7ff; border-radius: 10px; border: 1px solid #b6d4fe; text-align: center;">
-                        <span style="font-size: 0.85rem; color: #475569; text-transform: uppercase; font-weight: 700; display: block;">
+                    <div id="painel-resultado" style="display: none; margin-top: 20px; padding: 18px; background: #f0f7ff; border-radius: 10px; border: 1px solid #b6d4fe; text-align: center;">
+                        <span style="font-size: 0.82rem; color: #475569; text-transform: uppercase; font-weight: 700; display: block;">
                             Capacidade Recomendada:
                         </span>
-                        <div id="texto-potencia" style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin: 6px 0;">
+                        <div id="texto-potencia" style="font-size: 1.6rem; font-weight: 800; color: var(--primary); margin: 6px 0;">
                             -- BTU/h
                         </div>
-                        <p style="font-size: 0.88rem; color: #334155; margin-bottom: 16px;">
+                        <p style="font-size: 0.85rem; color: #334155; margin-bottom: 14px;">
                             Digite seu CEP abaixo e solicite um orçamento exclusivo:
                         </p>
 
-                        <input type="text" id="calc-cep" maxlength="9" placeholder="Digite o seu CEP" style="width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; text-align: center; box-sizing: border-box; outline: none;">
+                        <input type="text" id="calc-cep" maxlength="9" placeholder="Digite o seu CEP" style="width: 100%; padding: 11px; margin-bottom: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.92rem; text-align: center; box-sizing: border-box; outline: none;">
 
-                        <button onclick="enviarParaWhatsApp()" style="width: 100%; background: var(--accent); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer;">
+                        <button onclick="enviarParaWhatsApp()" style="width: 100%; background: var(--accent); color: white; border: none; padding: 13px; border-radius: 8px; font-weight: bold; font-size: 0.95rem; cursor: pointer;">
                             📲 Solicitar Orçamento no WhatsApp
                         </button>
                         
-                        <span style="font-size: 0.78rem; color: #64748b; display: block; margin-top: 10px;">
+                        <span style="font-size: 0.75rem; color: #64748b; display: block; margin-top: 8px;">
                             Aparelhos com preço de distribuidor 
                         </span>
                     </div>
@@ -627,7 +626,7 @@
                     <strong>Locais Atendidos:</strong> Camaçari | Salvador | Lauro de Freitas | Região Metropolitana<br>
                     <strong>Contato:</strong> (71) 99683-6999
                 </p>
-                <p style="font-size: 0.95rem; color: #64748b; margin-top: -15px; margin-bottom: 35px;">
+                <p style="font-size: 0.92rem; color: #64748b; margin-top: -12px; margin-bottom: 30px;">
                     Consulte disponibilidade de agenda para outras localidades.
                 </p>
 
