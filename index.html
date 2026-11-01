@@ -36,7 +36,7 @@
         }
 
         /* ==================================================
-           HERO / PRIMEIRA TELA (AJUSTADO E PROPORCIONAL)
+           HERO / PRIMEIRA TELA
         ================================================== */
         header {
             background:
@@ -44,7 +44,7 @@
                 linear-gradient(135deg, #051322 0%, #071b2d 50%, #0b2c47 100%);
             color: white;
             text-align: center;
-            padding: 55px 0 65px;
+            padding: 50px 0 55px;
         }
 
         .hero-logo {
@@ -70,14 +70,14 @@
             font-weight: bold;
             letter-spacing: 3px;
             color: #93c5fd;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         header h1 {
             font-size: 2rem;
             line-height: 1.3;
             max-width: 850px;
-            margin: 0 auto 18px;
+            margin: 0 auto 16px;
             font-weight: 700;
         }
 
@@ -86,7 +86,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 10px;
-            margin: 0 auto 24px;
+            margin: 0 auto 22px;
         }
 
         .hero-servico {
@@ -99,7 +99,7 @@
             backdrop-filter: blur(4px);
         }
 
-        /* Botão do WhatsApp redimensionado para ficar elegante */
+        /* Botão do WhatsApp restaurado no topo */
         .btn-whatsapp {
             display: inline-block;
             background-color: var(--accent);
@@ -120,7 +120,7 @@
         }
 
         /* ==================================================
-           SEÇÕES GERAIS (Espaçamento otimizado para evitar cortes e vazios)
+           SEÇÕES GERAIS
         ================================================== */
         section {
             padding: 40px 0;
@@ -201,7 +201,7 @@
 
         .gallery-grid img {
             width: 100%;
-            height: 145px; /* Ajustado para eliminar o corte vertical e encaixar na tela */
+            height: 145px; /* Altura ideal para encaixar na tela sem cortes */
             object-fit: cover;
             display: block;
         }
@@ -389,4 +389,310 @@
                 <span class="hero-servico">🧊 Refrigeração</span>
             </div>
 
-            <a href="
+            <!-- Botão de contato restaurado no topo -->
+            <a href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento!" target="_blank" class="btn-whatsapp whatsapp-principal">
+                📲 SOLICITE ATENDIMENTO NO WHATSAPP
+            </a>
+        </div>
+    </header>
+
+    <!-- ==================================================
+         QUEM SOMOS
+    ================================================== -->
+    <section class="sobre-jms">
+        <div class="container sobre-jms-grid">
+            <div class="sobre-jms-texto">
+                <span class="sobre-jms-label">QUEM SOMOS</span>
+                <p>
+                    Desde 2018, a <strong>JMS Ar Condicionado e Refrigeração</strong> atua com soluções técnicas para instalação e manutenção de equipamentos de climatização e refrigeração. Atendemos também solicitações de <strong>reparo em máquinas de lavar e lava e seca</strong>, buscando restabelecer o correto funcionamento dos equipamentos de nossos clientes com total profissionalismo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================================================
+         SERVIÇOS
+    ================================================== -->
+    <section class="bg-white">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+
+            <div class="gallery-grid">
+                <!-- SERVIÇO 1 -->
+                <div class="gallery-item">
+                    <img src="imagens/instalacao-ar-condicionado-gree.webp" alt="Split Hi-Wall">
+                    <div class="gallery-caption">
+                        <h3>Instalação e manutenção de ar condicionado split Hi-Wall</h3>
+                        <p>Instalação adequada, higienização profunda e manutenção corretiva e preventiva.</p>
+                    </div>
+                </div>
+
+                <!-- SERVIÇO 2 -->
+                <div class="gallery-item">
+                    <img src="imagens/lg_instalacao_fotos_reais_site.webp" alt="Piso Teto e Cassete">
+                    <div class="gallery-caption">
+                        <h3>Instalação e manutenção de ar condicionado split, Piso Teto e Cassete</h3>
+                        <p>Soluções para sistemas comerciais e residenciais de grande porte com precisão técnica.</p>
+                    </div>
+                </div>
+
+                <!-- SERVIÇO 3 -->
+                <div class="gallery-item">
+                    <img src="imagens/diagnostico_placa_jms_alta.webp" alt="Reparo Eletrônico">
+                    <div class="gallery-caption">
+                        <h3>Reparo eletrônico em placas de ar-condicionado e lavadoras inverter</h3>
+                        <p>Diagnóstico e conserto em nível de componente eletrônico para evitar trocas caríssimas.</p>
+                    </div>
+                </div>
+
+                <!-- SERVIÇO 4 -->
+                <div class="gallery-item">
+                    <img src="imagens/refrigeracao-jms.webp" alt="Refrigeração e Linha Branca">
+                    <div class="gallery-caption">
+                        <h3>Refrigeração e Linha Branca</h3>
+                        <p>Manutenção e reparo especializado em geladeiras, freezers, cervejeiras e frigobares.</p>
+                    </div>
+                </div>
+
+                <!-- SERVIÇO 5 -->
+                <div class="gallery-item">
+                    <img src="imagens/lavadoras-jms-2x2-separadas.webp" alt="Lavadoras e Lava e Seca">
+                    <div class="gallery-caption">
+                        <h3>Lavadoras e Lava e Seca</h3>
+                        <p>Diagnóstico técnico, substituição de peças mecânicas e reparos preventivos em lavadoras.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CALCULADORA DE BTUS -->
+            <div class="calculadora-wrapper">
+                <div style="text-align: center; max-width: 650px; margin: 0 auto 35px auto;">
+                    <span style="background: #e7f1ff; color: var(--primary); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; display: inline-block; text-transform: uppercase;">
+                        Ferramenta Prática
+                    </span>
+                    <h3 style="color: #1a1a1a; margin: 12px 0 10px 0; font-size: 2rem; font-weight: 700;">
+                        Calculadora JMS
+                    </h3>
+                    <p style="font-size: 1rem; color: #64748b; margin: 0;">
+                        Insira os dados abaixo e descubra a capacidade ideal do ar-condicionado para o seu ambiente.
+                    </p>
+                </div>
+
+                <div class="calculadora-card">
+                    <label style="font-size: 0.92rem; font-weight: 700; display: block; color: #1e293b; margin-bottom: 6px;">
+                        📐 Área do Ambiente (m²):
+                    </label>
+                    <input type="number" id="calc-area" placeholder="Ex: 18" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; box-sizing: border-box; outline: none;">
+
+                    <label style="font-size: 0.92rem; font-weight: 700; display: block; margin-top: 18px; color: #1e293b; margin-bottom: 6px;">
+                        👥 Número de Pessoas no Ambiente:
+                    </label>
+                    <select id="calc-pessoas" style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; box-sizing: border-box; background: #fff; cursor: pointer; outline: none;">
+                        <option value="2">Até 2 pessoas</option>
+                        <option value="3">3 pessoas</option>
+                        <option value="4">4 pessoas</option>
+                        <option value="5">5 pessoas</option>
+                        <option value="6">6 pessoas ou mais</option>
+                    </select>
+
+                    <label style="font-size: 0.92rem; font-weight: 700; display: block; margin-top: 18px; color: #1e293b; margin-bottom: 6px;">
+                        ☀️ Posição do Sol no Local:
+                    </label>
+                    <div style="display: flex; gap: 10px;">
+                        <button type="button" id="btn-sol-manha" onclick="selecionarSol(600, 'manha')" style="flex: 1; padding: 12px 8px; border: 2px solid var(--primary); background: #e7f1ff; color: var(--primary); font-weight: 700; font-size: 0.85rem; border-radius: 8px; cursor: pointer; text-align: center;">
+                            ☀️ Sol da Manhã / Sombra
+                        </button>
+                        <button type="button" id="btn-sol-tarde" onclick="selecionarSol(800, 'tarde')" style="flex: 1; padding: 12px 8px; border: 1px solid #cbd5e1; background: #ffffff; color: #64748b; font-weight: 600; font-size: 0.85rem; border-radius: 8px; cursor: pointer; text-align: center;">
+                            🌞 Sol da Tarde / Intenso
+                        </button>
+                    </div>
+
+                    <button onclick="calcularEExibirResultado()" style="width: 100%; background: var(--primary); color: white; border: none; padding: 15px; margin-top: 22px; border-radius: 8px; font-weight: bold; font-size: 1.05rem; cursor: pointer; transition: background 0.2s;">
+                        CALCULAR CAPACIDADE
+                    </button>
+
+                    <div id="painel-resultado" style="display: none; margin-top: 24px; padding: 20px; background: #f0f7ff; border-radius: 10px; border: 1px solid #b6d4fe; text-align: center;">
+                        <span style="font-size: 0.85rem; color: #475569; text-transform: uppercase; font-weight: 700; display: block;">
+                            Capacidade Recomendada:
+                        </span>
+                        <div id="texto-potencia" style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin: 6px 0;">
+                            -- BTU/h
+                        </div>
+                        <p style="font-size: 0.88rem; color: #334155; margin-bottom: 16px;">
+                            Digite seu CEP abaixo e solicite um orçamento exclusivo:
+                        </p>
+
+                        <input type="text" id="calc-cep" maxlength="9" placeholder="Digite o seu CEP" style="width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; text-align: center; box-sizing: border-box; outline: none;">
+
+                        <button onclick="enviarParaWhatsApp()" style="width: 100%; background: var(--accent); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer;">
+                            📲 Solicitar Orçamento no WhatsApp
+                        </button>
+                        
+                        <span style="font-size: 0.78rem; color: #64748b; display: block; margin-top: 10px;">
+                            Aparelhos com preço de distribuidor 
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPT DA CALCULADORA -->
+    <script>
+    let fatorSolSelecionado = 600;
+    let potenciaCalculadaGlobal = 0;
+
+    function selecionarSol(valor, tipo) {
+        fatorSolSelecionado = valor;
+        const btnManha = document.getElementById('btn-sol-manha');
+        const btnTarde = document.getElementById('btn-sol-tarde');
+
+        if (tipo === 'manha') {
+            btnManha.style.border = '2px solid #0066c8';
+            btnManha.style.background = '#e7f1ff';
+            btnManha.style.color = '#0066c8';
+            btnManha.style.fontWeight = '700';
+
+            btnTarde.style.border = '1px solid #cbd5e1';
+            btnTarde.style.background = '#ffffff';
+            btnTarde.style.color = '#64748b';
+            btnTarde.style.fontWeight = '600';
+        } else {
+            btnTarde.style.border = '2px solid #0066c8';
+            btnTarde.style.background = '#e7f1ff';
+            btnTarde.style.color = '#0066c8';
+            btnTarde.style.fontWeight = '700';
+
+            btnManha.style.border = '1px solid #cbd5e1';
+            btnManha.style.background = '#ffffff';
+            btnManha.style.color = '#64748b';
+            btnManha.style.fontWeight = '600';
+        }
+    }
+
+    function calcularEExibirResultado() {
+        const areaInput = document.getElementById('calc-area').value;
+        const area = parseFloat(areaInput);
+        const pessoas = parseInt(document.getElementById('calc-pessoas').value, 10);
+
+        if (!area || area <= 0) {
+            alert("Por favor, informe a área aproximada em m².");
+            return;
+        }
+
+        let btu = area * fatorSolSelecionado;
+        if (pessoas > 2) {
+            btu += (pessoas - 2) * 600;
+        }
+        
+        if (btu <= 9000) potenciaCalculadaGlobal = 9000;
+        else if (btu <= 12000) potenciaCalculadaGlobal = 12000;
+        else if (btu <= 18000) potenciaCalculadaGlobal = 18000;
+        else if (btu <= 24000) potenciaCalculadaGlobal = 24000;
+        else if (btu <= 30000) potenciaCalculadaGlobal = 30000;
+        else potenciaCalculadaGlobal = 36000;
+
+        document.getElementById('texto-potencia').innerText = `${potenciaCalculadaGlobal.toLocaleString('pt-BR')} BTU/h`;
+        
+        const painel = document.getElementById('painel-resultado');
+        painel.style.display = 'block';
+        painel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function enviarParaWhatsApp() {
+        const area = document.getElementById('calc-area').value;
+        const pessoas = document.getElementById('calc-pessoas').value;
+        const cep = document.getElementById('calc-cep').value.trim();
+    
+        let textoMensagem = `Olá, JMS! ❄️\n\nGostaria de um orçamento para aquisição de um ar-condicionado:\n• Potência: ${potenciaCalculadaGlobal.toLocaleString('pt-BR')} BTU/h\n• Área: ${area} m²\n• Pessoas: ${pessoas}`;
+        
+        if (cep) {
+            textoMensagem += `\n• CEP: ${cep}`;
+        }
+
+        const numeroWhatsApp = "5571996836999"; 
+        const urlFinal = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoMensagem)}`;
+        window.open(urlFinal, '_blank');
+    }
+    </script>
+
+    <!-- ==================================================
+         ÁREA DE ATENDIMENTO
+    ================================================== -->
+    <section>
+        <div class="container">
+            <div class="atendimento-box">
+                <h2>📍 Área de Atendimento</h2>
+                <p>
+                    <strong>Endereço:</strong> R. da Glória, 8 - Loja 4 - Gleba C, Camaçari - BA<br>
+                    <strong>Locais Atendidos:</strong> Camaçari | Salvador | Lauro de Freitas | Região Metropolitana<br>
+                    <strong>Contato:</strong> (71) 99683-6999
+                </p>
+                <p style="font-size: 0.95rem; color: #64748b; margin-top: -15px; margin-bottom: 35px;">
+                    Consulte disponibilidade de agenda para outras localidades.
+                </p>
+
+                <a href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20para%20minha%20região." target="_blank" class="btn-whatsapp whatsapp-principal">
+                    📲 FALE COM A JMS NO WHATSAPP
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================================================
+         RODAPÉ
+    ================================================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2018-2026 JMS Ar Condicionado e Refrigeração - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ==================================================
+         WHATSAPP FLUTUANTE
+    ================================================== -->
+    <a href="https://wa.me/5571996836999?text=Olá,%20preciso%20de%20um%20orçamento!" class="whatsapp-float" target="_blank" title="Fale no WhatsApp" aria-label="Fale com a JMS pelo WhatsApp">
+        💬
+    </a>
+
+    <!-- ==================================================
+         CONTROLE DO BOTÃO FLUTUante
+    ================================================== -->
+    <script>
+        const botaoFlutuante = document.querySelector('.whatsapp-float');
+        const botoesPrincipais = document.querySelectorAll('.whatsapp-principal');
+        const estadoDosBotoes = new Map();
+
+        botoesPrincipais.forEach(function(botao) {
+            estadoDosBotoes.set(botao, false);
+        });
+
+        function atualizarBotaoFlutuante() {
+            const algumBotaoVisivel = Array.from(estadoDosBotoes.values()).some(function(visivel) {
+                return visivel;
+            });
+
+            if (algumBotaoVisivel) {
+                botaoFlutuante.classList.add('oculto');
+            } else {
+                botaoFlutuante.classList.remove('oculto');
+            }
+        }
+
+        const observador = new IntersectionObserver(
+            function(entries) {
+                entries.forEach(function(entry) {
+                    estadoDosBotoes.set(entry.target, entry.isIntersecting);
+                });
+                atualizarBotaoFlutuante();
+            },
+            { threshold: 0.15 }
+        );
+
+        botoesPrincipais.forEach(function(botao) {
+            observador.observe(botao);
+        });
+    </script>
+
+</body>
+</html>
