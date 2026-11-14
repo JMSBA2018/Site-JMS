@@ -438,7 +438,7 @@
     </header>
 
     <!-- ==================================================
-         QUEM SOMOS (Focado na essência e profissionalismo)
+         QUEM SOMOS
     ================================================== -->
     <section class="sobre-jms">
         <div class="container sobre-jms-grid">
@@ -452,7 +452,7 @@
     </section>
 
     <!-- ==================================================
-         SERVIÇOS (Com Vendas em destaque no 1º card)
+         SERVIÇOS
     ================================================== -->
     <section class="bg-white">
         <div class="container">
@@ -461,17 +461,25 @@
             <div class="gallery-grid">
                 <!-- SERVIÇO DESTAQUE: VENDA DE APARELHOS -->
                 <div class="gallery-item destaque-vendas">
-                    <div style="background: #0066c8; padding: 25px 20px; color: white; text-align: center;">
-                        <span style="font-size: 2rem;">❄️🛒</span>
-                        <h3 style="color: white; margin: 8px 0 0 0; font-size: 1.15rem;">Venda de Aparelhos</h3>
+                    <div style="background: #0066c8; padding: 22px 20px; color: white; text-align: center;">
+                        <span style="font-size: 1.8rem;">❄️</span>
+                        <h3 style="color: white; margin: 6px 0 0 0; font-size: 1.15rem; font-weight: 700;">Venda Consultiva de Aparelhos</h3>
                     </div>
-                    <div class="gallery-caption">
+                    <div class="gallery-caption" style="padding: 20px;">
                         <div>
-                            <span class="badge-vendas">Residências e Empresas</span>
-                            <p>Compre seu ar-condicionado novo com consultoria técnica. Enviamos o pagamento seguro do distribuidor e o equipamento é entregue em <strong>qualquer região do Brasil</strong>. Instale com a JMS ou com o profissional da sua confiança!</p>
+                            <span class="badge-vendas" style="margin-bottom: 12px;">Parceria com Distribuidores Oficiais</span>
+                            <p style="margin-bottom: 14px; font-size: 0.92rem; color: #334155;">
+                                Evite erros na compra. Realizamos o dimensionamento técnico exato para o seu ambiente e fornecemos o equipamento com total segurança:
+                            </p>
+                            <ul style="margin: 0 0 16px 0; padding-left: 18px; font-size: 0.88rem; color: #475569; line-height: 1.6;">
+                                <li style="margin-bottom: 6px;">Atendimento para <strong>CPF e CNPJ</strong>.</li>
+                                <li style="margin-bottom: 6px;">Pagamento oficial seguro direto na distribuidora.</li>
+                                <li style="margin-bottom: 6px;">Entrega garantida para <strong>qualquer região do Brasil</strong>.</li>
+                                <li>Instale com a equipe JMS ou com o profissional de sua confiança.</li>
+                            </ul>
                         </div>
-                        <a href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20uma%20consultoria%20para%20comprar%20um%20ar-condicionado." target="_blank" style="display: block; margin-top: 15px; background: var(--accent); color: white; text-align: center; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; text-decoration: none;">
-                            📲 PEDIR ORÇAMENTO E PAGAMENTO SEGURO
+                        <a href="https://wa.me/5571996836999?text=Olá,%20Técnico%20José%20Manoel,%20gostaria%20de%20uma%20consultoria%20técnica%20para%20compra%20de%20ar-condicionado." target="_blank" style="display: block; margin-top: auto; background: var(--accent); color: white; text-align: center; padding: 13px 16px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; text-decoration: none; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.25);">
+                            📲 SOLICITAR CONSULTORIA TÉCNICA
                         </a>
                     </div>
                 </div>
@@ -582,175 +590,4 @@
 
                         <input type="text" id="calc-cep" maxlength="9" placeholder="Digite o seu CEP" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; text-align: center; box-sizing: border-box; outline: none;">
 
-                        <button onclick="enviarParaWhatsApp()" style="width: 100%; background: var(--accent); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.92rem; cursor: pointer;">
-                            📲 Solicitar Orçamento no WhatsApp
-                        </button>
-                        
-                        <span style="font-size: 0.73rem; color: #64748b; display: block; margin-top: 8px;">
-                            Aparelhos com preço de distribuidor e pagamento seguro
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SCRIPT DA CALCULADORA -->
-    <script>
-    let fatorSolSelecionado = 600;
-    let potenciaCalculadaGlobal = 0;
-
-    function selecionarSol(valor, tipo) {
-        fatorSolSelecionado = valor;
-        const btnManha = document.getElementById('btn-sol-manha');
-        const btnTarde = document.getElementById('btn-sol-tarde');
-
-        if (tipo === 'manha') {
-            btnManha.style.border = '2px solid #0066c8';
-            btnManha.style.background = '#e7f1ff';
-            btnManha.style.color = '#0066c8';
-            btnManha.style.fontWeight = '700';
-
-            btnTarde.style.border = '1px solid #cbd5e1';
-            btnTarde.style.background = '#ffffff';
-            btnTarde.style.color = '#64748b';
-            btnTarde.style.fontWeight = '600';
-        } else {
-            btnTarde.style.border = '2px solid #0066c8';
-            btnTarde.style.background = '#e7f1ff';
-            btnTarde.style.color = '#0066c8';
-            btnTarde.style.fontWeight = '700';
-
-            btnManha.style.border = '1px solid #cbd5e1';
-            btnManha.style.background = '#ffffff';
-            btnManha.style.color = '#64748b';
-            btnManha.style.fontWeight = '600';
-        }
-    }
-
-    function calcularEExibirResultado() {
-        const areaInput = document.getElementById('calc-area').value;
-        const area = parseFloat(areaInput);
-        const pessoas = parseInt(document.getElementById('calc-pessoas').value, 10);
-
-        if (!area || area <= 0) {
-            alert("Por favor, informe a área aproximada em m².");
-            return;
-        }
-
-        let btu = area * fatorSolSelecionado;
-        if (pessoas > 2) {
-            btu += (pessoas - 2) * 600;
-        }
-        
-        if (btu <= 9000) potenciaCalculadaGlobal = 9000;
-        else if (btu <= 12000) potenciaCalculadaGlobal = 12000;
-        else if (btu <= 18000) potenciaCalculadaGlobal = 18000;
-        else if (btu <= 24000) potenciaCalculadaGlobal = 24000;
-        else if (btu <= 30000) potenciaCalculadaGlobal = 30000;
-        else potenciaCalculadaGlobal = 36000;
-
-        document.getElementById('texto-potencia').innerText = `${potenciaCalculadaGlobal.toLocaleString('pt-BR')} BTU/h`;
-        
-        const painel = document.getElementById('painel-resultado');
-        painel.style.display = 'block';
-        painel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    function enviarParaWhatsApp() {
-        const area = document.getElementById('calc-area').value;
-        const pessoas = document.getElementById('calc-pessoas').value;
-        const cep = document.getElementById('calc-cep').value.trim();
-    
-        let textoMensagem = `Olá, JMS! ❄️\n\nGostaria de um orçamento para aquisição de um ar-condicionado:\n• Potência: ${potenciaCalculadaGlobal.toLocaleString('pt-BR')} BTU/h\n• Área: ${area} m²\n• Pessoas: ${pessoas}`;
-        
-        if (cep) {
-            textoMensagem += `\n• CEP: ${cep}`;
-        }
-
-        const numeroWhatsApp = "5571996836999"; 
-        const urlFinal = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoMensagem)}`;
-        window.open(urlFinal, '_blank');
-    }
-    </script>
-
-    <!-- ==================================================
-         ÁREA DE ATENDIMENTO
-    ================================================== -->
-    <section>
-        <div class="container">
-            <div class="atendimento-box">
-                <h2>📍 Área de Atendimento</h2>
-                <p>
-                    <strong>Endereço:</strong> R. da Glória, 8 - Loja 4 - Gleba C, Camaçari - BA<br>
-                    <strong>Locais Atendidos:</strong> Camaçari | Salvador | Lauro de Freitas | Região Metropolitana<br>
-                    <strong>Contato:</strong> (71) 99683-6999
-                </p>
-                <p style="font-size: 0.9rem; color: #64748b; margin-top: -10px; margin-bottom: 25px;">
-                    Consulte disponibilidade de agenda para outras localidades.
-                </p>
-
-                <a href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20para%20minha%20região." target="_blank" class="btn-whatsapp whatsapp-principal">
-                    📲 FALE COM A JMS NO WHATSAPP
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================================================
-         RODAPÉ
-    ================================================== -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2018-2026 JMS Ar Condicionado e Refrigeração - Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- ==================================================
-         WHATSAPP FLUTUANTE
-    ================================================== -->
-    <a href="https://wa.me/5571996836999?text=Olá,%20preciso%20de%20um%20orçamento!" class="whatsapp-float" target="_blank" title="Fale no WhatsApp" aria-label="Fale com a JMS pelo WhatsApp">
-        💬
-    </a>
-
-    <!-- ==================================================
-         CONTROLE DO BOTÃO FLUTUANTE
-    ================================================== -->
-    <script>
-        const botaoFlutuante = document.querySelector('.whatsapp-float');
-        const botoesPrincipais = document.querySelectorAll('.whatsapp-principal');
-        const estadoDosBotoes = new Map();
-
-        botoesPrincipais.forEach(function(botao) {
-            estadoDosBotoes.set(botao, false);
-        });
-
-        function atualizarBotaoFlutuante() {
-            const algumBotaoVisivel = Array.from(estadoDosBotoes.values()).some(function(visivel) {
-                return visivel;
-            });
-
-            if (algumBotaoVisivel) {
-                botaoFlutuante.classList.add('oculto');
-            } else {
-                botaoFlutuante.classList.remove('oculto');
-            }
-        }
-
-        const observador = new IntersectionObserver(
-            function(entries) {
-                entries.forEach(function(entry) {
-                    estadoDosBotoes.set(entry.target, entry.isIntersecting);
-                });
-                atualizarBotaoFlutuante();
-            },
-            { threshold: 0.15 }
-        );
-
-        botoesPrincipais.forEach(function(botao) {
-            observador.observe(botao);
-        });
-    </script>
-
-</body>
-</html>
+                        <button onclick="enviarParaWhatsApp()" style="width: 100%; background: var(--accent); color: white; border: none; padding: 12px; border-radius: 8px;
