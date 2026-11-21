@@ -14,6 +14,7 @@
             --dark: #071b2d;
             --text: #1a1a1a;
             --light: #f4f7fb;
+            --danger: #dc2626;
         }
 
         * {
@@ -236,7 +237,7 @@
         .gallery-item.destaque-vendas {
             position: relative;
             background:
-                linear-gradient(180deg, rgba(5, 19, 34, 0.86) 0%, rgba(7, 27, 45, 0.92) 100%),
+                linear-gradient(180deg, rgba(5, 19, 34, 0.88) 0%, rgba(7, 27, 45, 0.94) 100%),
                 url("imagens/venda-consultiva-jms.webp") center / cover no-repeat;
             border: 2px solid #0066c8;
             color: #ffffff;
@@ -262,7 +263,7 @@
         }
 
         .cartao-interativo-jms {
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, 0.97);
             color: var(--text);
             border-radius: 10px;
             padding: 14px;
@@ -296,6 +297,28 @@
 
         .cartao-interativo-jms input:focus {
             border-color: var(--primary);
+        }
+
+        .cartao-interativo-jms input.invalido {
+            border-color: var(--danger);
+            background: #fef2f2;
+        }
+
+        .feedback-campo {
+            display: block;
+            font-size: 0.73rem;
+            margin-top: 3px;
+            line-height: 1.3;
+        }
+
+        .feedback-campo.erro {
+            color: var(--danger);
+            font-weight: 600;
+        }
+
+        .feedback-campo.ok {
+            color: #0f766e;
+            font-weight: 600;
         }
 
         .cartao-interativo-jms .checkbox-ajuda {
@@ -399,37 +422,6 @@
         }
 
         /* ==================================================
-           BOTÃO FLUTUANTE WHATSAPP
-        ================================================== */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: var(--accent);
-            color: white;
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 32px;
-            line-height: 64px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-            z-index: 1000;
-            text-decoration: none;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        .whatsapp-float.oculto {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        /* ==================================================
            RESPONSIVIDADE (TABLET E CELULAR)
         ================================================== */
         @media (max-width: 1024px) {
@@ -498,15 +490,6 @@
 
             .calculadora-card {
                 padding: 20px 15px;
-            }
-
-            .whatsapp-float {
-                width: 52px;
-                height: 52px;
-                right: 15px;
-                bottom: 15px;
-                font-size: 24px;
-                line-height: 52px;
             }
         }
     </style>
@@ -594,7 +577,7 @@
                 <span class="hero-servico">🧊 Refrigeração</span>
             </div>
 
-            <a href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento!" target="_blank" class="btn-whatsapp whatsapp-principal">
+            <a href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento!" target="_blank" class="btn-whatsapp">
                 📲 SOLICITE ATENDIMENTO NO WHATSAPP
             </a>
         </div>
@@ -634,25 +617,35 @@
                             Aproveite as ofertas da Black Friday com orientação técnica, nota fiscal e link de pagamento.
                         </p>
 
-                        <form id="form-cartao-consultivo" class="cartao-interativo-jms" onsubmit="enviarCartaoConsultivo(event)">
+                        <form id="form-cartao-consultivo" class="cartao-interativo-jms" onsubmit="enviarCartaoConsultivo(event)" novalidate>
                             <div class="campo-grupo">
                                 <label class="rotulo-campo" for="lead-nome">Nome</label>
                                 <input type="text" id="lead-nome" placeholder="Seu nome completo" required>
+                                <span id="erro-nome" class="feedback-campo erro"></span>
                             </div>
 
                             <div class="campo-grupo">
                                 <label class="rotulo-campo" for="lead-telefone">Telefone / WhatsApp</label>
                                 <input type="tel" id="lead-telefone" placeholder="(71) 99999-9999" required>
+                                <span id="erro-telefone" class="feedback-campo erro"></span>
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label class="rotulo-campo" for="lead-cpf">CPF</label>
+                                <input type="text" id="lead-cpf" maxlength="14" placeholder="000.000.000-00" required>
+                                <span id="feedback-cpf" class="feedback-campo"></span>
                             </div>
 
                             <div class="campo-grupo">
                                 <label class="rotulo-campo" for="lead-email">E-mail (opcional)</label>
                                 <input type="email" id="lead-email" placeholder="seuemail@exemplo.com">
+                                <span id="erro-email" class="feedback-campo erro"></span>
                             </div>
 
                             <div class="campo-grupo">
                                 <label class="rotulo-campo" for="lead-cep">CEP</label>
                                 <input type="text" id="lead-cep" maxlength="9" placeholder="00000-000" required>
+                                <span id="feedback-cep" class="feedback-campo"></span>
                             </div>
 
                             <label class="checkbox-ajuda" for="lead-ajuda">
@@ -808,26 +801,203 @@
         </div>
     </section>
 
-    <!-- SCRIPT DO CARTÃO INTERATIVO E DA CALCULADORA -->
+    <!-- SCRIPT DO CARTÃO INTERATIVO (CPF + CEP) E DA CALCULADORA -->
     <script>
-    function enviarCartaoConsultivo(event) {
+    let enderecoCepValidado = "";
+    let cepValidadoComSucesso = false;
+
+    function formatarCPF(valor) {
+        const digitos = valor.replace(/\D/g, '').slice(0, 11);
+        return digitos
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d)/, '$1.$2')
+            .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    }
+
+    function validarCPF(cpfFormatado) {
+        const cpf = cpfFormatado.replace(/\D/g, '');
+        if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+            return false;
+        }
+
+        let soma = 0;
+        for (let i = 0; i < 9; i++) {
+            soma += parseInt(cpf.charAt(i), 10) * (10 - i);
+        }
+        let resto = (soma * 10) % 11;
+        if (resto === 10 || resto === 11) resto = 0;
+        if (resto !== parseInt(cpf.charAt(9), 10)) return false;
+
+        soma = 0;
+        for (let i = 0; i < 10; i++) {
+            soma += parseInt(cpf.charAt(i), 10) * (11 - i);
+        }
+        resto = (soma * 10) % 11;
+        if (resto === 10 || resto === 11) resto = 0;
+        if (resto !== parseInt(cpf.charAt(10), 10)) return false;
+
+        return true;
+    }
+
+    function formatarCEP(valor) {
+        const digitos = valor.replace(/\D/g, '').slice(0, 8);
+        return digitos.replace(/(\d{5})(\d)/, '$1-$2');
+    }
+
+    async function consultarEValidarCEP(cepFormatado) {
+        const inputCep = document.getElementById('lead-cep');
+        const feedbackCep = document.getElementById('feedback-cep');
+        const cepLimpo = cepFormatado.replace(/\D/g, '');
+
+        cepValidadoComSucesso = false;
+        enderecoCepValidado = "";
+
+        if (cepLimpo.length !== 8) {
+            inputCep.classList.add('invalido');
+            feedbackCep.className = 'feedback-campo erro';
+            feedbackCep.innerText = 'Informe um CEP válido com 8 dígitos.';
+            return false;
+        }
+
+        feedbackCep.className = 'feedback-campo';
+        feedbackCep.style.color = '#475569';
+        feedbackCep.innerText = 'Verificando CEP...';
+
+        try {
+            const resposta = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+            const dados = await resposta.json();
+
+            if (dados.erro) {
+                inputCep.classList.add('invalido');
+                feedbackCep.className = 'feedback-campo erro';
+                feedbackCep.innerText = 'CEP não encontrado. Confira o número digitado.';
+                return false;
+            }
+
+            inputCep.classList.remove('invalido');
+            feedbackCep.className = 'feedback-campo ok';
+            feedbackCep.style.color = '';
+            const partes = [dados.localidade, dados.uf, dados.bairro].filter(Boolean);
+            enderecoCepValidado = partes.join(' - ');
+            feedbackCep.innerText = `CEP confirmado: ${enderecoCepValidado}`;
+            cepValidadoComSucesso = true;
+            return true;
+        } catch (erro) {
+            inputCep.classList.remove('invalido');
+            feedbackCep.className = 'feedback-campo ok';
+            feedbackCep.style.color = '';
+            feedbackCep.innerText = 'CEP formatado (validação online indisponível no momento).';
+            cepValidadoComSucesso = true;
+            return true;
+        }
+    }
+
+    const campoCpf = document.getElementById('lead-cpf');
+    const feedbackCpf = document.getElementById('feedback-cpf');
+
+    campoCpf.addEventListener('input', function() {
+        this.value = formatarCPF(this.value);
+        if (this.value.replace(/\D/g, '').length === 11) {
+            if (validarCPF(this.value)) {
+                this.classList.remove('invalido');
+                feedbackCpf.className = 'feedback-campo ok';
+                feedbackCpf.innerText = 'CPF válido.';
+            } else {
+                this.classList.add('invalido');
+                feedbackCpf.className = 'feedback-campo erro';
+                feedbackCpf.innerText = 'CPF inválido. Verifique os números.';
+            }
+        } else {
+            this.classList.remove('invalido');
+            feedbackCpf.innerText = '';
+        }
+    });
+
+    const campoCep = document.getElementById('lead-cep');
+    campoCep.addEventListener('input', function() {
+        this.value = formatarCEP(this.value);
+        cepValidadoComSucesso = false;
+        if (this.value.replace(/\D/g, '').length === 8) {
+            consultarEValidarCEP(this.value);
+        } else {
+            document.getElementById('feedback-cep').innerText = '';
+            this.classList.remove('invalido');
+        }
+    });
+
+    async function enviarCartaoConsultivo(event) {
         event.preventDefault();
 
-        const nome = document.getElementById('lead-nome').value.trim();
-        const telefone = document.getElementById('lead-telefone').value.trim();
-        const email = document.getElementById('lead-email').value.trim();
-        const cep = document.getElementById('lead-cep').value.trim();
+        const nomeInput = document.getElementById('lead-nome');
+        const telefoneInput = document.getElementById('lead-telefone');
+        const cpfInput = document.getElementById('lead-cpf');
+        const emailInput = document.getElementById('lead-email');
+        const cepInput = document.getElementById('lead-cep');
+
+        const erroNome = document.getElementById('erro-nome');
+        const erroTelefone = document.getElementById('erro-telefone');
+        const erroEmail = document.getElementById('erro-email');
+
+        const nome = nomeInput.value.trim();
+        const telefone = telefoneInput.value.trim();
+        const cpf = cpfInput.value.trim();
+        const email = emailInput.value.trim();
+        const cep = cepInput.value.trim();
         const precisaAjuda = document.getElementById('lead-ajuda').checked;
         const marca = document.getElementById('lead-marca').value.trim();
         const capacidade = document.getElementById('lead-capacidade').value.trim();
         const voltagem = document.getElementById('lead-voltagem').value.trim();
         const modelo = document.getElementById('lead-modelo').value.trim();
 
+        let formularioValido = true;
+
+        erroNome.innerText = '';
+        erroTelefone.innerText = '';
+        erroEmail.innerText = '';
+        nomeInput.classList.remove('invalido');
+        telefoneInput.classList.remove('invalido');
+        emailInput.classList.remove('invalido');
+
+        if (nome.length < 2) {
+            nomeInput.classList.add('invalido');
+            erroNome.innerText = 'Informe seu nome.';
+            formularioValido = false;
+        }
+
+        if (telefone.replace(/\D/g, '').length < 10) {
+            telefoneInput.classList.add('invalido');
+            erroTelefone.innerText = 'Informe um telefone/WhatsApp com DDD.';
+            formularioValido = false;
+        }
+
+        if (!validarCPF(cpf)) {
+            cpfInput.classList.add('invalido');
+            feedbackCpf.className = 'feedback-campo erro';
+            feedbackCpf.innerText = 'Informe um CPF válido para prosseguir.';
+            formularioValido = false;
+        }
+
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            emailInput.classList.add('invalido');
+            erroEmail.innerText = 'E-mail inválido.';
+            formularioValido = false;
+        }
+
+        const cepOk = cepValidadoComSucesso ? true : await consultarEValidarCEP(cep);
+        if (!cepOk) {
+            formularioValido = false;
+        }
+
+        if (!formularioValido) {
+            return;
+        }
+
         let mensagem = `Olá, JMS! Vim pela oferta do site e gostaria de receber um orçamento:\n\n`;
         mensagem += `• Nome: ${nome}\n`;
         mensagem += `• Telefone: ${telefone}\n`;
+        mensagem += `• CPF: ${cpf}\n`;
         if (email) mensagem += `• E-mail: ${email}\n`;
-        mensagem += `• CEP: ${cep}\n`;
+        mensagem += `• CEP: ${cep}${enderecoCepValidado ? ` (${enderecoCepValidado})` : ''}\n`;
         mensagem += `• Ajuda para escolher o aparelho: ${precisaAjuda ? 'Sim, preciso de ajuda' : 'Não / Já informei preferências'}\n`;
         if (marca) mensagem += `• Marca: ${marca}\n`;
         if (capacidade) mensagem += `• Capacidade: ${capacidade}\n`;
@@ -932,7 +1102,7 @@
                     Consulte disponibilidade de agenda para outras localidades.
                 </p>
 
-                <a href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20para%20minha%20região." target="_blank" class="btn-whatsapp whatsapp-principal">
+                <a href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20para%20minha%20região." target="_blank" class="btn-whatsapp">
                     📲 FALE COM A JMS NO WHATSAPP
                 </a>
             </div>
@@ -947,52 +1117,6 @@
             <p>&copy; 2018-2026 JMS Ar Condicionado e Refrigeração - Todos os direitos reservados.</p>
         </div>
     </footer>
-
-    <!-- ==================================================
-         WHATSAPP FLUTUANTE
-    ================================================== -->
-    <a href="https://wa.me/5571996836999?text=Olá,%20preciso%20de%20um%20orçamento!" class="whatsapp-float" target="_blank" title="Fale no WhatsApp" aria-label="Fale com a JMS pelo WhatsApp">
-        💬
-    </a>
-
-    <!-- ==================================================
-         CONTROLE DO BOTÃO FLUTUANTE
-    ================================================== -->
-    <script>
-        const botaoFlutuante = document.querySelector('.whatsapp-float');
-        const botoesPrincipais = document.querySelectorAll('.whatsapp-principal');
-        const estadoDosBotoes = new Map();
-
-        botoesPrincipais.forEach(function(botao) {
-            estadoDosBotoes.set(botao, false);
-        });
-
-        function atualizarBotaoFlutuante() {
-            const algumBotaoVisivel = Array.from(estadoDosBotoes.values()).some(function(visivel) {
-                return visivel;
-            });
-
-            if (algumBotaoVisivel) {
-                botaoFlutuante.classList.add('oculto');
-            } else {
-                botaoFlutuante.classList.remove('oculto');
-            }
-        }
-
-        const observador = new IntersectionObserver(
-            function(entries) {
-                entries.forEach(function(entry) {
-                    estadoDosBotoes.set(entry.target, entry.isIntersecting);
-                });
-                atualizarBotaoFlutuante();
-            },
-            { threshold: 0.15 }
-        );
-
-        botoesPrincipais.forEach(function(botao) {
-            observador.observe(botao);
-        });
-    </script>
 
 </body>
 </html>
