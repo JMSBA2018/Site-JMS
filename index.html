@@ -1111,7 +1111,7 @@
         if (email) mensagem += `• E-mail: ${email}\n`;
         mensagem += `• CEP: ${cep}${enderecoCepValidado ? ` (${enderecoCepValidado})` : ''}\n`;
         mensagem += `• Interesse: ${escopoSelecionado.value}\n`;
-        mensagem += `• Ajuda para escolher o aparelho: ${precisaAjuda ? 'Sim, preciso de ajuda' : 'Não / Já informei preferências'}\n`;
+        if (precisaAjuda) mensagem += `• Orientação na escolha: Preciso de orientação na escolha do aparelho\n`;
         if (marca) mensagem += `• Marca: ${marca}\n`;
         if (capacidade) mensagem += `• Capacidade: ${capacidade}\n`;
         if (voltagem) mensagem += `• Voltagem: ${voltagem}\n`;
