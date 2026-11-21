@@ -184,6 +184,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+            align-items: start;
         }
 
         .gallery-item {
@@ -231,19 +232,24 @@
             line-height: 1.45;
         }
 
-        /* Card especial de Vendas nos Serviços */
+        /* Card especial de Vendas com Arte de Fundo e Cartão Interativo */
         .gallery-item.destaque-vendas {
-            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
-            border: 2px solid #b6d4fe;
+            position: relative;
+            background:
+                linear-gradient(180deg, rgba(5, 19, 34, 0.86) 0%, rgba(7, 27, 45, 0.92) 100%),
+                url("imagens/venda-consultiva-jms.webp") center / cover no-repeat;
+            border: 2px solid #0066c8;
+            color: #ffffff;
         }
 
         .gallery-item.destaque-vendas .gallery-caption {
-            justify-content: space-between;
             padding: 18px;
+            position: relative;
+            z-index: 1;
         }
 
         .badge-vendas {
-            background: #e7f1ff;
+            background: rgba(231, 241, 255, 0.95);
             color: var(--primary);
             font-size: 0.72rem;
             font-weight: 800;
@@ -253,6 +259,93 @@
             text-transform: uppercase;
             margin-bottom: 10px;
             width: fit-content;
+        }
+
+        .cartao-interativo-jms {
+            background: rgba(255, 255, 255, 0.96);
+            color: var(--text);
+            border-radius: 10px;
+            padding: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        }
+
+        .cartao-interativo-jms .campo-grupo {
+            margin-bottom: 9px;
+        }
+
+        .cartao-interativo-jms label.rotulo-campo {
+            display: block;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 3px;
+        }
+
+        .cartao-interativo-jms input[type="text"],
+        .cartao-interativo-jms input[type="tel"],
+        .cartao-interativo-jms input[type="email"] {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.84rem;
+            color: #0f172a;
+            background: #ffffff;
+            outline: none;
+        }
+
+        .cartao-interativo-jms input:focus {
+            border-color: var(--primary);
+        }
+
+        .cartao-interativo-jms .checkbox-ajuda {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            background: #f0f7ff;
+            border: 1px solid #b6d4fe;
+            border-radius: 7px;
+            padding: 8px 10px;
+            margin: 10px 0;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            cursor: pointer;
+            line-height: 1.35;
+        }
+
+        .cartao-interativo-jms .checkbox-ajuda input[type="checkbox"] {
+            margin-top: 2px;
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .cartao-interativo-jms .grade-especificacoes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .cartao-interativo-jms .btn-enviar-cartao {
+            width: 100%;
+            background: var(--accent);
+            color: #ffffff;
+            border: none;
+            padding: 11px 14px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.86rem;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .cartao-interativo-jms .btn-enviar-cartao:hover {
+            background: #1eb954;
+            transform: translateY(-1px);
         }
 
         /* ==================================================
@@ -532,27 +625,67 @@
             <h2>Nossos Serviços</h2>
 
             <div class="gallery-grid">
-                <!-- SERVIÇO DESTAQUE: CONSULTORIA E FORNECIMENTO DE APARELHOS -->
+                <!-- SERVIÇO DESTAQUE: CARTÃO INTERATIVO COM ARTE DE FUNDO -->
                 <div class="gallery-item destaque-vendas">
                     <div class="gallery-caption">
-                        <div>
-                            <span class="badge-vendas">Black Friday • Venda Consultiva</span>
-                            <h3 style="margin-bottom: 10px;">Ofertas de ar-condicionado com orientação técnica</h3>
-                            <p style="margin-bottom: 12px; font-size: 0.9rem; color: #334155; line-height: 1.5;">
-                                Aproveite as condições da Black Friday com consultoria técnica: indicamos o aparelho ideal para o seu ambiente e necessidade, montamos o pedido e enviamos o link de pagamento.
-                            </p>
-                            <ul style="margin: 0 0 12px 0; padding-left: 16px; font-size: 0.86rem; color: #334155; line-height: 1.55;">
-                                <li style="margin-bottom: 5px;"><strong>Vendemos</strong> aparelhos novos com orientação técnica na escolha do modelo e capacidade ideal.</li>
-                                <li style="margin-bottom: 5px;"><strong>Enviamos</strong> com emissão de nota fiscal, garantia de fábrica e entrega programada para o endereço.</li>
-                                <li><strong>Parcelamos</strong> no cartão de crédito através de link de pagamento seguro.</li>
-                            </ul>
-                            <p style="margin-bottom: 16px; font-size: 0.84rem; color: #475569; line-height: 1.4;">
-                                <em>Deixe seu contato no WhatsApp e receba seu orçamento — com opção de instalação ou apenas fornecimento do equipamento.</em>
-                            </p>
-                        </div>
-                        <a href="https://wa.me/5571996836999?text=Ol%C3%A1%20JMS%2C%20vi%20as%20ofertas%20de%20Black%20Friday%20no%20site%20e%20quero%20ajuda%20para%20escolher%20meu%20aparelho%20e%20receber%20um%20or%C3%A7amento." target="_blank" style="display: block; margin-top: auto; background: var(--accent); color: white; text-align: center; padding: 12px 14px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; text-decoration: none;">
-                            PEDIR ORÇAMENTO NO WHATSAPP
-                        </a>
+                        <span class="badge-vendas">Black Friday • Ofertas e Orçamento</span>
+                        <h3 style="color: #ffffff; margin-bottom: 6px;">Deixe seu contato e receba seu orçamento</h3>
+                        <p style="color: #e2e8f0; font-size: 0.85rem; margin-bottom: 12px;">
+                            Aproveite as ofertas da Black Friday com orientação técnica, nota fiscal e link de pagamento.
+                        </p>
+
+                        <form id="form-cartao-consultivo" class="cartao-interativo-jms" onsubmit="enviarCartaoConsultivo(event)">
+                            <div class="campo-grupo">
+                                <label class="rotulo-campo" for="lead-nome">Nome</label>
+                                <input type="text" id="lead-nome" placeholder="Seu nome completo" required>
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label class="rotulo-campo" for="lead-telefone">Telefone / WhatsApp</label>
+                                <input type="tel" id="lead-telefone" placeholder="(71) 99999-9999" required>
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label class="rotulo-campo" for="lead-email">E-mail (opcional)</label>
+                                <input type="email" id="lead-email" placeholder="seuemail@exemplo.com">
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label class="rotulo-campo" for="lead-cep">CEP</label>
+                                <input type="text" id="lead-cep" maxlength="9" placeholder="00000-000" required>
+                            </div>
+
+                            <label class="checkbox-ajuda" for="lead-ajuda">
+                                <input type="checkbox" id="lead-ajuda">
+                                <span>Preciso de ajuda para escolher o aparelho</span>
+                            </label>
+
+                            <div class="grade-especificacoes">
+                                <div class="campo-grupo" style="margin-bottom: 0;">
+                                    <label class="rotulo-campo" for="lead-marca">Marca</label>
+                                    <input type="text" id="lead-marca" placeholder="Ex: LG, Gree, Samsung">
+                                </div>
+
+                                <div class="campo-grupo" style="margin-bottom: 0;">
+                                    <label class="rotulo-campo" for="lead-capacidade">Capacidade</label>
+                                    <input type="text" id="lead-capacidade" placeholder="Ex: 12.000 BTU">
+                                </div>
+
+                                <div class="campo-grupo" style="margin-bottom: 0;">
+                                    <label class="rotulo-campo" for="lead-voltagem">Voltagem</label>
+                                    <input type="text" id="lead-voltagem" placeholder="Ex: 220V / 110V">
+                                </div>
+
+                                <div class="campo-grupo" style="margin-bottom: 0;">
+                                    <label class="rotulo-campo" for="lead-modelo">Modelo</label>
+                                    <input type="text" id="lead-modelo" placeholder="Ex: Hi-Wall Inverter">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-enviar-cartao">
+                                RECEBER ORÇAMENTO NO WHATSAPP
+                            </button>
+                        </form>
                     </div>
                 </div>
 
@@ -629,4 +762,237 @@
                         <option value="2">Até 2 pessoas</option>
                         <option value="3">3 pessoas</option>
                         <option value="4">4 pessoas</option>
-                        
+                        <option value="5">5 pessoas</option>
+                        <option value="6">6 pessoas ou mais</option>
+                    </select>
+
+                    <label style="font-size: 0.9rem; font-weight: 700; display: block; margin-top: 14px; color: #1e293b; margin-bottom: 5px;">
+                        ☀️ Posição do Sol no Local:
+                    </label>
+                    <div style="display: flex; gap: 10px;">
+                        <button type="button" id="btn-sol-manha" onclick="selecionarSol(600, 'manha')" style="flex: 1; padding: 11px 8px; border: 2px solid var(--primary); background: #e7f1ff; color: var(--primary); font-weight: 700; font-size: 0.82rem; border-radius: 8px; cursor: pointer; text-align: center;">
+                            ☀️ Sol da Manhã / Sombra
+                        </button>
+                        <button type="button" id="btn-sol-tarde" onclick="selecionarSol(800, 'tarde')" style="flex: 1; padding: 11px 8px; border: 1px solid #cbd5e1; background: #ffffff; color: #64748b; font-weight: 600; font-size: 0.82rem; border-radius: 8px; cursor: pointer; text-align: center;">
+                            🌞 Sol da Tarde / Intenso
+                        </button>
+                    </div>
+
+                    <button onclick="calcularEExibirResultado()" style="width: 100%; background: var(--primary); color: white; border: none; padding: 13px; margin-top: 18px; border-radius: 8px; font-weight: bold; font-size: 0.98rem; cursor: pointer; transition: background 0.2s;">
+                        CALCULAR CAPACIDADE
+                    </button>
+
+                    <div id="painel-resultado" style="display: none; margin-top: 18px; padding: 16px; background: #f0f7ff; border-radius: 10px; border: 1px solid #b6d4fe; text-align: center;">
+                        <span style="font-size: 0.8rem; color: #475569; text-transform: uppercase; font-weight: 700; display: block;">
+                            Capacidade Estimada:
+                        </span>
+                        <div id="texto-potencia" style="font-size: 1.5rem; font-weight: 800; color: var(--primary); margin: 5px 0;">
+                            -- BTU/h
+                        </div>
+                        <p style="font-size: 0.83rem; color: #334155; margin-bottom: 12px;">
+                            Digite seu CEP abaixo e solicite orientação técnica e orçamento:
+                        </p>
+
+                        <input type="text" id="calc-cep" maxlength="9" placeholder="Digite o seu CEP" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.9rem; text-align: center; box-sizing: border-box; outline: none;">
+
+                        <button onclick="enviarParaWhatsApp()" style="width: 100%; background: var(--accent); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.92rem; cursor: pointer;">
+                            📲 Solicitar Orçamento no WhatsApp
+                        </button>
+
+                        <span style="font-size: 0.73rem; color: #64748b; display: block; margin-top: 8px;">
+                            Estimativa inicial sujeita à avaliação técnica do ambiente • Nota fiscal e garantia de fábrica
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPT DO CARTÃO INTERATIVO E DA CALCULADORA -->
+    <script>
+    function enviarCartaoConsultivo(event) {
+        event.preventDefault();
+
+        const nome = document.getElementById('lead-nome').value.trim();
+        const telefone = document.getElementById('lead-telefone').value.trim();
+        const email = document.getElementById('lead-email').value.trim();
+        const cep = document.getElementById('lead-cep').value.trim();
+        const precisaAjuda = document.getElementById('lead-ajuda').checked;
+        const marca = document.getElementById('lead-marca').value.trim();
+        const capacidade = document.getElementById('lead-capacidade').value.trim();
+        const voltagem = document.getElementById('lead-voltagem').value.trim();
+        const modelo = document.getElementById('lead-modelo').value.trim();
+
+        let mensagem = `Olá, JMS! Vim pela oferta do site e gostaria de receber um orçamento:\n\n`;
+        mensagem += `• Nome: ${nome}\n`;
+        mensagem += `• Telefone: ${telefone}\n`;
+        if (email) mensagem += `• E-mail: ${email}\n`;
+        mensagem += `• CEP: ${cep}\n`;
+        mensagem += `• Ajuda para escolher o aparelho: ${precisaAjuda ? 'Sim, preciso de ajuda' : 'Não / Já informei preferências'}\n`;
+        if (marca) mensagem += `• Marca: ${marca}\n`;
+        if (capacidade) mensagem += `• Capacidade: ${capacidade}\n`;
+        if (voltagem) mensagem += `• Voltagem: ${voltagem}\n`;
+        if (modelo) mensagem += `• Modelo: ${modelo}\n`;
+
+        const numeroWhatsApp = "5571996836999";
+        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+        window.open(url, '_blank');
+    }
+
+    let fatorSolSelecionado = 600;
+    let potenciaCalculadaGlobal = 0;
+
+    function selecionarSol(valor, tipo) {
+        fatorSolSelecionado = valor;
+        const btnManha = document.getElementById('btn-sol-manha');
+        const btnTarde = document.getElementById('btn-sol-tarde');
+
+        if (tipo === 'manha') {
+            btnManha.style.border = '2px solid #0066c8';
+            btnManha.style.background = '#e7f1ff';
+            btnManha.style.color = '#0066c8';
+            btnManha.style.fontWeight = '700';
+
+            btnTarde.style.border = '1px solid #cbd5e1';
+            btnTarde.style.background = '#ffffff';
+            btnTarde.style.color = '#64748b';
+            btnTarde.style.fontWeight = '600';
+        } else {
+            btnTarde.style.border = '2px solid #0066c8';
+            btnTarde.style.background = '#e7f1ff';
+            btnTarde.style.color = '#0066c8';
+            btnTarde.style.fontWeight = '700';
+
+            btnManha.style.border = '1px solid #cbd5e1';
+            btnManha.style.background = '#ffffff';
+            btnManha.style.color = '#64748b';
+            btnManha.style.fontWeight = '600';
+        }
+    }
+
+    function calcularEExibirResultado() {
+        const areaInput = document.getElementById('calc-area').value;
+        const area = parseFloat(areaInput);
+        const pessoas = parseInt(document.getElementById('calc-pessoas').value, 10);
+
+        if (!area || area <= 0) {
+            alert("Por favor, informe a área aproximada em m².");
+            return;
+        }
+
+        let btu = area * fatorSolSelecionado;
+        if (pessoas > 2) {
+            btu += (pessoas - 2) * 600;
+        }
+
+        if (btu <= 9000) potenciaCalculadaGlobal = 9000;
+        else if (btu <= 12000) potenciaCalculadaGlobal = 12000;
+        else if (btu <= 18000) potenciaCalculadaGlobal = 18000;
+        else if (btu <= 24000) potenciaCalculadaGlobal = 24000;
+        else if (btu <= 30000) potenciaCalculadaGlobal = 30000;
+        else potenciaCalculadaGlobal = 36000;
+
+        document.getElementById('texto-potencia').innerText = `${potenciaCalculadaGlobal.toLocaleString('pt-BR')} BTU/h`;
+
+        const painel = document.getElementById('painel-resultado');
+        painel.style.display = 'block';
+        painel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function enviarParaWhatsApp() {
+        const area = document.getElementById('calc-area').value;
+        const pessoas = document.getElementById('calc-pessoas').value;
+        const cep = document.getElementById('calc-cep').value.trim();
+
+        let textoMensagem = `Olá, JMS! ❄️\n\nGostaria de um orçamento para aquisição de um ar-condicionado:\n• Potência estimada: ${potenciaCalculadaGlobal.toLocaleString('pt-BR')} BTU/h\n• Área: ${area} m²\n• Pessoas: ${pessoas}`;
+
+        if (cep) {
+            textoMensagem += `\n• CEP: ${cep}`;
+        }
+
+        const numeroWhatsApp = "5571996836999";
+        const urlFinal = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(textoMensagem)}`;
+        window.open(urlFinal, '_blank');
+    }
+    </script>
+
+    <!-- ==================================================
+         ÁREA DE ATENDIMENTO
+    ================================================== -->
+    <section>
+        <div class="container">
+            <div class="atendimento-box">
+                <h2>📍 Área de Atendimento</h2>
+                <p>
+                    <strong>Endereço:</strong> R. da Glória, 8 - Loja 4 - Gleba C, Camaçari - BA<br>
+                    <strong>Locais Atendidos:</strong> Camaçari | Salvador | Lauro de Freitas | Região Metropolitana e Litoral<br>
+                    <strong>Contato:</strong> (71) 99683-6999
+                </p>
+                <p style="font-size: 0.9rem; color: #64748b; margin-top: -10px; margin-bottom: 25px;">
+                    Consulte disponibilidade de agenda para outras localidades.
+                </p>
+
+                <a href="https://wa.me/5571996836999?text=Olá,%20gostaria%20de%20consultar%20disponibilidade%20para%20minha%20região." target="_blank" class="btn-whatsapp whatsapp-principal">
+                    📲 FALE COM A JMS NO WHATSAPP
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================================================
+         RODAPÉ
+    ================================================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2018-2026 JMS Ar Condicionado e Refrigeração - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ==================================================
+         WHATSAPP FLUTUANTE
+    ================================================== -->
+    <a href="https://wa.me/5571996836999?text=Olá,%20preciso%20de%20um%20orçamento!" class="whatsapp-float" target="_blank" title="Fale no WhatsApp" aria-label="Fale com a JMS pelo WhatsApp">
+        💬
+    </a>
+
+    <!-- ==================================================
+         CONTROLE DO BOTÃO FLUTUANTE
+    ================================================== -->
+    <script>
+        const botaoFlutuante = document.querySelector('.whatsapp-float');
+        const botoesPrincipais = document.querySelectorAll('.whatsapp-principal');
+        const estadoDosBotoes = new Map();
+
+        botoesPrincipais.forEach(function(botao) {
+            estadoDosBotoes.set(botao, false);
+        });
+
+        function atualizarBotaoFlutuante() {
+            const algumBotaoVisivel = Array.from(estadoDosBotoes.values()).some(function(visivel) {
+                return visivel;
+            });
+
+            if (algumBotaoVisivel) {
+                botaoFlutuante.classList.add('oculto');
+            } else {
+                botaoFlutuante.classList.remove('oculto');
+            }
+        }
+
+        const observador = new IntersectionObserver(
+            function(entries) {
+                entries.forEach(function(entry) {
+                    estadoDosBotoes.set(entry.target, entry.isIntersecting);
+                });
+                atualizarBotaoFlutuante();
+            },
+            { threshold: 0.15 }
+        );
+
+        botoesPrincipais.forEach(function(botao) {
+            observador.observe(botao);
+        });
+    </script>
+
+</body>
+</html>
