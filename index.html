@@ -321,6 +321,51 @@
             font-weight: 600;
         }
 
+        .bloco-escopo-compra {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 9px 10px;
+            margin: 10px 0;
+        }
+
+        .bloco-escopo-compra .titulo-escopo {
+            display: block;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+
+        .opcao-caixa-escopo {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 6px 8px;
+            border-radius: 6px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            font-size: 0.79rem;
+            font-weight: 600;
+            color: #0f172a;
+            cursor: pointer;
+            line-height: 1.35;
+            margin-bottom: 6px;
+        }
+
+        .opcao-caixa-escopo:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .opcao-caixa-escopo input[type="radio"] {
+            margin-top: 2px;
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
         .cartao-interativo-jms .checkbox-ajuda {
             display: flex;
             align-items: flex-start;
@@ -350,11 +395,12 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 8px;
-            margin-bottom: 12px;
+            margin-bottom: 6px;
         }
 
         .cartao-interativo-jms .btn-enviar-cartao {
             width: 100%;
+            margin-top: 8px;
             background: var(--accent);
             color: #ffffff;
             border: none;
@@ -626,7 +672,7 @@
 
                             <div class="campo-grupo">
                                 <label class="rotulo-campo" for="lead-telefone">Telefone / WhatsApp</label>
-                                <input type="tel" id="lead-telefone" placeholder="(71) 99999-9999" required>
+                                <input type="tel" id="lead-telefone" maxlength="15" placeholder="(71) 99999-9999" required>
                                 <span id="erro-telefone" class="feedback-campo erro"></span>
                             </div>
 
@@ -648,6 +694,19 @@
                                 <span id="feedback-cep" class="feedback-campo"></span>
                             </div>
 
+                            <div class="bloco-escopo-compra">
+                                <span class="titulo-escopo">O que você pretende adquirir?</span>
+                                <label class="opcao-caixa-escopo" for="escopo-apenas-aparelho">
+                                    <input type="radio" name="lead-escopo" id="escopo-apenas-aparelho" value="Somente o aparelho">
+                                    <span>Somente o aparelho</span>
+                                </label>
+                                <label class="opcao-caixa-escopo" for="escopo-aparelho-instalacao">
+                                    <input type="radio" name="lead-escopo" id="escopo-aparelho-instalacao" value="Aparelho + orçamento de instalação">
+                                    <span>Aparelho e também orçamento de instalação</span>
+                                </label>
+                                <span id="erro-escopo" class="feedback-campo erro"></span>
+                            </div>
+
                             <label class="checkbox-ajuda" for="lead-ajuda">
                                 <input type="checkbox" id="lead-ajuda">
                                 <span>Preciso de ajuda para escolher o aparelho</span>
@@ -656,7 +715,7 @@
                             <div class="grade-especificacoes">
                                 <div class="campo-grupo" style="margin-bottom: 0;">
                                     <label class="rotulo-campo" for="lead-marca">Marca</label>
-                                    <input type="text" id="lead-marca" placeholder="Ex: LG, Gree, Samsung">
+                                    <input type="text" id="lead-marca" placeholder="Ex: LG, Gree">
                                 </div>
 
                                 <div class="campo-grupo" style="margin-bottom: 0;">
@@ -674,6 +733,7 @@
                                     <input type="text" id="lead-modelo" placeholder="Ex: Hi-Wall Inverter">
                                 </div>
                             </div>
+                            <span id="erro-preferencias" class="feedback-campo erro"></span>
 
                             <button type="submit" class="btn-enviar-cartao">
                                 RECEBER ORÇAMENTO NO WHATSAPP
@@ -801,10 +861,20 @@
         </div>
     </section>
 
-    <!-- SCRIPT DO CARTÃO INTERATIVO (CPF + CEP) E DA CALCULADORA -->
+    <!-- SCRIPT DO CARTÃO INTERATIVO E DA CALCULADORA -->
     <script>
     let enderecoCepValidado = "";
     let cepValidadoComSucesso = false;
+
+    function formatarTelefone(valor) {
+        const digitos = valor.replace(/\D/g, '').slice(0, 11);
+        if (digitos.length <= 2) return digitos.length ? `(${digitos}` : '';
+        if (digitos.length <= 6) return `(${digitos.slice(0, 2)}) ${digitos.slice(2)}`;
+        if (digitos.length <= 10) {
+            return `(${digitos.slice(0, 2)}) ${digitos.slice(2, 6)}-${digitos.slice(6)}`;
+        }
+        return `(${digitos.slice(0, 2)}) ${digitos.slice(2, 7)}-${digitos.slice(7)}`;
+    }
 
     function formatarCPF(valor) {
         const digitos = valor.replace(/\D/g, '').slice(0, 11);
@@ -892,6 +962,16 @@
         }
     }
 
+    const campoTelefone = document.getElementById('lead-telefone');
+    const erroTelefone = document.getElementById('erro-telefone');
+    campoTelefone.addEventListener('input', function() {
+        this.value = formatarTelefone(this.value);
+        if (this.value.replace(/\D/g, '').length >= 10) {
+            this.classList.remove('invalido');
+            erroTelefone.innerText = '';
+        }
+    });
+
     const campoCpf = document.getElementById('lead-cpf');
     const feedbackCpf = document.getElementById('feedback-cpf');
 
@@ -925,6 +1005,25 @@
         }
     });
 
+    const erroPreferencias = document.getElementById('erro-preferencias');
+    const erroEscopo = document.getElementById('erro-escopo');
+
+    document.querySelectorAll('input[name="lead-escopo"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            erroEscopo.innerText = '';
+        });
+    });
+
+    document.getElementById('lead-ajuda').addEventListener('change', function() {
+        erroPreferencias.innerText = '';
+    });
+
+    ['lead-marca', 'lead-capacidade', 'lead-voltagem', 'lead-modelo'].forEach(function(id) {
+        document.getElementById(id).addEventListener('input', function() {
+            erroPreferencias.innerText = '';
+        });
+    });
+
     async function enviarCartaoConsultivo(event) {
         event.preventDefault();
 
@@ -935,7 +1034,6 @@
         const cepInput = document.getElementById('lead-cep');
 
         const erroNome = document.getElementById('erro-nome');
-        const erroTelefone = document.getElementById('erro-telefone');
         const erroEmail = document.getElementById('erro-email');
 
         const nome = nomeInput.value.trim();
@@ -943,6 +1041,7 @@
         const cpf = cpfInput.value.trim();
         const email = emailInput.value.trim();
         const cep = cepInput.value.trim();
+        const escopoSelecionado = document.querySelector('input[name="lead-escopo"]:checked');
         const precisaAjuda = document.getElementById('lead-ajuda').checked;
         const marca = document.getElementById('lead-marca').value.trim();
         const capacidade = document.getElementById('lead-capacidade').value.trim();
@@ -954,6 +1053,8 @@
         erroNome.innerText = '';
         erroTelefone.innerText = '';
         erroEmail.innerText = '';
+        erroEscopo.innerText = '';
+        erroPreferencias.innerText = '';
         nomeInput.classList.remove('invalido');
         telefoneInput.classList.remove('invalido');
         emailInput.classList.remove('invalido');
@@ -988,6 +1089,17 @@
             formularioValido = false;
         }
 
+        if (!escopoSelecionado) {
+            erroEscopo.innerText = 'Selecione se pretende somente o aparelho ou aparelho e orçamento de instalação.';
+            formularioValido = false;
+        }
+
+        const informouAlgumaEspecificacao = Boolean(marca || capacidade || voltagem || modelo);
+        if (!precisaAjuda && !informouAlgumaEspecificacao) {
+            erroPreferencias.innerText = 'Marque "Preciso de ajuda para escolher o aparelho" ou preencha ao menos uma preferência (Marca, Capacidade, Voltagem ou Modelo).';
+            formularioValido = false;
+        }
+
         if (!formularioValido) {
             return;
         }
@@ -998,6 +1110,7 @@
         mensagem += `• CPF: ${cpf}\n`;
         if (email) mensagem += `• E-mail: ${email}\n`;
         mensagem += `• CEP: ${cep}${enderecoCepValidado ? ` (${enderecoCepValidado})` : ''}\n`;
+        mensagem += `• Interesse: ${escopoSelecionado.value}\n`;
         mensagem += `• Ajuda para escolher o aparelho: ${precisaAjuda ? 'Sim, preciso de ajuda' : 'Não / Já informei preferências'}\n`;
         if (marca) mensagem += `• Marca: ${marca}\n`;
         if (capacidade) mensagem += `• Capacidade: ${capacidade}\n`;
